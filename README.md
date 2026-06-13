@@ -1,42 +1,30 @@
 # presentation-feature-video-ads
 
-Create premium presentation video ads from anything: an empty project, a product brief, a website, a folder of notes, a pricing page, or an about page.
+One-command skill pack for turning briefs, pages, or empty projects into code-ready presentation video ads.
 
-This repo is self-contained. The bundled reference pack is the source of truth. The optional MCP adapter exposes the same files for structured clients.
+```bash
+npx skills add Rommadon/presentation-video-ads-skill
+```
 
-## What this repo is
+Built for Codex, Claude Code, OpenCode, Cursor, and any agent that reads skill folders.
 
-`presentation-feature-video-ads` is a universal skill package for turning source material into a cinematic, PresentationFeature-style presentation.
+Need help choosing the right starting point? Read `docs/USAGE.md`.
 
-It is designed to work in:
+## Why it exists
 
-- a brand-new empty project
-- an existing product repo
-- a notes folder
-- a marketing site export
-- a markdown-only agent runtime
-- an MCP-aware agent runtime
+- Code-first by default
+- Empty-project friendly
+- PresentationFeature-style output
+- No extra suffix prompt required
 
 ## What you get
 
-- `SKILL.md` — the reusable skill contract
-- `manifest.json` — machine-readable package metadata
-- `reference/` — the style authority
-- `examples/` — copy/paste starting prompts for empty and existing projects
-- `docs/` — portability and FAQ notes for maintainers and installers
-- `mcp/` — an optional adapter that serves the same bundled reference files
-
-## Install in one command
-
-```bash
-npx skills add OWNER/presentation-feature-video-ads
-```
-
-Replace `OWNER` with the GitHub user or organization that publishes this repo.
-
-After installation, you can use the skill in any supported agent by asking it to create a presentation from your content.
-
-Need help choosing the right starting point? Read `docs/USAGE.md`.
+- `SKILL.md` — reusable skill contract
+- `manifest.json` — package metadata and install contract
+- `reference/` — style authority
+- `examples/` — starting points for empty and existing projects
+- `docs/` — usage, portability, FAQ, and output contract
+- `mcp/` — optional adapter for structured clients
 
 ## Start here
 
@@ -56,10 +44,9 @@ Need help choosing the right starting point? Read `docs/USAGE.md`.
 
 ### If you use Codex, Claude Code, or OpenCode
 
-1. Install the skill with `npx skills add OWNER/presentation-feature-video-ads`.
-2. Open the agent and point it at your source content.
-3. Ask it to create a presentation using the `presentation-feature-video-ads` skill.
-4. Start with `examples/empty-project.md` if you do not already have a page or brief.
+1. Open the agent and point it at your source content.
+2. Ask it to create a presentation using the `presentation-feature-video-ads` skill.
+3. Start with `examples/empty-project.md` if you do not already have a page or brief.
 
 ### If you are starting from an empty project
 
@@ -72,6 +59,16 @@ The package follows one simple rule:
 > keep the PresentationFeature house style; change only the storyline and source content
 
 That means the repo keeps the cinematic player shell, premium motion language, polished simulation cards, and strong CTA ending while adapting to the input you give it.
+
+## Output mode
+
+This skill is implementation-first.
+
+When you use it in an app, expect it to create or update real code files, not just return a text summary.
+
+For React apps, the target is usually a presentation component, a page wrapper, styles, and tests.
+
+Read `docs/OUTPUT-CONTRACT.md` for the exact contract.
 
 ## Repository structure
 

@@ -22,7 +22,7 @@
     "mcp-reference",
     "repo-copy"
   ],
-  "install_command": "npx skills add OWNER/presentation-feature-video-ads",
+  "install_command": "npx skills add Rommadon/presentation-video-ads-skill",
   "optional_adapter": "mcp",
   "supported_clients": [
     "codex",

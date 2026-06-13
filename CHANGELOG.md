@@ -3,7 +3,7 @@
 ## 1.2.0
 
 - Reworked the repo into a world-class public skill package layout.
-- Added one-command install guidance via `npx skills add OWNER/presentation-feature-video-ads`.
+- Added one-command install guidance via `npx skills add Rommadon/presentation-video-ads-skill`.
 - Added agent-specific usage docs for Codex, Claude Code, and OpenCode.
 - Added top-level `CLAUDE.md`, `CONTRIBUTING.md`, `examples/`, and `docs/`.
 

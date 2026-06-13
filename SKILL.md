@@ -11,6 +11,20 @@ Turn product briefs, page content, screenshots, folders, notes, or an empty proj
 
 The skill is public and portable. It is designed to work from the bundled reference pack alone, so it can be used on any project without upstream context.
 
+## Default output mode
+
+By default, this skill should produce a **code-ready implementation**, not just a concept outline.
+
+For React projects, the expected result is the actual presentation implementation in the target repo, typically including:
+
+- a presentation component
+- a route/page wrapper
+- styling for the presentation shell
+- any small supporting components
+- tests that prove the story flow and controls work
+
+If the user explicitly asks for strategy-only or outline-only output, you may give a planning response. Otherwise, assume implementation mode.
+
 ## Reference resolution order
 
 Use the bundled style sources in this order:
@@ -22,6 +36,19 @@ Use the bundled style sources in this order:
 5. optional MCP reference adapter if the client supports it
 
 The bundled reference pack is the authority. The MCP adapter should expose the same files, not replace them.
+
+## Implementation contract
+
+When using this skill in a project, the assistant should aim to write the code needed to make the presentation real in that project.
+
+For a React app, prefer the following target shape:
+
+- the project’s existing presentation component folder, or a new equivalent if the project is empty
+- `src/pages/...` route/page wrapper
+- `styles.css` or the project’s local styling system
+- `__tests__` coverage for opener, transport controls, and story flow
+
+If the project already has a presentation shell, adapt to it. If the project is empty, scaffold the smallest working version that can run.
 
 ## Non-negotiable contract
 
