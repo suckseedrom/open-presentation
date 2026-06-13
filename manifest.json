@@ -1,0 +1,41 @@
+{
+  "name": "presentation-feature-video-ads",
+  "version": "1.2.0",
+  "distribution": "public-hybrid",
+  "package_type": "skill-pack",
+  "primary_install_unit": "skills",
+  "entrypoint": "SKILL.md",
+  "reference_root": "reference/",
+  "example_root": "examples/",
+  "docs_root": "docs/",
+  "mcp_root": "mcp/",
+  "reference_sources": {
+    "bundled_style_guide": "reference/STYLE_GUIDE.md",
+    "scene_grammar": "reference/scene-grammar.json",
+    "example_briefs": [
+      "reference/examples/about-us-brief.md",
+      "reference/examples/pricing-brief.md"
+    ]
+  },
+  "install_modes": [
+    "markdown-skill",
+    "mcp-reference",
+    "repo-copy"
+  ],
+  "install_command": "npx skills add OWNER/presentation-feature-video-ads",
+  "optional_adapter": "mcp",
+  "supported_clients": [
+    "codex",
+    "claude-code",
+    "opencode",
+    "cursor",
+    "mcp-aware-agents",
+    "markdown-skill-runners"
+  ],
+  "authoritative_files": [
+    "SKILL.md",
+    "reference/STYLE_GUIDE.md",
+    "reference/scene-grammar.json"
+  ],
+  "notes": "Self-contained public skill package with bundled style references, reusable examples, and an optional MCP adapter."
+}

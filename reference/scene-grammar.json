@@ -1,0 +1,89 @@
+{
+  "name": "presentation-feature-video-ads",
+  "source_of_truth": {
+    "bundled_style_guide": "reference/STYLE_GUIDE.md",
+    "bundled_examples": [
+      "reference/examples/about-us-brief.md",
+      "reference/examples/pricing-brief.md"
+    ]
+  },
+  "slide_count_policy": "smallest_count_that_fully_expresses_content",
+  "story_arc": [
+    {
+      "name": "hook_intro",
+      "purpose": "sharp positioning hook"
+    },
+    {
+      "name": "concept_reframe",
+      "purpose": "reframe the category or value proposition"
+    },
+    {
+      "name": "worldview",
+      "purpose": "criteria / philosophy / product logic"
+    },
+    {
+      "name": "vision",
+      "purpose": "platform-level promise"
+    },
+    {
+      "name": "feature_chapters",
+      "purpose": "polished simulation-card chapters sized to the source content"
+    },
+    {
+      "name": "proof_and_fit",
+      "purpose": "audience, comparison, or evidence scenes when supported"
+    },
+    {
+      "name": "cta",
+      "purpose": "premium closing scene"
+    }
+  ],
+  "chapter_palette": [
+    "emerald",
+    "violet",
+    "amber",
+    "cyan",
+    "rose"
+  ],
+  "player_controls": [
+    "play",
+    "pause",
+    "next",
+    "previous",
+    "restart",
+    "mute"
+  ],
+  "surface_traits": [
+    "fullscreen player shell",
+    "centered cinematic artboard",
+    "desktop-first stage with mobile fallback",
+    "premium rounded cards",
+    "soft borders",
+    "soft shadows",
+    "restrained glow",
+    "crisp typographic hierarchy"
+  ],
+  "motion_traits": [
+    "presence-based scene swaps",
+    "blur and opacity fades",
+    "subtle scale drift",
+    "staggered word reveals",
+    "spring-like entrances",
+    "controlled internal simulation motion"
+  ],
+  "fallback_rules": {
+    "bundled_reference_authority": "use the bundled style guide, scene grammar, and example briefs as the source of truth",
+    "mcp_available": "fetch the same bundled resources through MCP when supported",
+    "content_sparse": "compress to fewer strong claims rather than invent new sections"
+  },
+  "examples": {
+    "about_us": {
+      "input_shape": "about page content",
+      "expected_result": "About Us Presentation in the bundled PresentationFeature house style"
+    },
+    "pricing": {
+      "input_shape": "pricing / package page content",
+      "expected_result": "content-sized pricing presentation in the bundled house style"
+    }
+  }
+}
