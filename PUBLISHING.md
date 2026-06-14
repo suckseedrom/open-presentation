@@ -14,6 +14,7 @@ presentation-feature-video-ads/
 ├── docs/
 ├── examples/
 ├── reference/
+│   ├── PRODUCT_PILLARS.md
 │   ├── STYLE_INDEX.md
 │   ├── STYLE_GUIDE.md
 │   └── scene-grammar.json
@@ -29,7 +30,7 @@ presentation-feature-video-ads/
 
 ### Phase 1: markdown-first core
 
-Ship the markdown skill, shared references, template metadata, template docs, and starter prompts together.
+Ship the markdown skill, shared references, template metadata, template docs, and starter prompts together. The presentation output should default to zero-dependency HTML with inline CSS and JS.
 
 ### Phase 2: expand template coverage
 
@@ -48,6 +49,7 @@ Keep the current base style as the anchor template.
 
 - [ ] `SKILL.md` is a workflow map
 - [ ] `reference/STYLE_INDEX.md` exists
+- [ ] `reference/PRODUCT_PILLARS.md` exists
 - [ ] `templates/index.json` is valid JSON
 - [ ] at least one default template has example briefs
 - [ ] MCP files are absent

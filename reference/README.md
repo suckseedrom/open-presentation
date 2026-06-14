@@ -5,6 +5,7 @@ This folder holds the shared authority used by every template.
 ## Files
 
 - `STYLE_INDEX.md` — lightweight template chooser
+- `PRODUCT_PILLARS.md` — delivery promises and output rules
 - `STYLE_GUIDE.md` — shared house-style contract
 - `scene-grammar.json` — shared scene and pacing rules
 

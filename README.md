@@ -13,9 +13,10 @@ Built for Codex, Claude Code, OpenCode, Cursor, and any agent that reads skill f
 This repo now uses **progressive disclosure**:
 
 - `SKILL.md` is the workflow map
+- `reference/PRODUCT_PILLARS.md` defines the delivery promises
 - `reference/STYLE_INDEX.md` is the template chooser
 - `templates/index.json` is the compact metadata layer
-- `templates/*/preview.md` are tiny style cards
+- `templates/*/preview.md` are the generated visual preview cards
 - `templates/*/design.md` are loaded only after selection
 
 There is **no MCP layer**. This package is markdown-first and self-contained.
@@ -26,6 +27,8 @@ A short prompt like `Use presentation-feature-video-ads to implement the Apple I
 
 That means the skill should create real source files in the current app workspace, split rich content into more focused scenes, use modern product mockups, and keep the transport chrome minimal and player-like.
 
+If the user has not expressed a visual preference, choose from the generated preview cards first so the result feels intentionally styled instead of generically templated.
+
 ## Starter templates
 
 - `presentation-feature-core` — the current best default
@@ -35,7 +38,7 @@ That means the skill should create real source files in the current app workspac
 - `capsule`
 - `cobalt-grid`
 
-Each template stays inside the same core concept: premium video presentation style, player-first shell, UI-heavy storytelling, and clean product surfaces.
+Each template stays inside the same core concept: premium video presentation style, player-first shell, UI-heavy storytelling, clean product surfaces, and a zero-dependency delivery model.
 
 ## Start here
 
@@ -61,12 +64,20 @@ presentation-feature-video-ads/
 ├── docs/
 ├── examples/
 ├── reference/
+│   ├── PRODUCT_PILLARS.md
+│   ├── STYLE_INDEX.md
+│   ├── STYLE_GUIDE.md
+│   └── scene-grammar.json
 └── templates/
 ```
 
 ## Why this pack is different
 
 - implementation-first
+- zero-dependency HTML delivery for the presentation itself
+- generated visual previews for style discovery
+- curated styles that avoid generic AI aesthetics
+- accessible, fixed 16:9 and 9:16 production-quality output
 - UI-first video-ad storytelling
 - shared base style with multiple on-demand templates
 - progressive disclosure instead of one giant contract

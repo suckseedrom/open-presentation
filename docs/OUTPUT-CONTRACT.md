@@ -1,6 +1,14 @@
 # Output contract
 
-This skill is intended to produce implementation-ready code in the current app workspace.
+This skill is intended to produce implementation-ready code in the current app workspace, with the presentation itself delivered as a single HTML file with inline CSS and JavaScript.
+
+## Default deliverable
+
+- a single HTML file with inline CSS and JS
+- no npm packages, build tools, or framework runtime for the presentation itself
+- accessible markup, keyboard controls, and clear focus states
+- fixed 16:9 artboard logic with a 9:16 mobile-safe version
+- well-commented code that is easy to customize
 
 The resulting deck should feel like a premium video ad: more scenes when the content is rich, one focus per scene, UI/simulation first, and a compact music-player-like transport bar instead of a chunky presentation footer.
 
@@ -10,19 +18,16 @@ Use split copy-left / product-right scenes, modern product mockups, counters, ti
 
 The motion should feel like `emil-design-eng`: crisp, tactile, subtle, and detail-driven.
 
-## Default deliverable
+## Integration rule
 
-When asked to create a presentation video ad, the assistant should produce the code needed to run it in the target project. A short prompt is still a code-generation request.
+When the host project already exists, keep the integration glue thin. Do not add a framework or build step just to satisfy the presentation. The ad logic itself should remain self-contained.
 
-## For React projects
+## Ad-first pacing
 
-Prefer output that includes:
-
-- a presentation component
-- a route/page wrapper
-- styling for the presentation shell
-- any supporting components
-- test coverage for the controls and scene flow
+- more, shorter scenes when the brief has multiple strong claims
+- one visible UI state or product moment per scene
+- no crowded footer chrome, no clipped edges, and no accidental overlaps
+- fixed 16:9 and 9:16 production targets
 
 When the brief has multiple major ideas, split them into more, shorter scenes instead of building one dense slide.
 
@@ -34,12 +39,11 @@ Strong features should often get their own mini-sequence of scenes so the viewer
 
 Create the smallest working structure that can run:
 
-- a component folder
-- a page or route wrapper
-- styles
-- tests
+- a standalone HTML file
+- inline styles and scripts
+- any tiny data or helper modules needed by the HTML file
 
-If there is no app shell yet, scaffold the minimal React/Vite structure first.
+If there is no app shell yet, create the standalone HTML presentation directly. Do not scaffold React/Vite unless the user explicitly asks for that stack.
 
 Do not fall back to a docs-only or example-only result.
 

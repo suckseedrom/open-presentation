@@ -1,6 +1,6 @@
 {
   "name": "presentation-feature-video-ads",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "distribution": "public-markdown",
   "package_type": "skill-pack",
   "primary_install_unit": "skills",
@@ -22,10 +22,12 @@
   ],
   "authoritative_files": [
     "SKILL.md",
+    "reference/PRODUCT_PILLARS.md",
     "reference/STYLE_INDEX.md",
     "reference/STYLE_GUIDE.md",
     "reference/scene-grammar.json",
-    "templates/index.json"
+    "templates/index.json",
+    "docs/OUTPUT-CONTRACT.md"
   ],
-  "notes": "Progressive-disclosure public skill pack with shared video-presentation style authority, on-demand template docs, no MCP, and a default Presentation Feature Core template."
+  "notes": "Progressive-disclosure public skill pack with zero-dependency HTML delivery, generated visual preview cards for style discovery, curated anti-AI-slop templates, and fixed 16:9 / 9:16 production-quality output."
 }

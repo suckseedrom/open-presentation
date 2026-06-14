@@ -2,10 +2,17 @@
   "name": "presentation-feature-video-ads",
   "source_of_truth": {
     "bundled_style_guide": "reference/STYLE_GUIDE.md",
+    "bundled_product_pillars": "reference/PRODUCT_PILLARS.md",
     "bundled_examples": [
       "templates/presentation-feature-core/examples/about-us-brief.md",
       "templates/presentation-feature-core/examples/pricing-brief.md"
     ]
+  },
+  "delivery_model": {
+    "presentation_file": "single_html",
+    "css_js_mode": "inline",
+    "dependency_policy": "zero_dependencies",
+    "framework_policy": "no_frameworks_by_default"
   },
   "slide_count_policy": "prefer_more_shorter_scenes; use the smallest deck only after splitting rich content into one-focus scenes",
   "scene_focus_policy": "one_primary_idea_per_scene_with_one_visible_ui_state",
@@ -13,6 +20,13 @@
   "visual_priority_policy": "product_simulation_and_state_change_over_explanatory_copy",
   "chapter_pacing_policy": "use 2-3 scenes for major feature families when the product surface evolves across states",
   "simulation_pattern_policy": "favor split text/sim layouts, modern product mockups, counters, timelines, chips, and staged state changes",
+  "visual_discovery_policy": "use generated preview cards from templates/*/preview.md before opening a design doc",
+  "anti_ai_slop_policy": "curated distinct styles only; avoid generic template aesthetics and purple-gradient-on-white defaults",
+  "format_targets": [
+    "16:9",
+    "9:16"
+  ],
+  "accessibility_policy": "semantic markup, keyboard controls, aria labels, and contrast-safe text",
   "story_arc": [
     {
       "name": "hook_intro",
@@ -64,6 +78,7 @@
     "fullscreen player shell",
     "centered cinematic artboard",
     "desktop-first stage with mobile fallback",
+    "fixed 16:9 primary canvas with 9:16 mobile-safe variant",
     "premium rounded cards",
     "soft borders",
     "soft shadows",

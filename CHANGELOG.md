@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.5.0
+
+- Added explicit zero-dependency HTML delivery as the default presentation model.
+- Added `reference/PRODUCT_PILLARS.md` to document the new product-level promises.
+- Reframed template previews as generated visual discovery cards.
+- Tightened style guidance around anti-AI-slop visuals and fixed 16:9 / 9:16 production targets.
+- Updated the implementation contract so the generated ad stays ad-first instead of slide-first.
+
 ## 1.4.0
 
 - Rebuilt the package around progressive disclosure.

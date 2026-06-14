@@ -9,3 +9,5 @@ Keep it content-sized and PresentationFeature-like.
 Prefer more, shorter scenes with one focus per scene. Show the tiers and comparisons as UI states or cards, not paragraphs.
 
 Keep the transport chrome minimal and music-player-like.
+
+If I am unsure which visual direction to use, pick the best matching preview card before reading a full design doc.

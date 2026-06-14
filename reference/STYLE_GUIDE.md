@@ -4,6 +4,8 @@ This is the portable style reference for the public `presentation-feature-video-
 
 It is a self-contained house-style contract for the public pack. The style name `PresentationFeature` refers to the visual language family, not a required source path.
 
+The presentation output itself should stay zero-dependency: a single HTML composition with inline CSS and JavaScript unless the host project explicitly needs thin integration glue.
+
 ## Immutable contract
 
 Preserve the PresentationFeature system. Change the storyline and content only.
@@ -18,6 +20,8 @@ The output should keep:
 - scene timing based on explicit durations
 - the same polished simulation-card storytelling
 - the same premium CTA close
+- the same fixed 16:9 primary canvas with a 9:16 mobile-safe variant
+- a distinct, curated visual voice instead of a generic template look
 
 ## Scene grammar
 
@@ -54,6 +58,8 @@ Use:
 
 Prefer product simulation over explanation. If the scene is mostly copy, it is too dense.
 
+If a scene starts to feel crowded or visually overlap-prone, split it before polishing it.
+
 ## Feature chapter patterns
 
 The strongest chapters in the source app behave like mini product demos.
@@ -88,6 +94,8 @@ Preserve:
 - stat-card grids for proof scenes
 - final centered CTA lockup
 
+Avoid duplicate nav rails, oversized footer toolbars, and any frame that feels like a slide deck because too many panels are competing at once.
+
 The presentation should still feel like a sequence of ad beats, not a set of generic sections.
 
 ## Motion language
@@ -105,6 +113,8 @@ Preserve the current motion vocabulary:
 Use motion to reveal interface states and transitions, not to decorate long text blocks.
 
 The motion should feel calm, premium, and deliberate.
+
+Favor camera-like scene cuts and staged reveals over page-section transitions.
 
 ## Motion sensibility
 
@@ -148,6 +158,8 @@ Preserve:
 - restrained glow and blur accents
 - crisp typographic hierarchy
 - chapter colors in the emerald / violet / amber / cyan / rose family
+
+Each template should have a distinct visual voice. Avoid generic purple gradients on white, copy-paste dashboard cards, and any anti-AI-slop look that could belong to any product.
 
 ## Typography
 

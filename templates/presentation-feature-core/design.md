@@ -2,6 +2,8 @@
 
 This is the default template and the anchor for the rest of the pack.
 
+The presentation should be delivered as a zero-dependency HTML composition with inline CSS and JavaScript, and it should support both 16:9 and 9:16 output targets without layout collisions.
+
 ## Visual thesis
 
 Modern, clean, aesthetic product storytelling with cinematic pacing. The deck should feel like a premium product ad with polished app surfaces, strong hierarchy, and deliberate motion.
@@ -18,6 +20,8 @@ Modern, clean, aesthetic product storytelling with cinematic pacing. The deck sh
 - split copy-left / product-right scenes
 - metric cards, chips, counters, timelines, and recommendation states
 - dark emphasis scenes balanced by warm paper or off-white chapters
+- clear spacing between the headline block, the product surface, and the transport chrome
+- no generic AI-template look; keep the surface distinctive and product-led
 
 ## Motion
 
@@ -25,9 +29,11 @@ Modern, clean, aesthetic product storytelling with cinematic pacing. The deck sh
 - state-change reveals over ornamental choreography
 - subtle depth and blur transitions
 - stronger emphasis on staged UI evolution than on text animation
+- camera-like cuts and ad beats over slide-like page transitions
 
 ## Scene pacing
 
 - one focus per scene
 - important features may span 2–3 scenes
 - use hero → reveal → proof progression for major product chapters
+- split the scene if more than three visible content clusters compete for attention

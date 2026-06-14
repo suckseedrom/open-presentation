@@ -4,7 +4,7 @@ This repo packages a public, portable skill for generating PresentationFeature-s
 
 ## Core rule
 
-The bundled markdown files are the authority. Do not add upstream paths or hidden dependencies back into the public package.
+The bundled markdown files are the authority. Do not add upstream paths or hidden dependencies back into the public package. The presentation itself should stay zero-dependency and HTML-first.
 
 ## Repo layout
 
@@ -13,12 +13,15 @@ The bundled markdown files are the authority. Do not add upstream paths or hidde
 - `templates/` contains on-demand template assets.
 - `examples/` are user-facing starter prompts.
 
+The preview cards in `templates/*/preview.md` are the visual discovery surface; keep them distinct enough to choose from without reading every design doc.
+
 ## Editing rules
 
 - Keep `README.md` consumer-friendly.
 - Keep `PUBLISHING.md` maintainer-focused.
 - Keep JSON files valid.
 - Keep templates compact enough for progressive disclosure.
+- Keep the public docs aligned with the zero-dependency HTML delivery model.
 
 ## Before release
 
@@ -26,3 +29,4 @@ The bundled markdown files are the authority. Do not add upstream paths or hidde
 2. Run the architecture tests.
 3. Verify the repo has no private-path coupling.
 4. Confirm the markdown-only loading path is clear from `README.md`.
+5. Confirm the zero-dependency HTML delivery promise is visible in the public docs.

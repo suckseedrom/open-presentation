@@ -1,10 +1,12 @@
-# React implementation prompt
+# Current app implementation prompt
 
 Use `presentation-feature-video-ads` to implement the [presentation topic] in the current app.
 
-Create the actual source files under `src/...` and tests.
+Default to a single self-contained HTML presentation with inline CSS and JS. Only add a thin wrapper if the host project already requires one.
 
-If no app exists, scaffold the minimal React/Vite structure first.
+Create the actual source files and tests.
+
+If no app exists, create the standalone HTML presentation first. Do not scaffold React/Vite unless I explicitly ask for that stack.
 
 Prefer more, shorter scenes when the content has multiple ideas. Each scene should have one focus and one visible UI or product state.
 

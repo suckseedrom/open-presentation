@@ -1,8 +1,18 @@
 {
   "schema_version": 1,
   "pack_name": "Presentation Feature Templates",
-  "selection_rule": "Read this compact file first. Shortlist up to 3 templates from metadata only. Read only those preview docs. Read exactly one design doc after selection.",
+  "selection_rule": "Read this compact file first. Shortlist up to 3 templates from metadata and visual preview cues. Read only those preview docs. Read exactly one design doc after selection.",
   "template_count": 6,
+  "delivery_model": {
+    "presentation_file": "single_html",
+    "css_js_mode": "inline",
+    "dependency_policy": "zero_dependencies"
+  },
+  "visual_preview_surface": "templates/*/preview.md",
+  "format_targets": [
+    "16:9",
+    "9:16"
+  ],
   "templates": [
     {
       "id": "presentation-feature-core",

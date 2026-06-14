@@ -1,6 +1,6 @@
 # Portability
 
-This package is intended to work in any project, including an empty project.
+This package is intended to work in any project, including an empty project. The presentation itself should stay portable as a single HTML file with inline CSS and JS.
 
 ## Supported starting points
 
@@ -14,6 +14,7 @@ This package is intended to work in any project, including an empty project.
 
 - private source paths
 - a specific frontend framework
+- npm install or build tooling for the presentation itself
 - a specific app layout
 - an existing presentation system
 
