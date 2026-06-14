@@ -4,11 +4,15 @@ This is the default template and the anchor for the rest of the pack.
 
 The presentation should be delivered as a zero-dependency HTML composition with inline CSS and JavaScript, and it should support both 16:9 and 9:16 output targets without layout collisions.
 
+For normal-length briefs, expect 20+ micro-scenes. Mix title-only, text+mockup, UI-only, and transition scenes instead of compressing the story into a few dense frames.
+
 ## Visual thesis
 
 Modern, clean, aesthetic product storytelling with cinematic pacing. The deck should feel like a premium product ad with polished app surfaces, strong hierarchy, and deliberate motion.
 
 Keep the scenes text-light: use one headline or short label, add at most one short support line when it helps, and let some beats be visual-only.
+
+For normal-length briefs, aim for 20+ micro-scenes and let text fade in and out rather than sit statically on screen.
 
 ## Use this template when
 
@@ -42,3 +46,4 @@ Keep the scenes text-light: use one headline or short label, add at most one sho
 - split the scene if it needs more than two short lines of copy
 - some beats can be visual-only
 - split the scene if more than three visible content clusters compete for attention
+- all text and mockups should fade in and fade out with the scene

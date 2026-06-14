@@ -35,7 +35,7 @@ The canonical arc is:
 6. audience / proof / comparison scenes when supported
 7. final CTA
 
-The deck size is not fixed. Use the smallest deck that fully expresses the source content while still feeling structurally close to PresentationFeature. The smallest deck is the one with the fewest words, not the fewest scenes.
+The deck size is not fixed. Use the smallest deck that fully expresses the source content while still feeling structurally close to PresentationFeature. The smallest deck is the one with the fewest words, not the fewest scenes. For normal-length briefs, that usually means 20+ micro-scenes.
 
 Prefer more, shorter scenes when the brief has multiple strong claims. One scene should own one idea, one visible UI state, and one emotional beat.
 
@@ -56,7 +56,7 @@ Use:
 - one primary product surface or state change
 - optional tiny proof labels or metric chips
 
-Prefer product simulation over explanation. Keep scenes text-light. Some scenes can be visual-only. If the scene is mostly copy or needs more than two short lines, split it.
+Prefer product simulation over explanation. Keep scenes text-light. Some scenes can be visual-only. If the scene is mostly copy or needs more than two short lines, split it. For normal content, default to 20+ short scenes.
 
 If a scene starts to feel crowded or visually overlap-prone, split it before polishing it.
 
@@ -74,6 +74,8 @@ Prefer chapter structures that look like:
 Use a modern, clean, aesthetic product surface. Avoid literal desktop-window imitation unless the product itself calls for it.
 
 Some beats should be almost textless and rely on motion, UI state, or timing instead of paragraphs.
+
+Use a mix of scene types: title-only, text+mockup, UI-only, and transition scenes.
 
 If a feature is important, let it take multiple scenes so the UI can evolve in front of the viewer.
 
@@ -117,6 +119,8 @@ Use motion to reveal interface states and transitions, not to decorate long text
 The motion should feel calm, premium, and deliberate.
 
 Every scene should contain at least one motion event, even if it is only a subtle state change or counter pulse.
+
+Text, cards, and mockups should enter and exit with fade-based presence transitions. Stagger text lines so they feel choreographed rather than dumped onto the frame.
 
 Favor camera-like scene cuts and staged reveals over page-section transitions.
 

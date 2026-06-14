@@ -9,7 +9,7 @@ These are user-facing starting prompts for common situations.
 - `pricing.md` — transform a pricing or package page
 - `react-implementation.md` — explicit current-app implementation prompt
 
-The examples now assume a zero-dependency HTML composition by default. They should produce text-light, motion-heavy scenes, and the preview cards in `reference/STYLE_INDEX.md` and `templates/*/preview.md` should help you choose a look.
+The examples now assume a zero-dependency HTML composition by default. They should produce text-light, motion-heavy scenes, and for normal-length content they should expand into 20+ micro-scenes. The preview cards in `reference/STYLE_INDEX.md` and `templates/*/preview.md` should help you choose a look.
 
 ## Note
 

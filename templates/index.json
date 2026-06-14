@@ -19,7 +19,7 @@
       "title": "Presentation Feature Core",
       "status": "ready",
       "is_default": true,
-      "use_when": "You want the strongest default video-ad system with premium product simulations, modern app surfaces, and text-light, motion-heavy pacing.",
+      "use_when": "You want the strongest default video-ad system with premium product simulations, modern app surfaces, text-light, motion-heavy pacing, and 20+ micro-scenes on normal content.",
       "avoid_when": "You need a quieter or more print-led editorial aesthetic or a text-heavy keynote feel.",
       "style_authority": [
         "reference/STYLE_GUIDE.md",

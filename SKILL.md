@@ -18,7 +18,9 @@ Turn product briefs, pages, screenshots, notes, or an empty project into a cinem
 7. **Motion in every scene** — every beat needs a visible change, text reveal, counter tick, state swap, or camera drift.
 8. **UI-first storytelling** — prefer product surfaces, state changes, counters, timelines, chips, and staged simulations over dense text.
 9. **One focus per scene** — split rich content into more, shorter beats.
-10. **Shared house style** — keep the player-first, premium, simulation-driven system while allowing template-level variation.
+10. **Fade-driven presence** — text and mockups should fade in and fade out; avoid hard cuts that feel like slide transitions.
+11. **Shared house style** — keep the player-first, premium, simulation-driven system while allowing template-level variation.
+12. **Normal-content scene budget** — for ordinary briefs, default to 20+ micro-scenes instead of compressing the story into a few dense frames.
 
 ## File loading map
 

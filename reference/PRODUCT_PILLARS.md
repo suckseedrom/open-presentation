@@ -20,6 +20,13 @@ This file translates the public pack promise into generator behavior.
 - No generic purple gradients on white, copy-paste hero layouts, or template-y card stacks.
 - Each template should have a clear visual voice, motion tempo, and surface language.
 
+## Scene Count
+
+- For normal-length content, default to 20+ short scenes.
+- Use fewer scenes only when the source is genuinely tiny.
+- Mix title-only, text+mockup, UI-only, and transition scenes.
+- Avoid compressing a full story into one or two dense frames.
+
 ## Text Budget
 
 - Default scene copy is one headline and at most one short support line.
@@ -32,6 +39,7 @@ This file translates the public pack promise into generator behavior.
 - Every scene should contain at least one motion event.
 - Motion can be text reveals, card entrances, counter ticks, state swaps, camera drift, or a small UI interaction.
 - Static frames should be rare; ad scenes should feel alive even when the copy is minimal.
+- Text, cards, and mockups should enter and exit with fade-based presence transitions.
 
 ## Production Quality
 

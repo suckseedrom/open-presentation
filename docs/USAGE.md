@@ -21,6 +21,7 @@ That short prompt already implies:
 - keep one focus and one visible UI state per scene
 - keep scenes text-light; some scenes can be visual-only
 - if a scene needs more than two short lines, split it
+- for normal-length content, expect 20+ micro-scenes
 - use modern product mockups and refined motion
 - make motion visible in every scene, even if subtle
 - keep the transport chrome minimal and player-like

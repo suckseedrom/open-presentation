@@ -12,6 +12,8 @@ Keep scenes text-light and split any scene that needs more than two short lines.
 
 Some scenes can be visual-only.
 
+For normal-length pricing content, aim for 20+ micro-scenes.
+
 Keep the transport chrome minimal and music-player-like.
 
 If I am unsure which visual direction to use, pick the best matching preview card before reading a full design doc.

@@ -25,7 +25,7 @@ There is **no MCP layer**. This package is markdown-first and self-contained.
 
 A short prompt like `Use presentation-feature-video-ads to implement the Apple Inc about us presentation` is enough.
 
-That means the skill should create real source files in the current app workspace, split rich content into more focused scenes, keep scenes text-light, use motion in every beat, use modern product mockups when needed, and keep the transport chrome minimal and player-like.
+That means the skill should create real source files in the current app workspace, split rich content into more focused scenes, keep scenes text-light, use motion in every beat, use 20+ micro-scenes for normal-length content, use modern product mockups when needed, and keep the transport chrome minimal and player-like.
 
 If a scene needs more than two short lines of copy, split it into another scene. Some scenes can be visual-only.
 

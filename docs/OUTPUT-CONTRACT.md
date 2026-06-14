@@ -9,6 +9,7 @@ This skill is intended to produce implementation-ready code in the current app w
 - accessible markup, keyboard controls, and clear focus states
 - fixed 16:9 artboard logic with a 9:16 mobile-safe version
 - well-commented code that is easy to customize
+- fade-based presence transitions and staggered text reveals for every scene
 
 ## Scene copy budget
 
@@ -16,6 +17,8 @@ This skill is intended to produce implementation-ready code in the current app w
 - optional one short support line
 - some scenes may be visual-only
 - if a beat needs more than two short lines, split it into another scene
+- for normal-length content, aim for 20+ short scenes
+- mix title-only, text+mockup, UI-only, and transition scenes
 
 The resulting deck should feel like a premium video ad: more scenes when the content is rich, one focus per scene, UI/simulation first, and a compact music-player-like transport bar instead of a chunky presentation footer.
 
@@ -35,6 +38,7 @@ When the host project already exists, keep the integration glue thin. Do not add
 - one visible UI state or product moment per scene
 - many scenes should be text-light or near-textless
 - every scene should have some motion, even if it is subtle
+- text, cards, and mockups should fade in and fade out rather than pop in
 - no crowded footer chrome, no clipped edges, and no accidental overlaps
 - fixed 16:9 and 9:16 production targets
 

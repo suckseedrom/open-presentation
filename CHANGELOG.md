@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.7.0
+
+- Added an explicit 20+ micro-scene rule for normal-length content.
+- Hardened the shared guidance so text and mockups fade in/out instead of popping in.
+- Extended the default template and examples to prefer text-light, motion-heavy, near-textless beats.
+
 ## 1.6.0
 
 - Added explicit text-light, motion-heavy scene guidance and a hard copy budget per scene.

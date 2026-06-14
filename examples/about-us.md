@@ -12,6 +12,8 @@ Keep each scene text-light. If a scene needs more than two short lines, split it
 
 Some scenes can be visual-only.
 
+For normal-length about content, aim for 20+ micro-scenes.
+
 Keep the transport chrome minimal and music-player-like.
 
 If there is no app shell, create the about presentation as a single HTML file with inline CSS and JS instead of scaffolding a framework.
