@@ -8,6 +8,7 @@
 - user-facing starter prompts in `examples/`
 - the zero-dependency HTML delivery contract in `docs/OUTPUT-CONTRACT.md`
 - the 16:9 / 9:16 production-quality promise in the style docs
+- the text-light / motion-heavy scene budget in the shared docs
 
 ## Validation
 
@@ -18,3 +19,4 @@ Before opening a PR, verify:
 - no file depends on MCP
 - the markdown-only progressive-disclosure path is still clear
 - the zero-dependency HTML promise appears in the public docs
+- the text-light / motion-heavy guidance appears in the public docs

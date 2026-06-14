@@ -14,9 +14,11 @@ Turn product briefs, pages, screenshots, notes, or an empty project into a cinem
 3. **Zero dependencies** — default to a single HTML presentation with inline CSS and JS; do not introduce npm, build tools, or framework runtime unless the host project explicitly needs it.
 4. **Visual style discovery** — use the generated preview cards to shortlist a vibe before opening full design docs.
 5. **Anti-AI-slop** — favor curated, distinctive styles over generic template aesthetics.
-6. **UI-first storytelling** — prefer product surfaces, state changes, counters, timelines, chips, and staged simulations over dense text.
-7. **One focus per scene** — split rich content into more, shorter beats.
-8. **Shared house style** — keep the player-first, premium, simulation-driven system while allowing template-level variation.
+6. **Text-light storytelling** — default to one headline or a short label, keep scenes near-textless when possible, and split any beat that needs more than two short lines.
+7. **Motion in every scene** — every beat needs a visible change, text reveal, counter tick, state swap, or camera drift.
+8. **UI-first storytelling** — prefer product surfaces, state changes, counters, timelines, chips, and staged simulations over dense text.
+9. **One focus per scene** — split rich content into more, shorter beats.
+10. **Shared house style** — keep the player-first, premium, simulation-driven system while allowing template-level variation.
 
 ## File loading map
 
@@ -88,6 +90,8 @@ Only edit the skill package itself when the user explicitly asks to improve or r
 
 - more, shorter scenes when the content is rich
 - one focus and one visible UI state per scene
+- many scenes should be text-light or near-textless
+- every scene should have some motion, even if it is subtle
 - modern product mockups, not literal desktop chrome
 - crisp, tactile, refined motion
 - minimal music-player-like transport chrome

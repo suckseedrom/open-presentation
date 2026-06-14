@@ -25,7 +25,9 @@ There is **no MCP layer**. This package is markdown-first and self-contained.
 
 A short prompt like `Use presentation-feature-video-ads to implement the Apple Inc about us presentation` is enough.
 
-That means the skill should create real source files in the current app workspace, split rich content into more focused scenes, use modern product mockups, and keep the transport chrome minimal and player-like.
+That means the skill should create real source files in the current app workspace, split rich content into more focused scenes, keep scenes text-light, use motion in every beat, use modern product mockups when needed, and keep the transport chrome minimal and player-like.
+
+If a scene needs more than two short lines of copy, split it into another scene. Some scenes can be visual-only.
 
 If the user has not expressed a visual preference, choose from the generated preview cards first so the result feels intentionally styled instead of generically templated.
 
@@ -77,6 +79,7 @@ presentation-feature-video-ads/
 - zero-dependency HTML delivery for the presentation itself
 - generated visual previews for style discovery
 - curated styles that avoid generic AI aesthetics
+- text-light, motion-heavy scenes with hard copy budgets
 - accessible, fixed 16:9 and 9:16 production-quality output
 - UI-first video-ad storytelling
 - shared base style with multiple on-demand templates

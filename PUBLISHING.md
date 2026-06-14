@@ -30,7 +30,7 @@ presentation-feature-video-ads/
 
 ### Phase 1: markdown-first core
 
-Ship the markdown skill, shared references, template metadata, template docs, and starter prompts together. The presentation output should default to zero-dependency HTML with inline CSS and JS.
+Ship the markdown skill, shared references, template metadata, template docs, and starter prompts together. The presentation output should default to zero-dependency HTML with inline CSS and JS, and the shared docs should enforce a text-light, motion-heavy scene budget.
 
 ### Phase 2: expand template coverage
 
@@ -50,6 +50,7 @@ Keep the current base style as the anchor template.
 - [ ] `SKILL.md` is a workflow map
 - [ ] `reference/STYLE_INDEX.md` exists
 - [ ] `reference/PRODUCT_PILLARS.md` exists
+- [ ] `reference/STYLE_GUIDE.md` includes the text-light / motion-heavy budget
 - [ ] `templates/index.json` is valid JSON
 - [ ] at least one default template has example briefs
 - [ ] MCP files are absent

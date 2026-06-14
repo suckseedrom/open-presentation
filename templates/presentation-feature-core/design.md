@@ -8,6 +8,8 @@ The presentation should be delivered as a zero-dependency HTML composition with 
 
 Modern, clean, aesthetic product storytelling with cinematic pacing. The deck should feel like a premium product ad with polished app surfaces, strong hierarchy, and deliberate motion.
 
+Keep the scenes text-light: use one headline or short label, add at most one short support line when it helps, and let some beats be visual-only.
+
 ## Use this template when
 
 - the user wants the current best version of the skill
@@ -30,10 +32,13 @@ Modern, clean, aesthetic product storytelling with cinematic pacing. The deck sh
 - subtle depth and blur transitions
 - stronger emphasis on staged UI evolution than on text animation
 - camera-like cuts and ad beats over slide-like page transitions
+- motion should be visible in every scene, even if it is subtle
 
 ## Scene pacing
 
 - one focus per scene
 - important features may span 2–3 scenes
 - use hero → reveal → proof progression for major product chapters
+- split the scene if it needs more than two short lines of copy
+- some beats can be visual-only
 - split the scene if more than three visible content clusters compete for attention

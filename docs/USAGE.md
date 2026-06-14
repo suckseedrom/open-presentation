@@ -19,7 +19,10 @@ That short prompt already implies:
 - only add framework glue if the host project already requires it
 - split rich content into more, shorter scenes
 - keep one focus and one visible UI state per scene
+- keep scenes text-light; some scenes can be visual-only
+- if a scene needs more than two short lines, split it
 - use modern product mockups and refined motion
+- make motion visible in every scene, even if subtle
 - keep the transport chrome minimal and player-like
 - keep the output accessible, customizable, and production-ready for 16:9 and 9:16
 

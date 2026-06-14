@@ -10,6 +10,13 @@ This skill is intended to produce implementation-ready code in the current app w
 - fixed 16:9 artboard logic with a 9:16 mobile-safe version
 - well-commented code that is easy to customize
 
+## Scene copy budget
+
+- one headline or short label
+- optional one short support line
+- some scenes may be visual-only
+- if a beat needs more than two short lines, split it into another scene
+
 The resulting deck should feel like a premium video ad: more scenes when the content is rich, one focus per scene, UI/simulation first, and a compact music-player-like transport bar instead of a chunky presentation footer.
 
 When the source has an important product flow, the deck should show that flow over 2–3 consecutive scenes instead of compressing it into one text block.
@@ -26,6 +33,8 @@ When the host project already exists, keep the integration glue thin. Do not add
 
 - more, shorter scenes when the brief has multiple strong claims
 - one visible UI state or product moment per scene
+- many scenes should be text-light or near-textless
+- every scene should have some motion, even if it is subtle
 - no crowded footer chrome, no clipped edges, and no accidental overlaps
 - fixed 16:9 and 9:16 production targets
 

@@ -35,7 +35,7 @@ The canonical arc is:
 6. audience / proof / comparison scenes when supported
 7. final CTA
 
-The deck size is not fixed. Use the smallest deck that fully expresses the source content while still feeling structurally close to PresentationFeature.
+The deck size is not fixed. Use the smallest deck that fully expresses the source content while still feeling structurally close to PresentationFeature. The smallest deck is the one with the fewest words, not the fewest scenes.
 
 Prefer more, shorter scenes when the brief has multiple strong claims. One scene should own one idea, one visible UI state, and one emotional beat.
 
@@ -51,12 +51,12 @@ Each major scene should feel like a focused product moment.
 
 Use:
 
-- one headline
-- one short supporting line
+- one headline or short label
+- one short supporting line only when it really helps
 - one primary product surface or state change
 - optional tiny proof labels or metric chips
 
-Prefer product simulation over explanation. If the scene is mostly copy, it is too dense.
+Prefer product simulation over explanation. Keep scenes text-light. Some scenes can be visual-only. If the scene is mostly copy or needs more than two short lines, split it.
 
 If a scene starts to feel crowded or visually overlap-prone, split it before polishing it.
 
@@ -72,6 +72,8 @@ Prefer chapter structures that look like:
  - counters, timelines, chips, or state transitions inside the mockup
 
 Use a modern, clean, aesthetic product surface. Avoid literal desktop-window imitation unless the product itself calls for it.
+
+Some beats should be almost textless and rely on motion, UI state, or timing instead of paragraphs.
 
 If a feature is important, let it take multiple scenes so the UI can evolve in front of the viewer.
 
@@ -113,6 +115,8 @@ Preserve the current motion vocabulary:
 Use motion to reveal interface states and transitions, not to decorate long text blocks.
 
 The motion should feel calm, premium, and deliberate.
+
+Every scene should contain at least one motion event, even if it is only a subtle state change or counter pulse.
 
 Favor camera-like scene cuts and staged reveals over page-section transitions.
 
@@ -182,7 +186,7 @@ Prefer:
 - high-signal phrases
 - compact proof lines
 
-Prefer one headline and one short support line per scene. Let the UI carry the rest.
+Prefer one headline and, at most, one short support line when copy is needed. Some scenes should be near-textless. Let the UI carry the rest.
 
 Avoid:
 
@@ -190,6 +194,7 @@ Avoid:
 - generic “revolutionize / unlock / empower” filler
 - long explanatory paragraphs
 - text-only slides with no meaningful UI state
+- stacked label clusters that force reading
 - chunky transport bars with too much chrome
 
 ## Feature module rule

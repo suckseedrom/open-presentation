@@ -4,6 +4,8 @@ Use `presentation-feature-video-ads` to implement the [presentation topic] in th
 
 Default to a single self-contained HTML presentation with inline CSS and JS. Only add a thin wrapper if the host project already requires one.
 
+Keep scenes text-light, motion-heavy, and split any scene that needs more than two short lines.
+
 Create the actual source files and tests.
 
 If no app exists, create the standalone HTML presentation first. Do not scaffold React/Vite unless I explicitly ask for that stack.
@@ -11,6 +13,8 @@ If no app exists, create the standalone HTML presentation first. Do not scaffold
 Prefer more, shorter scenes when the content has multiple ideas. Each scene should have one focus and one visible UI or product state.
 
 Use modern product mockups with a clean, aesthetic surface and motion inspired by `emil-design-eng`.
+
+Make motion visible in every scene, even if it is only a subtle reveal, count-up, or camera drift.
 
 For important features, show the evolution across 2–3 consecutive scenes using split copy-left/product-right layouts, app mockups, counters, and state changes.
 

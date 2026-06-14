@@ -8,7 +8,13 @@ If no app exists yet, create a single standalone HTML file first with inline CSS
 
 Prefer more, shorter scenes when the content is rich. Give each scene one focus, one visible UI state, and a minimal transport bar.
 
+Keep scenes text-light. Some scenes can be almost textless or visual-only.
+
+If a scene needs more than two short lines of copy, split it.
+
 Use modern product mockups with clean, aesthetic surfaces and motion that feels refined and deliberate.
+
+Make motion visible in every scene, even if it is only a subtle state change or camera drift.
 
 If I cannot articulate the visual style, choose a template by reading the generated preview cards first.
 
@@ -21,4 +27,4 @@ If a feature deserves proof, let it become a small 2–3 scene demo sequence wit
 - proof: [any measurable signals]
 - CTA: [what I want the viewer to do]
 
-Keep the result premium, content-sized, and faithful to the bundled PresentationFeature house style. Make it accessible, customized for 16:9 and 9:16, and create the actual source files and tests, not just an outline.
+Keep the result premium, content-sized, and faithful to the bundled PresentationFeature house style. Make it accessible, customized for 16:9 and 9:16, text-light, motion-heavy, and create the actual source files and tests, not just an outline.

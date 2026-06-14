@@ -31,7 +31,14 @@ test('default template docs exist for on-demand loading', () => {
 test('the revised pack advertises the new product pillars', () => {
   assert.match(readText('README.md'), /zero-dependency HTML delivery/i);
   assert.match(readText('reference/STYLE_GUIDE.md'), /anti-AI-slop/i);
+  assert.match(readText('reference/PRODUCT_PILLARS.md'), /Text Budget/i);
+  assert.match(readText('reference/PRODUCT_PILLARS.md'), /Motion Density/i);
+  assert.match(readText('reference/STYLE_GUIDE.md'), /text-light/i);
+  assert.match(readText('reference/STYLE_GUIDE.md'), /visual-only/i);
+  assert.match(readText('templates/presentation-feature-core/design.md'), /text-light/i);
+  assert.match(readText('templates/presentation-feature-core/design.md'), /visual-only/i);
   assert.match(readText('docs/OUTPUT-CONTRACT.md'), /single HTML file/i);
+  assert.match(readText('docs/OUTPUT-CONTRACT.md'), /visual-only/i);
   assert.match(readText('docs/OUTPUT-CONTRACT.md'), /16:9/i);
   assert.match(readText('docs/OUTPUT-CONTRACT.md'), /9:16/i);
 });

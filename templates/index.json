@@ -19,8 +19,8 @@
       "title": "Presentation Feature Core",
       "status": "ready",
       "is_default": true,
-      "use_when": "You want the strongest default video-ad system with premium product simulations and modern app surfaces.",
-      "avoid_when": "You need a quieter or more print-led editorial aesthetic.",
+      "use_when": "You want the strongest default video-ad system with premium product simulations, modern app surfaces, and text-light, motion-heavy pacing.",
+      "avoid_when": "You need a quieter or more print-led editorial aesthetic or a text-heavy keynote feel.",
       "style_authority": [
         "reference/STYLE_GUIDE.md",
         "reference/scene-grammar.json"
@@ -41,8 +41,8 @@
       "title": "Soft Editorial",
       "status": "ready",
       "is_default": false,
-      "use_when": "You want a warm editorial layer on top of the current base style, with calmer surfaces and soft paper contrast.",
-      "avoid_when": "You need darker, more forceful commercial contrast.",
+      "use_when": "You want a warm editorial layer on top of the current base style, with calmer surfaces, soft paper contrast, and sparse copy.",
+      "avoid_when": "You need darker, more forceful commercial contrast or dense copy blocks.",
       "style_authority": [
         "reference/STYLE_GUIDE.md",
         "reference/scene-grammar.json"
@@ -60,8 +60,8 @@
       "title": "Emerald Editorial",
       "status": "ready",
       "is_default": false,
-      "use_when": "You want magazine-cover enterprise confidence with richer masthead rhythm and premium contrast.",
-      "avoid_when": "You need casual, playful, or low-formality motion.",
+      "use_when": "You want magazine-cover enterprise confidence with richer masthead rhythm, premium contrast, and concise copy.",
+      "avoid_when": "You need casual, playful, or low-formality motion, or a text-heavy layout.",
       "style_authority": [
         "reference/STYLE_GUIDE.md",
         "reference/scene-grammar.json"
@@ -79,8 +79,8 @@
       "title": "Vellum",
       "status": "ready",
       "is_default": false,
-      "use_when": "You want a dark, quiet, scholarly editorial variant while preserving the same cinematic structure.",
-      "avoid_when": "You need brighter pop color or louder CTA energy.",
+      "use_when": "You want a dark, quiet, scholarly editorial variant with very sparse, near-textless beats.",
+      "avoid_when": "You need brighter pop color, louder CTA energy, or lots of on-screen copy.",
       "style_authority": [
         "reference/STYLE_GUIDE.md",
         "reference/scene-grammar.json"
@@ -98,8 +98,8 @@
       "title": "Capsule",
       "status": "ready",
       "is_default": false,
-      "use_when": "You want modular rounded cards, friendlier commercial energy, and clean multi-card UI states.",
-      "avoid_when": "You need austere or highly institutional formality.",
+      "use_when": "You want modular rounded cards, friendlier commercial energy, short labels, and clean multi-card UI states.",
+      "avoid_when": "You need austere or highly institutional formality or a paragraph-led layout.",
       "style_authority": [
         "reference/STYLE_GUIDE.md",
         "reference/scene-grammar.json"
@@ -117,8 +117,8 @@
       "title": "Cobalt Grid",
       "status": "ready",
       "is_default": false,
-      "use_when": "You want sharp design-research typography, high structure, and an analytical editorial layer.",
-      "avoid_when": "You need soft warmth or playful expressiveness.",
+      "use_when": "You want sharp design-research typography, high structure, and analytical beats with label-light motion.",
+      "avoid_when": "You need soft warmth, playful expressiveness, or a text-heavy narrative.",
       "style_authority": [
         "reference/STYLE_GUIDE.md",
         "reference/scene-grammar.json"

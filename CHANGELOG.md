@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.0
+
+- Added explicit text-light, motion-heavy scene guidance and a hard copy budget per scene.
+- Tightened the core template and shared style guide so scenes can be visual-only when the story allows it.
+- Added motion-budget language so every scene needs a visible change, not just more copy.
+
 ## 1.5.0
 
 - Added explicit zero-dependency HTML delivery as the default presentation model.

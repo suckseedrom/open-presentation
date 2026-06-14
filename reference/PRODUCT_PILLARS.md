@@ -20,6 +20,19 @@ This file translates the public pack promise into generator behavior.
 - No generic purple gradients on white, copy-paste hero layouts, or template-y card stacks.
 - Each template should have a clear visual voice, motion tempo, and surface language.
 
+## Text Budget
+
+- Default scene copy is one headline and at most one short support line.
+- Some scenes should be visual-only or nearly textless.
+- If a scene needs more than two short lines, split it into more scenes.
+- Avoid paragraphs, stacked labels, and multi-card reading surfaces inside the same frame.
+
+## Motion Density
+
+- Every scene should contain at least one motion event.
+- Motion can be text reveals, card entrances, counter ticks, state swaps, camera drift, or a small UI interaction.
+- Static frames should be rare; ad scenes should feel alive even when the copy is minimal.
+
 ## Production Quality
 
 - Accessible semantics, keyboard support, and clear focus behavior.
