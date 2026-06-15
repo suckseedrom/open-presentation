@@ -10,6 +10,8 @@ This skill is intended to produce implementation-ready code in the current app w
 - fixed 16:9 artboard logic with a 9:16 mobile-safe version
 - well-commented code that is easy to customize
 - fade-based presence transitions and staggered text reveals for every scene
+- a static full-viewport background layer for every scene, rendered outside the scaled stage
+- a 9:16 mobile recheck for every scene with capped type, stacked layouts, and safe-zone padding
 
 ## Shared player library deliverable
 
@@ -51,6 +53,8 @@ Before delivery, run one final repair pass and confirm:
 - every scene still has a visible motion event
 - the deck reads like a premium video ad, not a slide presentation
 - persistent source labels or chrome do not compete with the hero frame
+- every scene has a full-viewport static background layer with no letterboxing
+- the mobile 9:16 recheck shows no overflow, clipped text, or broken layouts
 
 If any check fails, split the scene, reduce copy, or re-compose the layout before handing it off.
 

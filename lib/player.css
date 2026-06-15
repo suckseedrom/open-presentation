@@ -20,6 +20,33 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
+/* ── Static full-viewport scene background ────────────────────────── */
+
+.pf-scene-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity var(--pf-transition);
+  /* No transform or self-animation. Only opacity changes during scene swaps. */
+}
+
+.pf-scene-bg > * {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pf-scene-bg--active {
+  opacity: 1;
+}
+
 /* ── Stage wrapper (centers + clips) ─────────────────────────────── */
 
 .pf-stage-wrap {
@@ -29,6 +56,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  z-index: 1; /* above static background layer */
 }
 
 /* ── Stage (fixed base size, scaled via transform) ───────────────── */

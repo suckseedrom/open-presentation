@@ -34,8 +34,18 @@ The goal is simple: if the result still feels like a slide deck, has overlapping
    - If they are required, keep them minimal, detached, and visually subordinate.
 
 7. **Re-run until the deck reads like a video ad.**
-   - The finished piece should feel cinematic, sequence-driven, and product-led.
-   - If it still reads like a presentation template, the loop has not finished.
+    - The finished piece should feel cinematic, sequence-driven, and product-led.
+    - If it still reads like a presentation template, the loop has not finished.
+
+8. **Static full-viewport background layer.**
+    - Every scene must have a background layer that fills the viewport.
+    - The background must sit outside the scaled stage and must not letterbox.
+    - No transform or self-animation should run on the background layer.
+
+9. **Mobile 9:16 recheck.**
+    - After composing at 16:9, recheck every scene at 9:16.
+    - Stack split layouts, cap type sizes, and add 40px safe-zone padding.
+    - Remove any overflow, clipped text, or broken layouts at 390x844 and 576x1024.
 
 ## Repair order
 
@@ -47,7 +57,10 @@ When a deck fails this check, repair in this order:
 4. ensure motion triggers on scene activation
 5. remove persistent chrome that competes with the scene
 6. add or clarify scene motion
-7. re-run the check
+7. add a static full-viewport background layer to any scene that lacks one
+8. repair any background that animates on its own or fails to fill the viewport
+9. fix mobile 9:16 overflow by stacking layouts, capping type, and adding safe-zone padding
+10. re-run the check
 
 ## Pass condition
 

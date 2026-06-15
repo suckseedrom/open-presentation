@@ -38,6 +38,9 @@
   "overlay_safety_policy": "reject overlapping text layers, clipped controls, or competing content clusters; split the scene instead",
   "visual_discovery_policy": "use generated preview cards from templates/*/preview.md before opening a design doc",
   "anti_ai_slop_policy": "curated distinct styles only; avoid generic template aesthetics and purple-gradient-on-white defaults",
+  "background_layer_policy": "every scene must have a static full-viewport background layer rendered outside the scaled stage with no self-animation",
+  "background_static_policy": "backgrounds must fill the viewport using cover sizing and must not use transforms or continuous animation; only opacity transitions are allowed",
+  "mobile_9_16_policy": "after composing at 16:9, recheck every scene at 9:16; stack layouts, cap headline at 3rem subline at 1.25rem body at 1rem, add 40px safe-zone padding, and remove overflow or clipped text",
   "format_targets": [
     "16:9",
     "9:16"
@@ -95,6 +98,7 @@
     "centered cinematic artboard",
     "desktop-first stage with mobile fallback",
     "fixed 16:9 primary canvas with 9:16 mobile-safe variant",
+    "static full-viewport background layer rendered outside the scaled stage",
     "premium rounded cards",
     "soft borders",
     "soft shadows",

@@ -62,8 +62,21 @@ Each scene object:
 |-------|------|----------|-------------|
 | `id` | `string` | yes | Unique identifier for the scene |
 | `html` | `string` | yes | Inner HTML content for the scene node |
+| `background` | `string` | no | Static full-viewport background for this scene. A CSS `background` value (e.g. `#022c22` or `url(...)`), or an HTML string starting with `<` (e.g. a gradient mesh). Rendered outside the scaled stage so it never letterboxes. |
 | `duration` | `number` | no | Per-scene duration in ms (overrides `durations` option) |
 | `activate` | `function(node)` | no | Called with the DOM node when scene becomes active — use for triggering animations |
+
+### Static backgrounds
+
+Each scene can define a `background`. The player renders it in a separate full-viewport layer behind the scaled stage. This layer is never transformed or self-animated, so it stays crisp and letterbox-free even when the viewport aspect ratio differs from the production target.
+
+```js
+{
+  id: 'dark-hook',
+  background: '#022c22',
+  html: '<div style="color:#fff"><h1>Hook</h1></div>'
+}
+```
 
 ## API Methods
 

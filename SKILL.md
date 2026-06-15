@@ -21,6 +21,8 @@ Turn product briefs, pages, screenshots, notes, or an empty project into a cinem
 10. **Fade-driven presence** — text and mockups should fade in and fade out; avoid hard cuts that feel like slide transitions.
 11. **Shared house style** — keep the player-first, premium, simulation-driven system while allowing template-level variation.
 12. **Normal-content scene budget** — for ordinary briefs, default to 20+ micro-scenes instead of compressing the story into a few dense frames.
+13. **Static full-viewport background** — every scene must have a background layer that fills the player viewport, sits outside the scaled stage, and carries no self-animation. This is the background layer policy.
+14. **Mobile-first recheck** — after composing each scene at 16:9, immediately recheck it at 9:16. Adjust font sizes, stack horizontal layouts, add safe-zone padding, and remove any overflow or clipped text. This is the mobile 9:16 policy.
 
 ## File loading map
 
@@ -86,6 +88,8 @@ Use that pass to catch the failures that make output feel like a slide deck inst
 - too many text clusters in one frame
 - scenes without a visible motion event or animation bound to scene activation
 - any frame that still feels cramped, static, or templated
+- backgrounds that do not fill the viewport or that animate on their own
+- any scene that overflows or breaks at 9:16 mobile size
 
 If a scene fails the check, split it, trim it, or re-compose it before delivery. Do not ship a result that still looks slide-like.
 

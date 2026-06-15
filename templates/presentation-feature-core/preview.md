@@ -14,3 +14,4 @@ Use this when you want the strongest default version of the skill.
 - recheck-friendly: single focal compositions, no repeated dominant layouts, no text overlays, no clipped controls
 - transport and source labels stay visually subordinate
 - the safest default when the brief needs balanced, polished ad energy
+- mobile-safe 9:16 recheck with full-bleed static backgrounds

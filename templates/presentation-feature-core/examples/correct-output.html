@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>AscendHR — Modern HR, Cinematically Told</title>
+
+<!-- Shared presentation player. Local only; no CDN, no external runtime. -->
+<link rel="stylesheet" href="../../../lib/player.css" />
+
+<style>
+  /* ----------  Composition-only styles  ----------
+   * The shared player paints the background layer, the scaled stage,
+   * and the transport pill. We only own the visual story inside the
+   * stage. Each scene is a single .pf-scene node whose innerHTML is
+   * set by the player. We use a .scene-content wrapper to keep our
+   * layout class names from clobbering the player's pf-scene rules.
+   *
+   * The full-bleed background lives on .pf-scene-bg (one per scene,
+   * static — opacity crossfade only). The mobile recheck lives in
+   * the @media block at the bottom. */
+
+  :root {
+    --c-ink:        #0b0c10;
+    --c-paper:      #f4f1ea;
+    --c-paper-dim:  rgba(244, 241, 234, 0.7);
+    --c-accent:     #f0b429;
+    --c-warm:       #e85d3b;
+    --c-cool:       #2b3a55;
+
+    --headline:     clamp(2.5rem, 4.6vw, 4.5rem);
+    --subline:      clamp(1.05rem, 1.5vw, 1.5rem);
+    --pad:          72px;
+    --safe:         40px;
+  }
+
+  /* Dark cinematic theme. The player reads these via its `theme`
+   * option below; we also set them on #player as a fallback. */
+  #player {
+    --pf-primary: #f0b429;
+    --pf-bg:      #0b0c10;
+    --pf-pill-bg: rgba(11, 12, 16, 0.55);
+    --pf-pill-border: rgba(244, 241, 234, 0.14);
+    --pf-pill-shadow: rgba(0, 0, 0, 0.45);
+    --pf-transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    background: var(--pf-bg);
+  }
+
+  /* Inner layout container. Keeps .pf-scene (the player wrapper) absolute
+   * and overflow-hidden, while composition code uses flow + flex. */
+  .scene-content {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    padding: var(--pad) var(--pad);
+    box-sizing: border-box;
+    display: flex;
+    color: var(--c-paper);
+    font-family: "Inter", "Helvetica Neue", system-ui, sans-serif;
+  }
+
+  .eyebrow {
+    position: absolute;
+    top: var(--pad);
+    left: var(--pad);
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--c-paper-dim);
+  }
+
+  .headline {
+    font-family: "Fraunces", "Times New Roman", Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 0.98;
+    margin: 0;
+    font-size: var(--headline);
+    color: inherit;
+  }
+
+  .subline {
+    font-size: var(--subline);
+    line-height: 1.4;
+    margin: 0;
+    color: var(--c-paper-dim);
+    max-width: 28em;
+  }
+
+  /* ---------- Scene 1 — Hook (centered, big type) ---------- */
+  .scene-content.scene-hook {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .scene-hook .stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .scene-hook .headline { font-size: clamp(2.5rem, 4.2vw, 3.75rem); max-width: 16ch; line-height: 1.04; }
+  .scene-hook .subline { text-align: center; }
+  .scene-hook .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border: 1px solid rgba(244, 241, 234, 0.35);
+    border-radius: 999px;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--c-paper);
+  }
+  .scene-hook .badge::before {
+    content: "";
+    width: 6px; height: 6px; border-radius: 999px;
+    background: var(--c-accent);
+    box-shadow: 0 0 12px var(--c-accent);
+  }
+
+  /* ---------- Scene 2 — Feature split (copy-left, mockup-right) ---------- */
+  .scene-content.scene-split { gap: 56px; }
+  .split-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: 48px;
+    width: 100%;
+  }
+  .split-copy { display: flex; flex-direction: column; gap: 22px; }
+  .split-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+  .split-chips span {
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(244, 241, 234, 0.1);
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* Premium product surface, in-stage. The phone card sets its own
+   * text color back to dark. */
+  .phone-card {
+    position: relative;
+    width: 360px;
+    height: 540px;
+    margin: 0 auto;
+    border-radius: 36px;
+    background: linear-gradient(160deg, #f7f3ea 0%, #ece6d8 100%);
+    box-shadow:
+      0 30px 60px -20px rgba(11,12,16,0.45),
+      0 0 0 1px rgba(11,12,16,0.06);
+    padding: 22px;
+    box-sizing: border-box;
+    display: flex; flex-direction: column; gap: 14px;
+    color: var(--c-ink);
+  }
+  .phone-card .phone-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 12px; color: rgba(11,12,16,0.55);
+  }
+  .phone-card .phone-title { font-family: "Fraunces", Georgia, serif; font-size: 22px; line-height: 1.1; }
+  .phone-card .list { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+  .phone-card .row {
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(11,12,16,0.04);
+    border-radius: 14px; padding: 12px 14px;
+  }
+  .phone-card .row strong { font-size: 14px; }
+  .phone-card .row small { font-size: 11px; color: rgba(11,12,16,0.55); }
+  .phone-card .pill {
+    padding: 4px 10px; border-radius: 999px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .pill-ok  { background: rgba(46,125,50,0.12);  color: #2e7d32; }
+  .pill-mid { background: rgba(240,180,41,0.18); color: #8a6a00; }
+  .pill-hot { background: rgba(232,93,59,0.18);  color: #b03a1e; }
+
+  /* ---------- Scene 3 — Proof grid (metric tiles) ---------- */
+  .scene-content.scene-proof { flex-direction: column; justify-content: center; gap: 36px; }
+  .proof-head { display: flex; flex-direction: column; gap: 12px; max-width: 720px; }
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .metric {
+    background: rgba(244, 241, 234, 0.08);
+    border: 1px solid rgba(244, 241, 234, 0.18);
+    border-radius: 18px;
+    padding: 22px 22px 20px;
+    backdrop-filter: blur(8px);
+  }
+  .metric .num {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 2.6rem; line-height: 1; letter-spacing: -0.02em;
+  }
+  .metric .lbl { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--c-paper-dim); margin-top: 6px; }
+  .metric .sub { font-size: 13px; color: var(--c-paper-dim); margin-top: 12px; }
+
+  /* ---------- Scene 4 — CTA (centered, big type) ---------- */
+  .scene-content.scene-cta { align-items: center; justify-content: center; text-align: center; }
+  .scene-cta .stack { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+  .scene-cta .cta-button {
+    appearance: none; border: 0; cursor: pointer;
+    padding: 16px 28px; border-radius: 999px;
+    background: var(--c-ink); color: var(--c-paper);
+    font-size: 1rem; letter-spacing: 0.04em;
+    transition: transform 160ms cubic-bezier(0.22, 1, 0.36, 1), background 200ms ease;
+  }
+  .scene-cta .cta-button:hover { transform: translateY(-1px); }
+  .scene-cta .cta-button:active { transform: scale(0.97); }
+  .scene-cta .fine { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-paper-dim); }
+
+  /* ---------- Per-scene entrance motion (bound to activate()) ---------- */
+  .fade-up { opacity: 0; transform: translateY(14px); }
+  .fade-in { opacity: 0; }
+  .pop-in  { opacity: 0; transform: scale(0.96); }
+  .is-on .fade-up,
+  .is-on .fade-in,
+  .is-on .pop-in {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .is-on .fade-up:nth-of-type(2) { transition-delay: 90ms; }
+  .is-on .fade-up:nth-of-type(3) { transition-delay: 180ms; }
+  .is-on .fade-up:nth-of-type(4) { transition-delay: 260ms; }
+  .is-on .fade-up:nth-of-type(5) { transition-delay: 340ms; }
+
+  /* ---------- Mobile / 9:16 recheck ----------
+   * Targets both narrow viewports and the vertical aspect ratio so the
+   * same rules apply to a phone preview and a true 9:16 export.
+   * The shared player switches its stage to 576x1024 below 768px wide;
+   * scene-content must follow that base size. */
+  @media (max-width: 768px), (max-aspect-ratio: 9/16) {
+    .scene-content {
+      width: 576px;
+      height: 1024px;
+      padding: var(--safe);
+    }
+    .eyebrow { top: var(--safe); left: var(--safe); }
+
+    .split-layout { grid-template-columns: 1fr; gap: 24px; }
+    .split-copy   { text-align: left; }
+
+    /* Specificity-matched overrides so the hook clamp can't win on mobile. */
+    .headline { font-size: 3rem !important; line-height: 1.02; max-width: 12ch; }
+    .scene-hook .headline { font-size: 3rem !important; max-width: 12ch; }
+    .subline  { font-size: 1.25rem; }
+
+    .metric-grid { grid-template-columns: 1fr; }
+    .metric .num { font-size: 2.2rem; }
+
+    .phone-card { width: min(86vw, 320px); height: auto; min-height: 420px; }
+  }
+</style>
+</head>
+<body>
+  <!-- Player root. PresentationPlayer paints the background layer,
+       the scaled stage, and the transport pill into this element. -->
+  <div id="player" style="width:100vw;height:100vh"></div>
+
+  <script src="../../../lib/player.js"></script>
+  <script>
+    /* ----------  Scene registry  ----------
+     * Each scene declares a static `background` for the full-bleed
+     * bg layer. All per-scene motion is bound to `activate(node)`
+     * so it runs on scene:activate, not on page load. The player
+     * applies its built-in crossfade; `activate` only owns the
+     * in-scene entrance timing. */
+    var scenes = [
+      /* ---------- 1. Hook ---------- */
+      {
+        id: "hook",
+        duration: 4200,
+        background:
+          "radial-gradient(120% 80% at 20% 10%, #1c2236 0%, #0b0c10 60%, #06070a 100%)",
+        html:
+          '<div class="scene-content scene-hook">' +
+            '<div class="stack">' +
+              '<span class="badge fade-in">People, payroll, and proof</span>' +
+              '<h1 class="headline fade-up">Modern HR, cinematically told.</h1>' +
+              '<p class="subline fade-up">A single surface for onboarding, time off, and the metrics that matter — without the spreadsheet hangover.</p>' +
+            '</div>' +
+          '</div>',
+        activate: function (node) {
+          node.classList.remove("is-on");
+          // Force a reflow so the next class re-triggers transitions.
+          void node.offsetWidth;
+          node.classList.add("is-on");
+        },
+      },
+
+      /* ---------- 2. Feature split ---------- */
+      {
+        id: "split",
+        duration: 5000,
+        background:
+          "linear-gradient(180deg, #2b3a55 0%, #1a2238 60%, #0b0c10 100%)",
+        html:
+          '<div class="scene-content scene-split">' +
+            '<div class="eyebrow">02 · One surface</div>' +
+            '<div class="split-layout">' +
+              '<div class="split-copy">' +
+                '<h2 class="headline fade-up">Every leave request. One calm queue.</h2>' +
+                '<p class="subline fade-up">Approvals route themselves. Approvers reply from email. You get the audit trail without the meetings.</p>' +
+                '<div class="split-chips fade-up">' +
+                  '<span>SSO</span><span>Audit log</span><span>Email approvals</span>' +
+                '</div>' +
+              '</div>' +
+              '<div class="phone-card pop-in" aria-hidden="true">' +
+                '<div class="phone-bar"><span>9:41</span><span>AscendHR</span></div>' +
+                '<div class="phone-title">Leave queue</div>' +
+                '<div class="list">' +
+                  '<div class="row"><div><strong>Maya R.</strong><br><small>Apr 14–18 · Vacation</small></div><span class="pill pill-ok">Approved</span></div>' +
+                  '<div class="row"><div><strong>Jin H.</strong><br><small>Apr 21 · Sick</small></div><span class="pill pill-mid">Pending</span></div>' +
+                  '<div class="row"><div><strong>Sam K.</strong><br><small>May 02–06 · Personal</small></div><span class="pill pill-hot">Escalated</span></div>' +
+                  '<div class="row"><div><strong>Ari P.</strong><br><small>May 10 · Bereavement</small></div><span class="pill pill-ok">Approved</span></div>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>',
+        activate: function (node) {
+          node.classList.remove("is-on");
+          void node.offsetWidth;
+          node.classList.add("is-on");
+        },
+      },
+
+      /* ---------- 3. Proof grid ---------- */
+      {
+        id: "proof",
+        duration: 4800,
+        background:
+          "radial-gradient(80% 60% at 80% 20%, #3a2a1c 0%, #1a120a 60%, #0b0c10 100%)",
+        html:
+          '<div class="scene-content scene-proof">' +
+            '<div class="eyebrow">03 · Proof</div>' +
+            '<div class="proof-head">' +
+              '<h2 class="headline fade-up">Teams ship faster on AscendHR.</h2>' +
+              '<p class="subline fade-up">Three numbers our customers keep quoting back to us.</p>' +
+            '</div>' +
+            '<div class="metric-grid">' +
+              '<div class="metric pop-in">' +
+                '<div class="num">−68%</div>' +
+                '<div class="lbl">Approval cycle time</div>' +
+                '<div class="sub">From Slack thread to system of record.</div>' +
+              '</div>' +
+              '<div class="metric pop-in">' +
+                '<div class="num">2.4×</div>' +
+                '<div class="lbl">Manager capacity</div>' +
+                '<div class="sub">Same headcount, cleaner handoffs.</div>' +
+              '</div>' +
+              '<div class="metric pop-in">' +
+                '<div class="num">99.99%</div>' +
+                '<div class="lbl">Payroll run uptime</div>' +
+                '<div class="sub">Backed by regional failover.</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>',
+        activate: function (node) {
+          node.classList.remove("is-on");
+          void node.offsetWidth;
+          node.classList.add("is-on");
+        },
+      },
+
+      /* ---------- 4. CTA ---------- */
+      {
+        id: "cta",
+        duration: 4500,
+        background:
+          "linear-gradient(180deg, #0b0c10 0%, #131a2b 100%)",
+        html:
+          '<div class="scene-content scene-cta">' +
+            '<div class="eyebrow">04 · Try it</div>' +
+            '<div class="stack">' +
+              '<h2 class="headline fade-up">Start your team in five minutes.</h2>' +
+              '<p class="subline fade-up">No credit card. No migration call. Just import a CSV and you are live.</p>' +
+              '<button class="cta-button fade-up" type="button">Create my workspace</button>' +
+              '<span class="fine fade-up">Free for teams up to 10</span>' +
+            '</div>' +
+          '</div>',
+        activate: function (node) {
+          node.classList.remove("is-on");
+          void node.offsetWidth;
+          node.classList.add("is-on");
+        },
+      },
+    ];
+
+    new PresentationPlayer(document.getElementById("player"), {
+      scenes: scenes,
+      theme: {
+        primary:     "#f0b429",
+        bg:          "#0b0c10",
+        pillBg:      "rgba(11, 12, 16, 0.55)",
+        pillBorder:  "rgba(244, 241, 234, 0.14)",
+        pillShadow:  "rgba(0, 0, 0, 0.45)",
+        transition:  "0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+      },
+    });
+  </script>
+</body>
+</html>

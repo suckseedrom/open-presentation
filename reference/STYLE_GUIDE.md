@@ -23,6 +23,26 @@ The output should keep:
 - the same fixed 16:9 primary canvas with a 9:16 mobile-safe variant
 - a distinct, curated visual voice instead of a generic template look
 
+## Background layer
+
+This is the background layer policy. Every scene must include a static full-viewport background layer.
+
+- Backgrounds fill the player viewport completely.
+- They are rendered outside the scaled stage so they never letterbox.
+- They use `background-size: cover` or equivalent to fill the frame.
+- They have no transform or self-animation; only opacity transitions are allowed when the scene enters or exits.
+- The background stays visually subordinate and does not compete with the foreground content.
+
+## Mobile 9:16 recheck
+
+This is the mobile 9:16 safety pass. After composing each scene at 16:9, immediately recheck it at 9:16.
+
+- Stack split layouts vertically so copy sits above the product surface.
+- Cap headline size at 3rem, subline at 1.25rem, and body at 1rem.
+- Add 40px safe-zone padding on all sides so text never touches the viewport edge.
+- Test at 390x844 and 576x1024 to confirm nothing overflows or clips.
+- Remove any horizontal scroll, clipped text, or overlapping UI clusters at narrow widths.
+
 ## Scene grammar
 
 The canonical arc is:

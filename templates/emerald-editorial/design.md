@@ -13,3 +13,10 @@ Keep the scenes concise and text-light so the premium contrast can do the work.
 - polished enterprise proof states, recommendation panels, and metric strips
 - motion remains crisp and clean, not flashy
 - copy should be brief, high-signal, and easy to scan in motion
+
+## Background and mobile rules
+
+- Every scene must have a static, full-viewport background layer rendered outside the scaled stage.
+- Backgrounds must not be animated (no drifting gradients, no scale transforms).
+- After composing at 16:9, recheck every scene at 9:16.
+- On mobile: stack horizontal layouts, cap headlines at 3rem, keep 40px safe-zone padding, and remove any overflow.

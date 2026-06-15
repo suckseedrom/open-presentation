@@ -102,3 +102,33 @@ test('the revised pack advertises the new product pillars', () => {
   assert.match(readText('docs/OUTPUT-CONTRACT.md'), /activation/i);
   assert.match(readText('README.md'), /recheck pass/i);
 });
+
+test('shared player library exposes a scene background layer', () => {
+  const css = readText('lib/player.css');
+  assert.match(css, /\.pf-scene-bg/);
+
+  const js = readText('lib/player.js');
+  assert.match(js, /pf-scene-bg/);
+  assert.match(js, /background/);
+});
+
+test('docs advertise the background and mobile 9:16 rules', () => {
+  assert.match(readText('SKILL.md'), /background layer policy/i);
+  assert.match(readText('SKILL.md'), /mobile 9:16 policy/i);
+
+  assert.match(readText('reference/STYLE_GUIDE.md'), /background layer policy/i);
+  assert.match(readText('reference/STYLE_GUIDE.md'), /mobile 9:16 safety/i);
+
+  assert.match(readText('reference/PRODUCT_PILLARS.md'), /background layer policy/i);
+  assert.match(readText('reference/PRODUCT_PILLARS.md'), /mobile 9:16 policy/i);
+
+  assert.match(readText('reference/RECHECK.md'), /background layer/i);
+  assert.match(readText('reference/RECHECK.md'), /mobile 9:16/i);
+
+  assert.match(readText('docs/OUTPUT-CONTRACT.md'), /background layer/i);
+  assert.match(readText('docs/OUTPUT-CONTRACT.md'), /mobile 9:16/i);
+
+  const grammar = readText('reference/scene-grammar.json');
+  assert.match(grammar, /background_layer_policy/);
+  assert.match(grammar, /mobile_9_16_policy/);
+});

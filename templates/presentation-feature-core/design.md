@@ -70,3 +70,10 @@ This template pairs with `lib/player.js` when you want the exact PresentationFea
 - some beats can be visual-only
 - split the scene if more than three visible content clusters compete for attention
 - all text and mockups should fade in and fade out with the scene
+
+## Background and mobile rules
+
+- Every scene must have a static, full-viewport background layer rendered outside the scaled stage.
+- Backgrounds must not be animated (no drifting gradients, no scale transforms).
+- After composing at 16:9, recheck every scene at 9:16.
+- On mobile: stack horizontal layouts, cap headlines at 3rem, keep 40px safe-zone padding, and remove any overflow.

@@ -70,6 +70,22 @@ This file translates the public pack promise into generator behavior.
 - Require fade-in and fade-out on text layers instead of hard pop-ins.
 - If the deck still reads like a slide presentation, split more scenes and re-run the check.
 
+## Background
+
+- Static full-viewport background layer on every scene.
+- Rendered outside the scaled stage so there is no letterboxing.
+- No continuous animation, transform, or self-motion on the background.
+- This is the background layer policy.
+
+## Mobile Production
+
+- Every scene rechecked at 9:16 after being composed at 16:9.
+- Stack horizontal layouts vertically for narrow viewports.
+- Cap headline at 3rem, subline at 1.25rem, body at 1rem.
+- Apply 40px safe-zone padding so text never touches the edge.
+- Remove any overflow, clipped text, or broken layouts at mobile sizes.
+- This is the mobile 9:16 policy.
+
 ## Production Quality
 
 - Accessible semantics, keyboard support, and clear focus behavior.
