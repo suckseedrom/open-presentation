@@ -55,7 +55,7 @@ The canonical arc is:
 6. audience / proof / comparison scenes when supported
 7. final CTA
 
-The deck size is not fixed. Use the smallest deck that fully expresses the source content while still feeling structurally close to PresentationFeature. The smallest deck is the one with the fewest words, not the fewest scenes. For normal-length briefs, that usually means 20+ micro-scenes.
+The deck size is not fixed. Derive an input-driven scene inventory from the supplied facts, narrative arc, proof, and product-state inventory. Use the smallest deck that fully expresses the source content while still feeling structurally close to PresentationFeature. The smallest deck is the one with the fewest words, not the fewest scenes.
 
 Prefer more, shorter scenes when the brief has multiple strong claims. One scene should own one idea, one visible UI state, and one emotional beat.
 
@@ -69,6 +69,17 @@ Each scene should still read as a single focal composition. If two text blocks, 
 
 The visual balance should be UI-first, not text-first.
 
+Record every scene before implementation with:
+
+- one communication job
+- one focal object
+- one visible state
+- one dominant motion family
+- an explicit duration
+- separate 16:9 composition notes and 9:16 composition notes
+
+Keep cinematic micro-scenes and split any crowded beat. A major feature or product flow should usually take 2–4 scenes when its setup, interaction, state change, and proof cannot remain legible as one focused beat.
+
 ## Scene density and UI balance
 
 Each major scene should feel like a focused product moment.
@@ -80,7 +91,7 @@ Use:
 - one primary product surface or state change
 - optional tiny proof labels or metric chips
 
-Prefer product simulation over explanation. Keep scenes text-light. Some scenes can be visual-only. If the scene is mostly copy or needs more than two short lines, split it. For normal content, default to 20+ short scenes.
+Prefer product simulation over explanation. Keep scenes text-light. Some scenes can be visual-only. If the scene is mostly copy or needs more than two short lines, split it. Scene count follows the input and state inventory, not a fixed quota.
 
 If a scene starts to feel crowded or visually overlap-prone, split it before polishing it.
 
@@ -98,7 +109,7 @@ Prefer chapter structures that look like:
 - 2–3 staged simulation beats for one feature family
 - counters, timelines, chips, or state transitions inside the mockup
 
-Use a modern, clean, aesthetic product surface. Avoid literal desktop-window imitation unless the product itself calls for it.
+Use a contextual product mockup first: ground it in the supplied product, workflow, platform, content model, and native surface conventions. Avoid literal desktop-window imitation unless the product itself calls for it. Use abstract premium UI only when the product has no meaningful visual surface. If product context is missing and the choice would materially alter the story, ask a bounded, recommendation-first question rather than inventing a high-impact direction.
 
 Some beats should be almost textless and rely on motion, UI state, or timing instead of paragraphs.
 
@@ -131,33 +142,41 @@ Avoid persistent source stamps, debug labels, or chrome elements that sit on top
 
 The presentation should still feel like a sequence of ad beats, not a set of generic sections.
 
+## Language authority
+
+Language is input-led and audience-led. Follow the source language and intended audience; preserve brand terms, product names, capitalization, and domain vocabulary rather than casually translating or normalizing them.
+
+Use deliberate bilingual accents only when the input, source, audience, or user explicitly justifies them. Keep the primary reading path clear, and never introduce bilingual copy as a visual flourish.
+
 ## Motion language
 
-Preserve the current motion vocabulary:
+Use layered motion to make product state and narrative progress visible. The available layers are:
 
-- scene swaps through presence-based transitions
-- blur + opacity fades
-- subtle whole-canvas scale drift
-- staggered word reveal on major headlines
-- spring-like entrances for cards and modules
-- gentle hover amplification
-- controlled internal animation inside simulations
+- typography: staggered word or line reveals, emphasis changes, and readable exits
+- mockup / UI state: loading-to-data, selection, approval, progress, before/after, and state swaps
+- spatial / camera: restrained push, pull, pan, depth, or parallax around the focal object
+- masks: wipes, crops, apertures, and shape reveals that expose meaningful detail
+- data / proof: counters, charts, timelines, metric changes, and evidence highlights
+- transitions: presence-based scene swaps, match cuts, directional continuity, blur, opacity, and controlled scale drift
+- micro-interactions: cursor, hover, press, toggle, chip, and focus feedback when they clarify action
 
 Use motion to reveal interface states and transitions, not to decorate long text blocks.
 
 The motion should feel calm, premium, and deliberate.
 
-Every scene should contain at least one motion event, even if it is only a subtle state change or counter pulse.
+Every scene should contain purposeful motion, even if it is only a subtle state change or counter pulse. Choose one dominant motion family and supporting layers; do not animate every available layer at once.
 
-Motion must be scene-activation-bound. If an animation finishes before the scene becomes visible, it is the wrong implementation.
+Plan each scene in three lifecycle phases: entrance establishes the focal object, action communicates the state or proof, and exit hands attention to the next beat. Keep those phases within the explicit scene duration.
 
-Text, cards, and mockups should enter and exit with fade-based presence transitions. Stagger text lines so they feel choreographed rather than dumped onto the frame.
+Motion must be scene-activation-bound. Start entrances and actions on scene activation, not file load. On scene deactivation, cancel timers and animation frames, stop media, and reset transient classes or inline state so replay is deterministic.
 
-Every text layer should also fade in and fade out cleanly. Do not pop text in over another text block or let it sit on top of a crowded surface.
+Text, cards, and mockups need readable entrances and exits. Fade-based presence transitions remain available, but fades are only one tool. Avoid fade-only repetition. Stagger text lines when useful, and combine presence with state, mask, spatial, or proof motion when that better communicates the beat.
 
-When possible, rotate dominant motion families across scenes: word reveals, counter ticks, loading-to-data reveals, state swaps, card entrances, and camera drift.
+Adjacent scenes must vary their dominant motion family, timing, direction, or spatial treatment. Do not repeat the same reveal cadence scene after scene.
 
 Favor camera-like scene cuts and staged reveals over page-section transitions.
+
+Respect `prefers-reduced-motion`. Remove nonessential travel, parallax, and camera drift; shorten or eliminate transitional durations; preserve the final visible state and reading order; and never make comprehension depend on animation.
 
 ## Motion sensibility
 
@@ -170,6 +189,8 @@ Avoid over-animated flourishes, bouncy gimmicks, or motion that feels like a tem
 ## Transport chrome
 
 Treat the bottom control area like a premium music player rather than a chunky video editor.
+
+Preserve minimal player chrome: controls must remain subordinate to the cinematic frame and product story.
 
 Keep it:
 
@@ -274,8 +295,10 @@ Before delivery, verify:
 
 - no repeated dominant layout appears more than twice in a row
 - no text overlay, clipping, or cramped edge-to-edge stack remains
-- every text layer fades in and out rather than popping in
+- every layer has a readable entrance/action/exit lifecycle without fade-only repetition
 - every scene has a single focal composition and one visible UI state
+- adjacent scenes vary their dominant motion family or treatment
+- reduced-motion mode preserves content, state, and navigation
 - if the deck still feels slide-like, split the scene and re-run the check
 
 ## What may change

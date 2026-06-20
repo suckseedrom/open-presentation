@@ -1,6 +1,6 @@
 {
   "name": "presentation-feature-video-ads",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "distribution": "public-markdown",
   "package_type": "skill-pack",
   "primary_install_unit": "skills",
@@ -33,5 +33,5 @@
     "lib/player.css",
     "lib/README.md"
   ],
-  "notes": "Progressive-disclosure public skill pack with zero-dependency HTML delivery, a shared PresentationPlayer library, full-viewport static per-scene backgrounds, 9:16 mobile recheck for every scene, generated visual preview cards, curated anti-AI-slop templates, text-light motion-heavy scenes, 20+ micro-scenes on normal content, and fixed 16:9 / 9:16 production-quality output."
+  "notes": "Progressive-disclosure public skill pack with zero-dependency HTML delivery, adaptive input-derived scene planning, selective recommendation-first Q&A only when high-impact choices remain unresolved, contextual product mockups and input-led language, richer layered motion with varied scene lifecycles, and closed per-scene dual-aspect QA at 16:9 and 9:16."
 }

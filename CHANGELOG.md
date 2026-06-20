@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.10.0
+
+- Replaced fixed scene-count expectations with adaptive, input-derived scene planning.
+- Limited discovery questions to unresolved high-impact choices, using selective recommendation-first options.
+- Grounded mockups and language in the supplied product, audience, and source material.
+- Expanded layered motion guidance with scene lifecycles and varied motion families.
+- Closed delivery on per-scene 16:9 and 9:16 render, inspect, repair, and rerender QA.
+
 ## 1.7.0
 
 - Added an explicit 20+ micro-scene rule for normal-length content.

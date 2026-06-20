@@ -8,6 +8,20 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const exists = (relativePath) => fs.existsSync(path.join(ROOT, relativePath));
 const readText = (relativePath) => fs.readFileSync(path.join(ROOT, relativePath), 'utf8');
+const skillFrontmatter = () => {
+  const match = readText('SKILL.md').match(/^---\s*\n([\s\S]*?)\n---/);
+  assert.ok(match, 'SKILL.md must expose YAML frontmatter');
+  return match[1];
+};
+
+const walkFiles = (relativePath, predicate) => {
+  const absolutePath = path.join(ROOT, relativePath);
+  if (!fs.existsSync(absolutePath)) return [];
+  return fs.readdirSync(absolutePath, { withFileTypes: true }).flatMap((entry) => {
+    const child = path.join(relativePath, entry.name);
+    return entry.isDirectory() ? walkFiles(child, predicate) : predicate(child) ? [child] : [];
+  });
+};
 
 test('progressive-disclosure entrypoints exist', () => {
   assert.equal(exists('SKILL.md'), true);
@@ -64,7 +78,10 @@ test('the revised pack advertises the new product pillars', () => {
   assert.match(readText('reference/STYLE_GUIDE.md'), /Shared player library/i);
   assert.match(readText('reference/PRODUCT_PILLARS.md'), /Text Budget/i);
   assert.match(readText('reference/PRODUCT_PILLARS.md'), /Motion Density/i);
-  assert.match(readText('reference/PRODUCT_PILLARS.md'), /20\+/i);
+  const productPillars = readText('reference/PRODUCT_PILLARS.md');
+  assert.match(productPillars, /input-derived micro-scene inventory/i);
+  assert.match(productPillars, /never start from a universal scene quota/i);
+  assert.match(productPillars, /every planned scene[\s\S]{0,120}one communication job[\s\S]{0,120}one focal object[\s\S]{0,120}one visible state/i);
   assert.match(readText('reference/PRODUCT_PILLARS.md'), /Recheck Loop/i);
   assert.match(readText('reference/PRODUCT_PILLARS.md'), /duplicate layouts/i);
   assert.match(readText('reference/PRODUCT_PILLARS.md'), /activation/i);
@@ -82,7 +99,12 @@ test('the revised pack advertises the new product pillars', () => {
   assert.match(readText('reference/scene-grammar.json'), /motion_family_variance_policy/i);
   assert.match(readText('templates/presentation-feature-core/design.md'), /text-light/i);
   assert.match(readText('templates/presentation-feature-core/design.md'), /visual-only/i);
-  assert.match(readText('templates/presentation-feature-core/design.md'), /20\+/i);
+  const coreDesign = readText('templates/presentation-feature-core/design.md');
+  assert.match(coreDesign, /derive the micro-scene inventory from the supplied material/i);
+  assert.match(coreDesign, /each scene one communication job/i);
+  assert.match(coreDesign, /as the input warrants/i);
+  assert.match(coreDesign, /instead of targeting a universal count/i);
+  assert.doesNotMatch(coreDesign, /(?:default to|expect|aim for|use) 20\+ (?:short |micro-?)?scenes/i);
   assert.match(readText('templates/presentation-feature-core/design.md'), /Recheck gate/i);
   assert.match(readText('templates/presentation-feature-core/design.md'), /Shared player library/i);
   assert.match(readText('templates/presentation-feature-core/preview.md'), /recheck-friendly/i);
@@ -93,7 +115,10 @@ test('the revised pack advertises the new product pillars', () => {
   assert.match(readText('docs/OUTPUT-CONTRACT.md'), /single HTML file/i);
   assert.match(readText('docs/OUTPUT-CONTRACT.md'), /shared player library/i);
   assert.match(readText('docs/OUTPUT-CONTRACT.md'), /visual-only/i);
-  assert.match(readText('docs/OUTPUT-CONTRACT.md'), /20\+/i);
+  const outputContract = readText('docs/OUTPUT-CONTRACT.md');
+  assert.match(outputContract, /input-derived cinematic micro-scene inventory/i);
+  assert.match(outputContract, /never impose a fixed count/i);
+  assert.match(outputContract, /each scene one communication job[\s\S]{0,120}one focal object[\s\S]{0,120}one visible state/i);
   assert.match(readText('docs/OUTPUT-CONTRACT.md'), /16:9/i);
   assert.match(readText('docs/OUTPUT-CONTRACT.md'), /9:16/i);
   assert.match(readText('docs/OUTPUT-CONTRACT.md'), /layout and motion variety/i);
@@ -122,8 +147,11 @@ test('docs advertise the background and mobile 9:16 rules', () => {
   assert.match(readText('reference/PRODUCT_PILLARS.md'), /background layer policy/i);
   assert.match(readText('reference/PRODUCT_PILLARS.md'), /mobile 9:16 policy/i);
 
-  assert.match(readText('reference/RECHECK.md'), /background layer/i);
-  assert.match(readText('reference/RECHECK.md'), /mobile 9:16/i);
+  const recheck = readText('reference/RECHECK.md');
+  assert.match(recheck, /background layer/i);
+  assert.match(recheck, /every scene at both 16:9 and 9:16/i);
+  assert.match(recheck, /at 9:16, add at least 40px safe-zone padding/i);
+  assert.match(recheck, /block delivery[\s\S]{0,120}every row[\s\S]{0,120}16:9 PASS[\s\S]{0,80}9:16 PASS/i);
 
   assert.match(readText('docs/OUTPUT-CONTRACT.md'), /background layer/i);
   assert.match(readText('docs/OUTPUT-CONTRACT.md'), /mobile 9:16/i);
@@ -131,4 +159,134 @@ test('docs advertise the background and mobile 9:16 rules', () => {
   const grammar = readText('reference/scene-grammar.json');
   assert.match(grammar, /background_layer_policy/);
   assert.match(grammar, /mobile_9_16_policy/);
+});
+
+test('SKILL metadata is discoverable for the complete presentation-video use case', () => {
+  const metadata = skillFrontmatter();
+
+  assert.match(metadata, /presentation/i, 'metadata must advertise presentation generation');
+  assert.match(metadata, /pitch[ -]?deck/i, 'metadata must be discoverable for pitch-deck requests');
+  assert.match(metadata, /product[ -]?demo/i, 'metadata must be discoverable for product-demo requests');
+  assert.match(metadata, /launch/i, 'metadata must be discoverable for launch requests');
+  assert.match(metadata, /video[ -]?ad/i, 'metadata must be discoverable for video-ad requests');
+});
+
+test('workflow preflights input sufficiency and asks only bounded high-impact questions', () => {
+  const skill = readText('SKILL.md');
+
+  assert.match(skill, /input sufficiency preflight/i);
+  assert.match(skill, /reuse (?:all )?supplied facts/i);
+  assert.match(skill, /unresolved high-impact choices/i);
+  assert.match(skill, /2(?:\s*(?:-|–|to)\s*)4 recommendation-first selectable (?:questions|Q&A)/i);
+  assert.match(skill, /do not ask.*(?:already|supplied|provided)/i);
+  assert.match(skill, /untrusted (?:source|input|content)[\s\S]{0,160}prompt injection[\s\S]{0,160}(?:inert|ignore|not instructions)/i);
+});
+
+test('planning produces an input-derived micro-scene inventory instead of a fixed scene quota', () => {
+  const skill = readText('SKILL.md');
+  const publicGuidance = [
+    'SKILL.md',
+    'README.md',
+    'docs/USAGE.md',
+    'docs/OUTPUT-CONTRACT.md',
+    'reference/PRODUCT_PILLARS.md',
+    'reference/STYLE_GUIDE.md',
+    'reference/scene-grammar.json',
+    'templates/index.json',
+    'templates/presentation-feature-core/design.md',
+    'templates/presentation-feature-core/preview.md',
+  ].map(readText).join('\n');
+
+  assert.match(skill, /input-derived micro-scene inventory/i);
+  assert.match(skill, /one (?:communication )?job/i);
+  assert.match(skill, /focal object/i);
+  assert.match(skill, /(?:visible )?state/i);
+  assert.match(skill, /motion/i);
+  assert.match(skill, /duration/i);
+  assert.match(skill, /16:9[\s\S]{0,120}9:16/i);
+  assert.doesNotMatch(
+    publicGuidance,
+    /(?:default to|expect|aim for|use) 20\+ (?:short |micro-?)?scenes/i,
+    'scene count must follow the input inventory, not a universal 20+ rule',
+  );
+});
+
+test('visual direction follows product context and the input language', () => {
+  const skill = readText('SKILL.md');
+  const style = readText('reference/STYLE_GUIDE.md');
+
+  assert.match(skill, /contextual product mockup/i);
+  assert.match(skill, /input-led language/i);
+  assert.match(skill, /bilingual only when (?:the )?(?:input|brief|user)/i);
+  assert.match(style, /contextual product mockup/i);
+  assert.match(style, /deliberate bilingual/i);
+  assert.match(style, /minimal (?:player|transport) chrome/i);
+});
+
+test('motion contract covers layered lifecycle choreography and accessibility', () => {
+  const skill = readText('SKILL.md');
+  const style = readText('reference/STYLE_GUIDE.md');
+  const grammar = JSON.parse(readText('reference/scene-grammar.json'));
+  const contract = `${skill}\n${style}\n${JSON.stringify(grammar)}`;
+
+  assert.match(contract, /layered motion/i);
+  assert.match(contract, /motion famil(?:y|ies)/i);
+  assert.match(contract, /entrance[\s\S]{0,100}action[\s\S]{0,100}exit/i);
+  assert.match(contract, /adjacent scenes?[\s\S]{0,120}(?:vary|different|repeat)/i);
+  assert.match(contract, /scene activation/i);
+  assert.match(contract, /prefers-reduced-motion|reduced motion/i);
+});
+
+test('render QA uses a per-scene dual-aspect repair ledger that gates delivery', () => {
+  const skill = readText('SKILL.md');
+  const recheck = readText('reference/RECHECK.md');
+  const contract = readText('docs/OUTPUT-CONTRACT.md');
+  const qaContract = `${skill}\n${recheck}\n${contract}`;
+
+  assert.match(qaContract, /per-scene (?:render )?(?:QA )?ledger/i);
+  assert.match(qaContract, /render[\s\S]{0,80}inspect[\s\S]{0,80}repair[\s\S]{0,80}rerender/i);
+  assert.match(qaContract, /16:9 PASS/i);
+  assert.match(qaContract, /9:16 PASS/i);
+  assert.match(qaContract, /(?:block|do not allow) delivery[\s\S]{0,120}(?:all (?:ledger )?rows|every row)[\s\S]{0,80}(?:green|PASS)/i);
+});
+
+test('machine-readable contract, public docs, and metadata stay portable and aligned', () => {
+  const jsonFiles = [
+    ...walkFiles('reference', (file) => file.endsWith('.json')),
+    ...walkFiles('templates', (file) => file.endsWith('.json')),
+  ];
+  assert.ok(jsonFiles.length > 0, 'the public package must expose JSON contracts');
+  for (const file of jsonFiles) {
+    assert.doesNotThrow(() => JSON.parse(readText(file)), `${file} must contain valid JSON`);
+  }
+
+  const metadata = skillFrontmatter();
+  const publicDocs = ['README.md', 'SKILL.md', 'docs/OUTPUT-CONTRACT.md'].map(readText);
+  const machineContract = jsonFiles.map(readText).join('\n');
+  for (const [surface, content] of [
+    ['SKILL metadata', metadata],
+    ['public docs', publicDocs.join('\n')],
+    ['JSON contract', machineContract],
+  ]) {
+    assert.match(content, /zero-dependency/i, `${surface} must promise zero-dependency delivery`);
+    assert.match(content, /text-light/i, `${surface} must carry the text-light contract`);
+    assert.match(content, /motion-heavy/i, `${surface} must carry the motion-heavy contract`);
+  }
+
+  const portableFiles = [
+    'README.md',
+    'PUBLISHING.md',
+    'SKILL.md',
+    ...walkFiles('docs', (file) => file.endsWith('.md')),
+    ...walkFiles('examples', (file) => file.endsWith('.md')),
+    ...walkFiles('reference', (file) => /\.(?:md|json)$/.test(file)),
+    ...walkFiles('templates', (file) => /\.(?:md|json|html)$/.test(file)),
+  ];
+  for (const file of portableFiles) {
+    assert.doesNotMatch(
+      readText(file),
+      /(?:\/Users\/|\/home\/|[A-Za-z]:\\Users\\|\.codex\/|\.agents\/)/,
+      `${file} must not couple the public package to a private machine path`,
+    );
+  }
 });

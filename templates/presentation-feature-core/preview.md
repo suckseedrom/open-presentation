@@ -1,17 +1,12 @@
 # Presentation Feature Core — Preview
 
-Use this when you want the strongest default version of the skill.
+Use this when you want the strongest adaptive default for a polished product ad.
 
 - premium cinematic product-marketing energy
-- centered app surface with split copy/product rhythm
-- thin transport chrome with the shared PresentationFeature player (no scrubber, no time display)
-- modern product mockups with clean surfaces and one focus per scene
-- text-light by default; some beats can be visual-only
-- motion-heavy with small, visible state changes in every scene
-- for normal content, expect 20+ micro-scenes instead of a few dense slides
-- fade-in / fade-out motion on text and mockups keeps the scene feeling like an ad
-- animations should start when the scene becomes active, not while hidden
-- recheck-friendly: single focal compositions, no repeated dominant layouts, no text overlays, no clipped controls
-- transport and source labels stay visually subordinate
-- the safest default when the brief needs balanced, polished ad energy
-- mobile-safe 9:16 recheck with full-bleed static backgrounds
+- input-derived micro-scenes; one job, focal object, visible state, motion plan, and duration per beat
+- contextual modern product UI/mockups with centered, split, full-bleed, and proof rhythms
+- input-led language; deliberate bilingual copy only when the input or audience calls for it
+- layered motion with varied families and a complete entrance → action → exit lifecycle
+- minimal player-like transport, compatible with the shared PresentationFeature player: compact controls, no scrubber or time display
+- text-light and motion-heavy, with scene-activated state changes and visual-only beats where useful
+- recheck-friendly: closed per-scene dual-aspect repair with `16:9 PASS` and `9:16 PASS` before delivery

@@ -1,16 +1,14 @@
 # Examples
 
-These are user-facing starting prompts for common situations.
+These concise starter prompts cover four common situations:
 
-## Files
-
-- `empty-project.md` — start from nothing
+- `empty-project.md` — start from a product brief
 - `about-us.md` — transform an about page
 - `pricing.md` — transform a pricing or package page
-- `react-implementation.md` — explicit current-app implementation prompt
+- `react-implementation.md` — implement in an existing app
 
-The examples now assume a zero-dependency HTML composition by default. They should produce text-light, motion-heavy scenes, and for normal-length content they should expand into 20+ micro-scenes. The preview cards in `reference/STYLE_INDEX.md` and `templates/*/preview.md` should help you choose a look.
+They model the skill's input preflight: complete briefs proceed without questions; underspecified requests receive only 2–4 recommendation-first choices about unresolved, high-impact decisions.
 
-## Note
+Each prompt asks for an input-derived, text-light cinematic story, contextual product mockups, input-led language, varied layered motion, minimal player transport, and per-scene QA at both 16:9 and 9:16. Scene count follows the supplied story rather than a fixed quota.
 
-The architecture now lives in `SKILL.md`, `reference/STYLE_INDEX.md`, and `templates/index.json`. These examples are convenience prompts, not the main routing layer.
+For visual discovery, use `reference/STYLE_INDEX.md` and the compact cards in `templates/*/preview.md`. The full workflow remains in `SKILL.md`.

@@ -4,6 +4,8 @@ This is the lightweight style chooser for `presentation-feature-video-ads`.
 
 Read this file first when the user needs a visual direction. Then read `templates/index.json` for compact metadata. Read only the shortlisted template `preview.md` files. Treat those preview cards as the visual discovery surface. Read a full `design.md` only after the user picks a template.
 
+Choose from the input rather than from a fixed scene formula: consider the product context, input-led language, desired motion tempo, and the input-derived micro-scene inventory. Prefer contextual modern product UI/mockups over generic dashboards. Use bilingual treatments only when the input or audience calls for them.
+
 ## Shared authority
 
 These files apply to every template in the pack:
@@ -16,7 +18,7 @@ These files apply to every template in the pack:
 
 | Template | Use when | Visual preview cue | Avoid when |
 | --- | --- | --- | --- |
-| `presentation-feature-core` | You want the strongest default: cinematic, premium, UI-first, product-marketing ad energy | Centered app surface, split copy/product rhythm, thin transport strip, fast state reveals | You need a quieter editorial tone or a radically different print-inspired surface |
+| `presentation-feature-core` | You want the strongest adaptive default: cinematic, premium, UI-first product-marketing energy | Contextual product UI, layered state reveals, varied motion families, minimal player-like transport | You need a quieter editorial tone or a radically different print-inspired surface |
 | `soft-editorial` | You want a softer paper/editorial tone while keeping the same ad pacing | Warm paper stock, serif-led hierarchy, calm product surfaces, lighter contrast | You need darker contrast or sharper enterprise drama |
 | `emerald-editorial` | You want magazine-cover business energy with confident premium framing | Emerald + navy masthead feel, premium contrast, editorial confidence | You need a playful or understated atmosphere |
 | `vellum` | You want a quiet, scholarly, dark editorial system | Dark vellum tone, restrained emphasis, reflective pacing | You need bright pop color or louder commercial energy |

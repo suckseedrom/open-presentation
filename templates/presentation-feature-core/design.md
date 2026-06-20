@@ -1,18 +1,18 @@
 # Presentation Feature Core — Design System
 
-This is the default template and the anchor for the rest of the pack.
+This is the adaptive default template and the anchor for the rest of the pack.
 
-The presentation should be delivered as a zero-dependency HTML composition. Use inline CSS and JavaScript for the simplest case, or load the local shared player library (`lib/player.js` + `lib/player.css`) via `<script>` tags so the transport, stage scaling, and scene transitions stay consistent with the PresentationFeature house style. Support both 16:9 and 9:16 output targets without layout collisions.
+Deliver a zero-dependency HTML composition with inline CSS and JavaScript. Build only the stage, scene runtime, and minimal player-like transport needed for play/pause, previous/next, restart, and mute. Do not add a scrubber, time display, or dominant chrome. Support both 16:9 and 9:16 output targets without layout collisions.
 
-For normal-length briefs, expect 20+ micro-scenes. Mix title-only, text+mockup, UI-only, and transition scenes instead of compressing the story into a few dense frames.
+Derive the micro-scene inventory from the supplied material. Give each scene one communication job, one focal object, one visible state, a motion plan, a duration, and both aspect-ratio intents. Mix title-only, text+mockup, UI-only, and transition scenes as the input warrants instead of targeting a universal count or compressing the story into dense frames.
 
 ## Visual thesis
 
-Modern, clean, aesthetic product storytelling with cinematic pacing. The deck should feel like a premium product ad with polished app surfaces, strong hierarchy, and deliberate motion.
+Modern, clean product storytelling with cinematic pacing. The deck should feel like a premium product ad with contextual modern product UI/mockups, strong hierarchy, and deliberate motion. Derive product surfaces from the actual category, workflow, claims, and audience rather than defaulting to a generic dashboard.
 
 Keep the scenes text-light: use one headline or short label, add at most one short support line when it helps, and let some beats be visual-only.
 
-For normal-length briefs, aim for 20+ micro-scenes and let text fade in and out rather than sit statically on screen.
+Follow the input-led language. Keep one language when the source is monolingual; use deliberate bilingual copy only when the input, user, or audience requires it, and keep translated pairs concise rather than duplicating every label.
 
 If a scene has overlapping text, clipped controls, or more than one competing focal cluster, split it before polishing it.
 
@@ -28,24 +28,30 @@ Before you consider the template finished, run a repair pass and confirm:
 
 - no dominant layout repeats more than twice in a row
 - no animation completes before the scene becomes visible
-- every text layer fades in and fades out instead of popping in
+- each focal layer has a purposeful entrance, action, and exit tied to scene activation
+- adjacent scenes vary their dominant motion family rather than repeating the same reveal
 - no text overlay, clipping, or crowded stack remains
 - every scene still feels like a single focal composition with one visible UI state
 - persistent source labels or transport chrome stay visually subordinate
 - if the result still feels slide-like, split the scene and increase the motion
+- the per-scene dual-aspect repair ledger is closed with `16:9 PASS` and `9:16 PASS` for every row
 
-## Shared player library
+## Minimal transport
 
-This template pairs with `lib/player.js` when you want the exact PresentationFeature transport:
+Keep transport player-like, familiar, and subordinate:
 
-- Load `player.css` before `player.js`.
 - Build scenes as `{ id, durationMs, render(el), activate(el) }`.
-- Keep all scene motion inside `activate(el)` so it runs on `scene:activate`, not on page load.
-- The player handles play/pause, next/previous, restart, mute, and scene transitions; do not add a scrubber or time display.
+- Keep all scene motion inside `activate(el)` so it starts on scene activation, not on page load while hidden.
+- Provide only play/pause, previous/next, restart, and mute in compact inline controls.
+- Keep controls out of the focal composition and omit scrubbers, time displays, decorative shells, and external runtime dependencies.
+
+### Shared player library
+
+When the package layout is available, the template may use the local `lib/player.css` and `lib/player.js` files with `PresentationPlayer` for compatible stage scaling, scene activation, and transport behavior. This remains zero-dependency and must keep the same minimal controls with no scrubber or time display.
 
 ## Core surfaces
 
-- premium app/product mockups rather than literal desktop-window imitation
+- contextual app/product mockups rather than literal desktop-window imitation or generic dashboard filler
 - split copy-left / product-right scenes
 - metric cards, chips, counters, timelines, and recommendation states
 - dark emphasis scenes balanced by warm paper or off-white chapters
@@ -54,12 +60,15 @@ This template pairs with `lib/player.js` when you want the exact PresentationFea
 
 ## Motion
 
-- crisp, tactile, refined motion
+- use layered motion: background, focal product state, supporting data, and type may move on coordinated but offset timing
+- give the focal sequence a complete entrance → action → exit lifecycle
+- vary dominant motion families across adjacent scenes: cut, mask/wipe, depth/scale, directional slide, state morph, counter/data change, or controlled dissolve
 - state-change reveals over ornamental choreography
 - subtle depth and blur transitions
 - stronger emphasis on staged UI evolution than on text animation
 - camera-like cuts and ad beats over slide-like page transitions
 - motion should be visible in every scene, even if it is subtle
+- honor `prefers-reduced-motion` with an equivalent readable state
 
 ## Scene pacing
 
@@ -75,5 +84,6 @@ This template pairs with `lib/player.js` when you want the exact PresentationFea
 
 - Every scene must have a static, full-viewport background layer rendered outside the scaled stage.
 - Backgrounds must not be animated (no drifting gradients, no scale transforms).
-- After composing at 16:9, recheck every scene at 9:16.
+- Maintain a per-scene dual-aspect repair ledger. For every scene: render → inspect → repair → rerender at 16:9 and 9:16.
+- Mark `16:9 PASS` and `9:16 PASS` only from the latest inspected renders; block delivery until every row is PASS in both columns.
 - On mobile: stack horizontal layouts, cap headlines at 3rem, keep 40px safe-zone padding, and remove any overflow.

@@ -1,6 +1,6 @@
 # Output contract
 
-This skill is intended to produce implementation-ready code in the current app workspace, with the presentation itself delivered as a single HTML file with inline CSS and JavaScript.
+This skill produces implementation-ready presentations, pitch decks, product demos, launches, and video ads in the current app workspace. The presentation remains zero-dependency HTML, text-light, motion-heavy, and portable.
 
 ## Default deliverable
 
@@ -9,7 +9,7 @@ This skill is intended to produce implementation-ready code in the current app w
 - accessible markup, aria-labelled controls, and clear focus states
 - fixed 16:9 artboard logic with a 9:16 mobile-safe version
 - well-commented code that is easy to customize
-- fade-based presence transitions and staggered text reveals for every scene
+- layered entrance, action, and exit choreography bound to scene activation, with reduced-motion support
 - a static full-viewport background layer for every scene, rendered outside the scaled stage
 - a 9:16 mobile recheck for every scene with capped type, stacked layouts, and safe-zone padding
 
@@ -20,50 +20,55 @@ When using the bundled `lib/player.js`:
 - Include `player.css` in the `<head>` and `player.js` before the closing `</body>` (or load it as a module).
 - Provide scenes as `{ id, durationMs, render(el), activate(el) }` objects.
 - `render(el)` must create the scene DOM; `activate(el)` must start scene-bound motion so animations run when the scene becomes active, not on file load.
-- The player exposes a minimal glass-pill transport with Exit, Previous, Play/Pause, Next, Restart, and Mute.
-- The player intentionally does not include a scrubber, timeline, time display, or fullscreen toggle.
+- Keep transport chrome minimal, player-like, detached, and visually subordinate.
+- Do not add a scrubber, timeline, time display, fullscreen toggle, or presentation-style footer.
 - Scene transitions use blur + opacity fades and subtle scale drift; internal motion is triggered by `activate()` and the `scene:activate` event.
 
-## Scene copy budget
+## Input-derived scene contract
 
-- one headline or short label
-- optional one short support line
-- some scenes may be visual-only
-- if a beat needs more than two short lines, split it into another scene
-- for normal-length content, aim for 20+ short scenes
-- mix title-only, text+mockup, UI-only, and transition scenes
+- Run an input-sufficiency preflight before choosing a template or scene count.
+- Ask zero questions when the supplied content and constraints are sufficient.
+- Otherwise ask only 2–4 recommendation-first selectable questions for unresolved high-impact choices.
+- Build an input-derived cinematic micro-scene inventory; never impose a fixed count.
+- Give each scene one communication job, one focal object, one visible state, a dominant motion family, a duration, and separate 16:9 and 9:16 composition notes.
+- Keep copy to one headline or short label plus, when necessary, one short support line. Some scenes may be visual-only.
+- Expand an important flow into enough focused scenes to show setup, action, feedback, and outcome legibly.
 
-The resulting deck should feel like a premium video ad: more scenes when the content is rich, one focus per scene, UI/simulation first, and a compact music-player-like transport bar instead of a chunky presentation footer.
+The result should feel cinematic rather than slide-like: scene count follows the input, each beat has one focus, and UI or simulation carries the story where the product has a visual surface.
 
 When the source has an important product flow, the deck should show that flow over 2–3 consecutive scenes instead of compressing it into one text block.
 
-Use split copy-left / product-right scenes, modern product mockups, counters, timelines, chips, and state-change reveals whenever they make the story easier to understand.
+Use contextual modern product mockups grounded in the supplied product, workflow, platform, and native surface conventions. Split layouts, counters, timelines, chips, and state-change reveals are options when they make the story easier to understand, not a required visual formula.
 
-The motion should feel like `emil-design-eng`: crisp, tactile, subtle, and detail-driven.
+Language is input-led and audience-led. Preserve brand terms and domain vocabulary. Use deliberate bilingual treatment only when the input, audience, or user explicitly justifies it.
 
-## Recheck gate
+Motion should be layered and varied. Give each scene a readable entrance, a purposeful action or state change, and an exit; vary dominant motion families across adjacent scenes. Fades remain useful but should not become a fade-only recipe.
 
-Before delivery, run one final repair pass and confirm:
+## Closed per-scene Recheck gate
+
+Maintain a per-scene render QA ledger. For every scene: render, inspect, repair, and rerender at both production targets. Record current artifact paths and explicit `16:9 PASS` and `9:16 PASS` statuses.
+
+Inspect and repair until:
 
 - no text overlay, clipping, or cramped edge-to-edge stack remains
 - no dominant layout repeats more than twice in a row
 - no animation completes before the scene becomes visible
 - animations are bound to scene activation, not just file load
-- every text layer fades in and fades out instead of popping in
-- every scene still has a visible motion event
+- entrance, action, and exit remain readable and scene-bound
+- adjacent scenes do not repeat the same dominant motion family without narrative reason
 - the deck reads like a premium video ad, not a slide presentation
 - persistent source labels or chrome do not compete with the hero frame
 - every scene has a full-viewport static background layer with no letterboxing
 - the mobile 9:16 recheck shows no overflow, clipped text, or broken layouts
 
-If any check fails, split the scene, reduce copy, or re-compose the layout before handing it off.
+Any repair invalidates that row until both aspects are rerendered and reinspected. Block delivery until every row is green/PASS for both 16:9 and 9:16.
 
 ## Layout and motion variety
 
 - alternate centered statement, split copy/product, full-bleed showcase, proof-grid/stat-wall, and CTA scenes
 - do not repeat the same dominant layout more than twice in a row
-- vary the dominant motion family from scene to scene
-- treat fades, reveals, counters, state changes, and camera drift as different beats rather than a single repeated effect
+- vary the dominant motion family across adjacent scenes
+- choreograph entrance, action, and exit using typography, UI state, masks, proof, spatial movement, transitions, or micro-interactions as the scene requires
 
 ## Integration rule
 
@@ -75,7 +80,7 @@ When the host project already exists, keep the integration glue thin. Do not add
 - one visible UI state or product moment per scene
 - many scenes should be text-light or near-textless
 - every scene should have some motion, even if it is subtle
-- text, cards, and mockups should fade in and fade out rather than pop in
+- text, cards, and mockups should have readable presence transitions, not hard pops
 - no crowded footer chrome, no clipped edges, and no accidental overlaps
 - fixed 16:9 and 9:16 production targets
 
@@ -97,7 +102,7 @@ If there is no app shell yet, create the standalone HTML presentation directly. 
 
 Do not fall back to a docs-only or example-only result.
 
-The transport section should be minimal and elegant, closer to Spotify or Apple Music than a generic presentation toolbar.
+The transport should remain minimal and player-like rather than becoming a generic presentation toolbar.
 
 ## If you only want an outline
 

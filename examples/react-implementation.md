@@ -1,32 +1,18 @@
 # Current app implementation prompt
 
-Use `presentation-feature-video-ads` to implement the [presentation topic] in the current app.
+Use `presentation-feature-video-ads` to implement this presentation in the current app:
 
-Default to a single self-contained HTML presentation with inline CSS and JS. Only add a thin wrapper if the host project already requires one.
+- topic and goal: [complete description]
+- audience: [viewer]
+- source facts and proof: [approved content]
+- product flow and visible states: [what to demonstrate]
+- brand and language: [constraints]
+- CTA: [desired action]
 
-Keep scenes text-light, motion-heavy, and split any scene that needs more than two short lines.
+If this brief and the app establish the high-impact choices, proceed without questions. Otherwise ask only 2–4 recommendation-first selectable questions about what remains unresolved, without requesting supplied facts again.
 
-For normal-length content, aim for 20+ micro-scenes.
+Keep the presentation zero-dependency and HTML-first, adding only the thinnest integration required by the existing app. Create the actual implementation and focused tests, not an outline. Derive the cinematic micro-scene inventory from the supplied story; use contextual product mockups grounded in the actual workflow and do not invent claims.
 
-Create the actual source files and tests.
+Follow the input language and use bilingual copy only when the brief or audience warrants it. Keep scenes text-light, use layered entrance, action, and exit motion, vary motion families across adjacent scenes, and support reduced motion. Keep transport minimal and player-like, with no scrubber or time display.
 
-If no app exists, create the standalone HTML presentation first. Do not scaffold React/Vite unless I explicitly ask for that stack.
-
-Prefer more, shorter scenes when the content has multiple ideas. Each scene should have one focus and one visible UI or product state.
-
-Use modern product mockups with a clean, aesthetic surface and motion inspired by `emil-design-eng`.
-
-Make motion visible in every scene, even if it is only a subtle reveal, count-up, or camera drift.
-
-Text and mockups should fade in and fade out rather than pop in.
-
-For important features, show the evolution across 2–3 consecutive scenes using split copy-left/product-right layouts, app mockups, counters, and state changes.
-
-Please create:
-
-- the presentation component
-- the route/page wrapper
-- any supporting styles
-- tests for the controls and story flow
-
-Do not stop at an outline, and do not edit `.agents/skills/` or `examples/` unless I explicitly asked you to rewrite the skill.
+Render, inspect, repair, and rerender each scene at both 16:9 and 9:16. Deliver only after every row in the per-scene QA ledger records `16:9 PASS` and `9:16 PASS`.
