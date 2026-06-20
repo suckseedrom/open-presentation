@@ -34,16 +34,12 @@
     "lib/editor-model.js",
     "lib/editor-renderer.js",
     "lib/editor-export.js",
-    "lib/editor.js",
-    "lib/editor.css",
-    "examples/editor-example.html",
     "lib/README.md"
   ],
   "capabilities": {
     "playback": "zero-dependency local HTML",
-    "editor": "optional per-scene and per-layer browser studio",
     "composition": "versioned portable JSON with validated import and autosave",
-    "video_export": "optional deterministic browser WebM at 3840x2160 or 2160x3840"
+    "video_export": "deterministic browser 4K WebM export directly in player"
   },
-  "notes": "Progressive-disclosure public skill pack with zero-dependency HTML playback, adaptive input-derived scene planning, contextual product mockups and input-led language, varied scene lifecycles, closed per-scene dual-aspect QA, an opt-in friendly layer editor, and capability-probed deterministic 4K WebM export."
+  "notes": "Progressive-disclosure public skill pack with zero-dependency HTML playback, adaptive input-derived scene planning, contextual product mockups and input-led language, varied scene lifecycles, closed per-scene dual-aspect QA, and direct player-integrated deterministic 4K WebM export."
 }

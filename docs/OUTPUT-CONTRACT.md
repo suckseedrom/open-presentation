@@ -24,13 +24,9 @@ When using the bundled `lib/player.js`:
 - Do not add a scrubber, timeline, time display, fullscreen toggle, or presentation-style footer.
 - Scene transitions use blur + opacity fades and subtle scale drift; internal motion is triggered by `activate()` and the `scene:activate` event.
 
-## Optional editor and 4K export contract
+## Deterministic 4K export contract
 
-Editable delivery is opt-in. Closed editor mode must remain the same minimal player: one optional **Editor** action may appear in its transport, but inspector, canvas, timeline, import/export, and progress UI belong only to the editor surface.
-
-An editable deliverable includes the local browser modules `editor-model.js`, `editor-renderer.js`, `editor-export.js`, `editor.js`, and `editor.css`. The composition is portable versioned JSON with per-scene duration/order and per-layer type, visibility, order, timing, style, plus separate 16:9 and 9:16 geometry. Editing must support direct canvas selection/move/resize, text/style changes, layer/scene ordering, undo/redo, autosave, bounded validated JSON import, canonical JSON export, and deterministic time seeking.
-
-The player and editor must use the same composition authority. Live editor preview and deterministic rendering must resolve the same scene, layer order, timing, geometry, and styles. Closing the editor returns the current composition to the player; reopening must not silently reset edits.
+Video export is an optional, opt-in capability. The presentation player remains minimal: one optional **Download to Video (4K)** action may appear in its transport controls. When clicked, it triggers the deterministic 4K WebM export directly on the client side using `editor-model.js`, `editor-renderer.js`, and `editor-export.js`. No Canva-style editor studio, panels, or timelines are exposed.
 
 Browser video export is an optional capability, not a playback dependency:
 
@@ -40,13 +36,14 @@ Browser video export is an optional capability, not a playback dependency:
 - cancellation, unsupported recording, recorder errors, empty data, and dimension mismatch are explicit non-success outcomes
 - success requires a non-empty WebM whose decoded dimensions match the requested target
 - object URLs, streams, tracks, timers, and recorder listeners are cleaned after success, failure, or cancellation
-- export failure never discards or mutates the editable composition
+- export progress and error states are shown directly as a player overlay
 
-The complete browser wiring is in `examples/editor-example.html`.
+The complete browser wiring example is in `examples/shared-player-example.html`.
 
 ## Input-derived scene contract
 
 - Run an input-sufficiency preflight before choosing a template or scene count.
+- **Deep Context and Brand/Style Investigation (inspired by HyperFrames)**: If the input context comes from a website URL, screenshot, or a local project directory, perform a deep style/design-token investigation. As a mandatory result, the AI agent MUST first write a `design.md` file to initialize the visual design system (palette, typography, layout guidelines, card styles, motion feels) before generating presentation scenes. The presentation must strictly align with this initialized system.
 - Ask zero questions when the supplied content and constraints are sufficient.
 - Otherwise ask only 2–4 recommendation-first selectable questions for unresolved high-impact choices.
 - Build an input-derived cinematic micro-scene inventory; never impose a fixed count.

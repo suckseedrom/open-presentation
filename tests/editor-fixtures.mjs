@@ -10,8 +10,6 @@ export const EDITOR_PATHS = Object.freeze({
   model: path.join(ROOT, 'lib/editor-model.js'),
   renderer: path.join(ROOT, 'lib/editor-renderer.js'),
   exporter: path.join(ROOT, 'lib/editor-export.js'),
-  editor: path.join(ROOT, 'lib/editor.js'),
-  editorCss: path.join(ROOT, 'lib/editor.css'),
 });
 
 export function loadOptionalModule(file) {

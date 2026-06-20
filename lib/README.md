@@ -53,7 +53,7 @@ const player = new PresentationPlayer(document.getElementById('player'), {
 | `audioUrl` | `string` | `null` | URL for looping background audio |
 | `theme` | `object` | `{}` | CSS custom property overrides (see Styling) |
 | `onExit` | `function` | `null` | Callback — when provided, an Exit button appears in the transport |
-| `onEdit` | `function` | `null` | Callback — when provided, one Editor button appears in the transport |
+| `onDownload` | `function` | `null` | Callback — when provided, a Download to Video (4K) button appears in the transport |
 
 ## Scene Contract
 
@@ -162,39 +162,38 @@ new PresentationPlayer(el, {
 - **Audio**: Autoplay is unblocked on first user interaction (clicking any transport button).
 - **Accessibility**: Transport has `role="toolbar"`, all buttons have `aria-label`, and a live region announces slide changes.
 
-## Optional PresentationEditor
+## Optional 4K Video Export Modules
 
-The editor is a separate opt-in surface; playback does not import or open it automatically. Include the stylesheet and scripts in dependency order:
+To support browser-side video export, include the additional export scripts after the player:
 
 ```html
 <link rel="stylesheet" href="./player.css">
-<link rel="stylesheet" href="./editor.css">
 <script src="./player.js"></script>
 <script src="./editor-model.js"></script>
 <script src="./editor-renderer.js"></script>
 <script src="./editor-export.js"></script>
-<script src="./editor.js"></script>
 ```
 
-Create the editor from the player's single `onEdit` action:
+Wire the export by providing an `onDownload` callback to `PresentationPlayer` that triggers the export directly:
 
 ```js
-const autosave = PresentationEditorModel.createAutosave({
-  storage: localStorage,
-  key: 'my-presentation:v1'
-});
-
-const editor = new PresentationEditor(document.getElementById('editor-root'), {
-  composition,
-  autosave,
-  onClose(nextComposition) {
-    composition = nextComposition;
-    mountPlayer(composition);
+new PresentationPlayer(document.getElementById('player'), {
+  scenes: [ /* ... */ ],
+  onDownload: async () => {
+    console.log('Initiating 4K WebM export...');
+    const result = await PresentationEditorExport.exportComposition({
+      composition,
+      aspect: '16:9',
+      onProgress: (pct) => console.log('Export progress:', Math.round(pct * 100) + '%')
+    });
+    if (result.outcome === 'completed') {
+      // Trigger browser file save...
+    }
   }
 });
 ```
 
-`PresentationEditor` supports per-scene layer selection and order, direct canvas move/resize, text/style controls, scene timing/order, undo/redo, autosave, validated JSON import, canonical JSON export, responsive 16:9 / 9:16 preview, and browser WebM export. See `../examples/editor-example.html` for complete wiring and autosave restoration.
+See `../examples/shared-player-example.html` for a complete runnable wiring example.
 
 ### Composition and deterministic render
 
