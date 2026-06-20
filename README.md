@@ -5,7 +5,7 @@
 [![Motion Heavy](https://img.shields.io/badge/Storytelling-Motion%20Heavy-orange.svg?style=flat-square)](https://github.com/Rommadon/presentation-video-ads-skill)
 [![Aspect Ratios](https://img.shields.io/badge/Aspects-16%3A9%20%2F%209%3A16-purple.svg?style=flat-square)](https://github.com/Rommadon/presentation-video-ads-skill)
 
-Turn raw product briefs, landing pages, code snippets, or simple notes into **cinematic, high-fidelity presentation video ads** directly inside your codebase. 
+Turn raw product briefs, landing pages, code snippets, or simple notes into **cinematic, high-fidelity presentation video ads** directly inside your codebase. Start in the minimal player, then open the optional browser studio to edit every scene and layer in real time or export a 4K WebM.
 
 No slides. No templates that look like standard decks. Just pure, motion-rich, cinematic experiences built automatically by your AI pairing assistant.
 
@@ -23,6 +23,10 @@ No slides. No templates that look like standard decks. Just pure, motion-rich, c
     A clean, portable pack that integrates instantly with **Claude Code**, **Cursor**, **Codex**, **OpenCode**, and other agents. Compatible AI assistants load and follow the skill guidelines dynamically on demand using progressive disclosure, without slowing down your AI's context window.
 *   **🛡️ Closed Recheck Pass**  
     Before a presentation is delivered, the agent runs a closed recheck pass to inspect, repair, and verify every single scene at both 16:9 and 9:16 aspects.
+*   **✦ Friendly Layer Editor**  
+    An opt-in, zero-framework studio adds direct move/resize, text and style controls, scene timing/order, undo/redo, safe JSON import/export, autosave, and responsive 16:9 / 9:16 preview. When the editor is closed, the player remains the same minimal music-player-like surface.
+*   **◫ Deterministic 4K Export**  
+    Choose the landscape or portrait preview, then export browser-recorded WebM at exactly 3840×2160 or 2160×3840. Playback stays zero-dependency; video export is an optional browser capability and reports a clear failure when the required recording path is unavailable.
 
 ---
 
@@ -37,6 +41,8 @@ npx skills add Rommadon/presentation-video-ads-skill
 ---
 
 ## 🔥 Try It Now! (Copy-Paste Prompts)
+
+To try the editable player itself, serve the repository over local HTTP and open [`examples/editor-example.html`](examples/editor-example.html). Its single **Editor** transport action opens the full layer studio; choose 16:9 or 9:16 before selecting **Export video**.
 
 Want to see the magic? Copy one of these starter prompts and paste it directly into your AI assistant chat (Cursor, Claude Code, etc.):
 
@@ -145,7 +151,8 @@ presentation-video-ads-skill/
 │   ├── STYLE_INDEX.md      # Vibe chooser
 │   └── PRODUCT_PILLARS.md  # Delivery guarantees (zero-dependency, dual-aspect targets)
 ├── templates/              # 🎨 Compact visual templates (preview.md / design.md pairs)
-└── lib/                    # ⚙️ Core JS/CSS presentation player runtime
+├── lib/                    # ⚙️ Player plus optional editor/runtime modules
+└── examples/editor-example.html # Functional editable-player demo
 ```
 
 ---

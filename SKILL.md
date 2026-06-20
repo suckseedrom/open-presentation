@@ -1,6 +1,6 @@
 ---
 name: presentation-feature-video-ads
-description: "Generate premium, multi-scene, UI-first presentations, pitch decks, product demos, launch videos, and video ads from product briefs or source material, with text-light, motion-heavy storytelling, progressive disclosure, on-demand template loading, and zero-dependency HTML delivery. Use for presentation-video work where product storytelling, staged UI, and cinematic motion are central."
+description: "Generate and edit premium, multi-scene, UI-first presentations, pitch decks, product demos, launch videos, and video ads from product briefs or source material, with text-light, motion-heavy storytelling, progressive disclosure, zero-dependency HTML playback, an optional friendly per-layer browser editor, and deterministic 4K WebM export. Use when a user asks for a presentation, pitch deck, product presentation, presentation video, launch film, product demo, or video ad."
 ---
 
 # presentation-feature-video-ads
@@ -39,6 +39,11 @@ Turn product briefs, pages, screenshots, notes, or an empty project into a cinem
 | `templates/*/design.md` | Selected template design recipe | After user selection |
 | `templates/presentation-feature-core/examples/*` | Base-template example briefs | When the selected template is the default and the use case matches |
 | `examples/*.md` | User-facing starting prompts | Only when the user needs a starting prompt |
+| `lib/player.js` + `lib/player.css` | Minimal presentation playback | Default shared transport |
+| `lib/editor-model.js` + `lib/editor-renderer.js` | Portable composition and deterministic preview | When editable delivery is requested |
+| `lib/editor.js` + `lib/editor.css` | Friendly per-layer studio | When editable delivery is requested |
+| `lib/editor-export.js` | Optional 4K browser WebM export | When video export is requested |
+| `examples/editor-example.html` | Complete editable-player wiring | When implementing editor mode |
 
 Do not bulk-read every template `design.md`.
 
@@ -89,6 +94,10 @@ Read:
 
 Then implement the presentation in the current app workspace as a zero-dependency HTML composition. Use the bundled shared player library (`lib/player.js` + `lib/player.css`) as the default transport/stage/transition engine so every deck gets the same PresentationFeature player UX. Only fall back to fully inline CSS/JS when the user explicitly asks for a single-file deliverable or the host project cannot accept extra files.
 
+When the user asks to edit, customize, export, or work in a Canva-like studio, add the bundled editor modules in this exact browser order: `player.js`, `editor-model.js`, `editor-renderer.js`, `editor-export.js`, then `editor.js`. Configure one `onEdit` callback on `PresentationPlayer`; do not expose editor panels, timelines, or export status in playback mode. Restore a validated autosave when available, pass the same composition into the editor, and rebuild the player from the returned composition on close so player and editor stay in parity.
+
+The studio must keep every scene and layer directly editable, including selection, move/resize, text/style controls, layer/scene order, scene duration, undo/redo, JSON import/export, and both aspect previews. For 4K WebM, the selected preview aspect is the export aspect: 16:9 requests 3840×2160 and 9:16 requests 2160×3840. Never report success unless the encoded result is non-empty and its decoded dimensions match. Treat browser recording as an optional capability; preserve the composition and show an explicit recoverable error when unsupported, cancelled, or failed.
+
 For every scene, choreograph layered motion as a short lifecycle: entrance, primary action, then exit. Bind the lifecycle to scene activation so inactive scenes cannot leak animation or timers. Adjacent scenes must vary the motion family, and every scene needs a reduced motion path that preserves state meaning without relying on large transforms or continuous movement.
 
 ### Phase 5 — recheck and repair
@@ -120,6 +129,8 @@ The expected result usually includes:
 - minimal styling glue for the presentation shell, if any
 - any small supporting components or data modules needed by the host
 - tests for controls and scene flow
+- when requested, the optional browser editor modules and one player `onEdit` action
+- when requested, a deterministic 4K WebM export action with explicit capability/error states
 
 Write into the current app workspace, not into `examples/`, `reference/`, or `templates/`.
 

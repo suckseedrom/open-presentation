@@ -37,6 +37,27 @@ The implementation contract is:
 - keep the presentation zero-dependency, text-light, and motion-heavy
 - render, inspect, repair, and rerender every scene at both aspect targets; deliver only after every scene is green at both
 
+## Optional editable delivery
+
+When the user asks for an editor, customization mode, or video export, keep the default player intact and add the studio as an opt-in action:
+
+```html
+<link rel="stylesheet" href="./lib/player.css">
+<link rel="stylesheet" href="./lib/editor.css">
+<div id="player"></div><div id="editor-root"></div>
+<script src="./lib/player.js"></script>
+<script src="./lib/editor-model.js"></script>
+<script src="./lib/editor-renderer.js"></script>
+<script src="./lib/editor-export.js"></script>
+<script src="./lib/editor.js"></script>
+```
+
+Load the scripts in that order. Pass one `onEdit` callback to `PresentationPlayer`; inside it, pause playback and create `PresentationEditor` with the current composition. On editor close, rebuild the player from the returned composition. See `examples/editor-example.html` for complete zero-framework wiring, including validated autosave restore.
+
+The studio provides direct layer selection, move/resize, text/style controls, scene and layer order, scene duration, timeline preview, undo/redo, safe JSON import/export, and separate 16:9 / 9:16 layouts. The selected preview aspect controls WebM output: 16:9 is 3840×2160 and 9:16 is 2160×3840.
+
+Zero-dependency playback and optional video export are separate guarantees. The HTML player works without recording support. 4K export uses browser `MediaRecorder`; unsupported codecs, recorder failures, cancellation, empty results, or wrong encoded dimensions must produce a visible non-success state while preserving the composition.
+
 ## Progressive-disclosure flow
 
 1. Read `SKILL.md`
@@ -54,5 +75,6 @@ The implementation contract is:
 - `examples/about-us.md`
 - `examples/pricing.md`
 - `examples/react-implementation.md`
+- `examples/editor-example.html` — runnable editable-player integration
 
 Use these only when you need a starting prompt. They are not the architecture.

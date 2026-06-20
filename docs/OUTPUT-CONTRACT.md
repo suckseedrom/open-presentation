@@ -24,6 +24,26 @@ When using the bundled `lib/player.js`:
 - Do not add a scrubber, timeline, time display, fullscreen toggle, or presentation-style footer.
 - Scene transitions use blur + opacity fades and subtle scale drift; internal motion is triggered by `activate()` and the `scene:activate` event.
 
+## Optional editor and 4K export contract
+
+Editable delivery is opt-in. Closed editor mode must remain the same minimal player: one optional **Editor** action may appear in its transport, but inspector, canvas, timeline, import/export, and progress UI belong only to the editor surface.
+
+An editable deliverable includes the local browser modules `editor-model.js`, `editor-renderer.js`, `editor-export.js`, `editor.js`, and `editor.css`. The composition is portable versioned JSON with per-scene duration/order and per-layer type, visibility, order, timing, style, plus separate 16:9 and 9:16 geometry. Editing must support direct canvas selection/move/resize, text/style changes, layer/scene ordering, undo/redo, autosave, bounded validated JSON import, canonical JSON export, and deterministic time seeking.
+
+The player and editor must use the same composition authority. Live editor preview and deterministic rendering must resolve the same scene, layer order, timing, geometry, and styles. Closing the editor returns the current composition to the player; reopening must not silently reset edits.
+
+Browser video export is an optional capability, not a playback dependency:
+
+- 16:9 output is exactly 3840×2160; 9:16 output is exactly 2160×3840
+- every frame comes from deterministic `renderAt(composition, timeMs, aspect)` seeking
+- WebM codec support is capability-probed before recording
+- cancellation, unsupported recording, recorder errors, empty data, and dimension mismatch are explicit non-success outcomes
+- success requires a non-empty WebM whose decoded dimensions match the requested target
+- object URLs, streams, tracks, timers, and recorder listeners are cleaned after success, failure, or cancellation
+- export failure never discards or mutates the editable composition
+
+The complete browser wiring is in `examples/editor-example.html`.
+
 ## Input-derived scene contract
 
 - Run an input-sufficiency preflight before choosing a template or scene count.

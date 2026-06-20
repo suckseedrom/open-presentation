@@ -15,7 +15,21 @@
       "js": "lib/player.js",
       "css": "lib/player.css",
       "class": "PresentationPlayer",
-      "load_model": "local_script_tag"
+      "load_model": "local_script_tag",
+      "optional_editor_action": "onEdit"
+    },
+    "optional_editor_library": {
+      "load_order": [
+        "lib/player.js",
+        "lib/editor-model.js",
+        "lib/editor-renderer.js",
+        "lib/editor-export.js",
+        "lib/editor.js"
+      ],
+      "css": "lib/editor.css",
+      "class": "PresentationEditor",
+      "composition_authority": "versioned portable JSON",
+      "playback_coupling": "opt-in only; player stays minimal when closed"
     },
     "dependency_policy": "zero_dependencies",
     "framework_policy": "no_frameworks_by_default"
@@ -23,7 +37,45 @@
   "public_contract": {
     "delivery": "zero-dependency HTML",
     "copy_density": "text-light",
-    "motion_density": "motion-heavy"
+    "motion_density": "motion-heavy",
+    "editor": "optional friendly per-layer browser studio",
+    "video_export": "optional capability-probed browser WebM"
+  },
+  "editor_contract": {
+    "activation": "one PresentationPlayer onEdit action when configured",
+    "closed_mode": "minimal player only; no editor chrome, timeline, or export status",
+    "editing": [
+      "scene selection and order",
+      "scene duration",
+      "layer selection and order",
+      "direct move and resize",
+      "text and style controls",
+      "undo and redo"
+    ],
+    "persistence": {
+      "autosave": true,
+      "restore_validated_composition": true,
+      "canonical_json_export": true,
+      "bounded_safe_json_import": true
+    },
+    "preview": {
+      "deterministic_seek": true,
+      "aspects": ["16:9", "9:16"],
+      "player_parity_required": true
+    },
+    "export": {
+      "format": "WebM",
+      "optional_browser_capability": true,
+      "dimensions": {
+        "16:9": { "width": 3840, "height": 2160 },
+        "9:16": { "width": 2160, "height": 3840 }
+      },
+      "success_requires_non_empty_data": true,
+      "success_requires_decoded_dimension_match": true,
+      "failure_preserves_composition": true,
+      "unsupported_cancelled_or_failed_is_non_success": true,
+      "cleanup_required": true
+    }
   },
   "input_sufficiency_preflight": {
     "required_fields": [
@@ -280,6 +332,7 @@
   ],
   "player_controls": [
     "exit",
+    "editor_when_configured",
     "previous",
     "play",
     "pause",

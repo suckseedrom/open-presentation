@@ -12,3 +12,9 @@ They model the skill's input preflight: complete briefs proceed without question
 Each prompt asks for an input-derived, text-light cinematic story, contextual product mockups, input-led language, varied layered motion, minimal player transport, and per-scene QA at both 16:9 and 9:16. Scene count follows the supplied story rather than a fixed quota.
 
 For visual discovery, use `reference/STYLE_INDEX.md` and the compact cards in `templates/*/preview.md`. The full workflow remains in `SKILL.md`.
+
+## Editable player demo
+
+`editor-example.html` is a complete zero-dependency browser example. Serve the repository over local HTTP, open the file, and use the single **Editor** action in the minimal player transport. The studio demonstrates direct layer selection/move/resize, copy/style editing, scene timing and order, undo/redo, safe JSON import/export, autosave restore, responsive 16:9 and 9:16 preview, and optional 4K WebM export.
+
+Playback does not require recording support. The export action uses browser `MediaRecorder`, verifies a non-empty encoded result and exact output dimensions, and reports unsupported or failed export without discarding the editable composition.

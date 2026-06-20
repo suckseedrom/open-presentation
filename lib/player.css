@@ -164,6 +164,12 @@
   opacity: 1;
 }
 
+.pf-btn--editor {
+  width: 36px;
+  height: 36px;
+  margin-left: 4px;
+}
+
 /* ── Screen-reader only ──────────────────────────────────────────── */
 
 .pf-sr-only {

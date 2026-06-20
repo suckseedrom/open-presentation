@@ -1,6 +1,6 @@
 # PresentationPlayer
 
-Vanilla JS/CSS player library that replicates the transport, stage, transition, and audio behavior of `PresentationFeature/index.tsx`. Load it in any static HTML presentation to get the same UX without React or external dependencies.
+Vanilla JS/CSS player and optional editing modules for portable presentation video ads. Load the player in any static HTML presentation to get the minimal transport, stage, transition, and audio behavior without React or external dependencies.
 
 ## Installation
 
@@ -53,6 +53,7 @@ const player = new PresentationPlayer(document.getElementById('player'), {
 | `audioUrl` | `string` | `null` | URL for looping background audio |
 | `theme` | `object` | `{}` | CSS custom property overrides (see Styling) |
 | `onExit` | `function` | `null` | Callback — when provided, an Exit button appears in the transport |
+| `onEdit` | `function` | `null` | Callback — when provided, one Editor button appears in the transport |
 
 ## Scene Contract
 
@@ -160,6 +161,53 @@ new PresentationPlayer(el, {
 - **Transitions**: CSS blur + opacity crossfade (0.6s) with a slow scale drift (0.98 → 1.02) over each slide's duration.
 - **Audio**: Autoplay is unblocked on first user interaction (clicking any transport button).
 - **Accessibility**: Transport has `role="toolbar"`, all buttons have `aria-label`, and a live region announces slide changes.
+
+## Optional PresentationEditor
+
+The editor is a separate opt-in surface; playback does not import or open it automatically. Include the stylesheet and scripts in dependency order:
+
+```html
+<link rel="stylesheet" href="./player.css">
+<link rel="stylesheet" href="./editor.css">
+<script src="./player.js"></script>
+<script src="./editor-model.js"></script>
+<script src="./editor-renderer.js"></script>
+<script src="./editor-export.js"></script>
+<script src="./editor.js"></script>
+```
+
+Create the editor from the player's single `onEdit` action:
+
+```js
+const autosave = PresentationEditorModel.createAutosave({
+  storage: localStorage,
+  key: 'my-presentation:v1'
+});
+
+const editor = new PresentationEditor(document.getElementById('editor-root'), {
+  composition,
+  autosave,
+  onClose(nextComposition) {
+    composition = nextComposition;
+    mountPlayer(composition);
+  }
+});
+```
+
+`PresentationEditor` supports per-scene layer selection and order, direct canvas move/resize, text/style controls, scene timing/order, undo/redo, autosave, validated JSON import, canonical JSON export, responsive 16:9 / 9:16 preview, and browser WebM export. See `../examples/editor-example.html` for complete wiring and autosave restoration.
+
+### Composition and deterministic render
+
+`PresentationEditorModel` owns versioned portable JSON and rejects malformed, oversized, unsupported-version, unsafe-key, or unsafe asset input. `PresentationEditorRenderer.renderAt(composition, timeMs, aspect, target)` deterministically resolves the active scene and ordered layers for both preview and export.
+
+### 4K WebM
+
+`PresentationEditorExport.exportComposition()` targets exact dimensions:
+
+- `16:9` → 3840×2160
+- `9:16` → 2160×3840
+
+Export is optional and capability-probed. Success requires non-empty encoded data and verified dimensions. Unsupported WebM recording, cancellation, recorder failure, empty output, or dimension mismatch returns a non-success result and leaves the composition intact. The player itself does not require `MediaRecorder`.
 
 ## License
 
