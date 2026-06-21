@@ -27,6 +27,9 @@ test('progressive-disclosure entrypoints exist', () => {
   assert.equal(exists('SKILL.md'), true);
   assert.equal(exists('PRIVACY.md'), true);
   assert.equal(exists('SUPPORT.md'), true);
+  assert.equal(exists('docs/PLUGIN-NATIVE-V2.md'), true);
+  assert.equal(exists('core/contracts/composition.schema.json'), true);
+  assert.equal(exists('core/contracts/plugin-session.schema.json'), true);
   assert.equal(exists('reference/STYLE_INDEX.md'), true);
   assert.equal(exists('templates/index.json'), true);
   assert.equal(exists('reference/PRODUCT_PILLARS.md'), true);
@@ -225,6 +228,7 @@ test('public docs keep plugin-first install and markdown-authority fallback alig
   assert.match(readme, /Fallback: markdown skill/i);
   assert.match(readme, /PRIVACY\.md/i);
   assert.match(readme, /SUPPORT\.md/i);
+  assert.match(readme, /Plugin-Native V2/i);
   assert.match(usage, /Plugin wrapper contract/i);
   assert.match(usage, /codex plugin marketplace add suckseedrom\/open-presentation/i);
   assert.match(usage, /codex plugin add open-presentation@open-presentation/i);
@@ -277,6 +281,8 @@ test('repo-local Codex marketplace points at a valid plugin bundle', () => {
   assert.equal(exists('plugins/open-presentation/assets/screenshot1.png'), true);
   assert.equal(exists('plugins/open-presentation/assets/screenshot2.png'), true);
   assert.equal(exists('plugins/open-presentation/assets/screenshot3.png'), true);
+  assert.equal(exists('plugins/open-presentation/app/open-presentation-v2.app.template.json'), true);
+  assert.equal(exists('plugins/open-presentation/app/README.md'), true);
 });
 
 test('planning produces an input-derived micro-scene inventory instead of a fixed scene quota', () => {

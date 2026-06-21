@@ -9,6 +9,7 @@
 - Reprioritized the repo around public GitHub installation so public users get the main install path first and local marketplace use is clearly secondary.
 - Added storefront-style plugin visuals, richer plugin metadata, and a stronger GitHub release gate including Claude reload checks.
 - Added dedicated public `PRIVACY.md` and `SUPPORT.md` documents and pointed plugin metadata at the new privacy policy.
+- Added a plugin-native v2 architecture scaffold with typed contracts, orchestrator modules, host adapters, and app-surface templates for future Codex/Claude binding.
 - Added architecture checks for plugin-first install guidance, thin-wrapper rules, and skill fallback visibility.
 
 ## 1.10.0

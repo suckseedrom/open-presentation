@@ -135,6 +135,10 @@ Want to see the package in action? Copy one of these starter prompts and paste i
 - [PRIVACY.md](PRIVACY.md) explains the package's no-hidden-service posture and what is controlled by the host app instead.
 - [SUPPORT.md](SUPPORT.md) explains where public users should ask for install, generation, player, and export help.
 
+## Plugin-Native V2
+
+The repo now includes a real plugin-native v2 architecture scaffold in [docs/PLUGIN-NATIVE-V2.md](docs/PLUGIN-NATIVE-V2.md), including typed composition/session contracts and deterministic orchestrator modules for future Codex/Claude app-surface binding.
+
 ---
 
 ## What Ships

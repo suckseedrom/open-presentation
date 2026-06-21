@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/suckseedrom/open-presentation/core/contracts/composition.schema.json",
+  "title": "OpenPresentationComposition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "project",
+    "brief",
+    "theme",
+    "scenes",
+    "aspects",
+    "outputs"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^1\\.0\\.0$"
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "mode"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "mode": {
+          "type": "string",
+          "enum": ["presentation", "pitch-deck", "product-demo", "launch-video", "video-ad"]
+        }
+      }
+    },
+    "brief": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["product", "goal", "sourceSummary"],
+      "properties": {
+        "product": { "type": "string", "minLength": 1 },
+        "audience": { "type": "string" },
+        "goal": { "type": "string", "minLength": 1 },
+        "cta": { "type": "string" },
+        "sourceSummary": { "type": "string", "minLength": 1 }
+      }
+    },
+    "theme": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["selectedTemplate", "paletteDirection", "motionDirection"],
+      "properties": {
+        "selectedTemplate": { "type": "string", "minLength": 1 },
+        "paletteDirection": { "type": "string", "minLength": 1 },
+        "motionDirection": { "type": "string", "minLength": 1 }
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "job",
+          "focalObject",
+          "visibleState",
+          "motionFamily",
+          "durationMs"
+        ],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "title": { "type": "string", "minLength": 1 },
+          "job": { "type": "string", "minLength": 1 },
+          "focalObject": { "type": "string", "minLength": 1 },
+          "visibleState": { "type": "string", "minLength": 1 },
+          "motionFamily": { "type": "string", "minLength": 1 },
+          "durationMs": { "type": "integer", "minimum": 1000 }
+        }
+      }
+    },
+    "aspects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": ["16:9", "9:16"]
+      }
+    },
+    "outputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["html", "videoExportReady"],
+      "properties": {
+        "html": { "type": "boolean" },
+        "videoExportReady": { "type": "boolean" },
+        "suggestedFiles": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

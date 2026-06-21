@@ -18,6 +18,7 @@ open-presentation/
 ├── <repo marketplace file>
 ├── docs/
 ├── examples/
+├── core/
 ├── plugins/
 │   └── open-presentation/
 │       └── .codex-plugin/plugin.json
@@ -78,6 +79,7 @@ Keep the current base style as the anchor template.
 - [ ] `plugins/open-presentation/.codex-plugin/plugin.json` validates
 - [ ] plugin assets exist for icon, logo, and three screenshots
 - [ ] screenshots present the plugin like a polished public storefront package
+- [ ] the v2 contracts and orchestrator scaffold stay aligned with the skill authority
 - [ ] skill fallback guidance is still visible in `README.md`
 - [ ] `reference/STYLE_GUIDE.md` includes the text-light / motion-heavy budget
 - [ ] all JSON files parse successfully

@@ -45,6 +45,7 @@
   ],
   "authoritative_files": [
     "SKILL.md",
+    "docs/PLUGIN-NATIVE-V2.md",
     "reference/PRODUCT_PILLARS.md",
     "reference/STYLE_INDEX.md",
     "reference/STYLE_GUIDE.md",
@@ -62,7 +63,8 @@
   "capabilities": {
     "playback": "zero-dependency local HTML",
     "composition": "versioned portable JSON with validated import and autosave",
-    "video_export": "deterministic browser 4K WebM export directly in player"
+    "video_export": "deterministic browser 4K WebM export directly in player",
+    "plugin_native_v2": "typed orchestrator, session contract, and host adapter scaffold"
   },
-  "notes": "Plugin-first, skill-compatible public agent package optimized for public GitHub marketplace installation, with a repo-local Codex marketplace, zero-dependency HTML playback, adaptive input-derived scene planning, contextual product mockups and input-led language, varied scene lifecycles, closed per-scene dual-aspect QA, and direct player-integrated deterministic 4K WebM export."
+  "notes": "Plugin-first, skill-compatible public agent package optimized for public GitHub marketplace installation, with a repo-local Codex marketplace, zero-dependency HTML playback, adaptive input-derived scene planning, contextual product mockups and input-led language, varied scene lifecycles, closed per-scene dual-aspect QA, direct player-integrated deterministic 4K WebM export, and a plugin-native v2 architecture scaffold for future app-surface binding."
 }
