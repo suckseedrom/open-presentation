@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.12.0
+
+- Strengthened skill and plugin discovery metadata for pricing-page presentations, landing-page stories, launch ads, and keynote-style product reveals.
+- Reframed the public README around the `pm-skills` model: plugin install first, skill-first execution.
+- Clarified that stale installed plugin caches can continue routing to generic presentation tools until the plugin is reinstalled into a new thread.
+
 ## 1.11.0
 
 - Repositioned the repo as a plugin-first, skill-compatible public agent package.

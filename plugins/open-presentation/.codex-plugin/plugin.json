@@ -1,6 +1,6 @@
 {
   "name": "open-presentation",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "description": "Skill-first plugin for cinematic HTML presentations and video ads, packaged for public install in Codex and Claude-style marketplaces.",
   "author": {
     "name": "Allkons",
