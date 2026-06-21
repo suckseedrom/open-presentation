@@ -10,6 +10,7 @@ This package is plugin-first and skill-compatible. Keep both delivery paths alig
 - user-facing starter prompts in `examples/`
 - the zero-dependency HTML delivery contract in `docs/OUTPUT-CONTRACT.md`
 - the plugin-first install story and skill fallback path in the public docs
+- the repo marketplace files in `.agents/plugins/` and `plugins/open-presentation/`
 - the 16:9 / 9:16 production-quality promise in the style docs
 - the text-light / motion-heavy scene budget in the shared docs
 - adaptive, input-derived scene planning without a universal scene count
@@ -26,6 +27,7 @@ Before opening a PR, verify:
 - no file depends on MCP
 - no public file contains private-path or hidden dependency coupling
 - the plugin-first install path is clear
+- the repo marketplace file still points at a valid installable plugin bundle
 - the markdown-authority skill fallback path is still clear
 - the zero-dependency HTML promise appears in the public docs
 - the text-light / motion-heavy guidance appears in the public docs

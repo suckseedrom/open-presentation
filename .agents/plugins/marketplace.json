@@ -1,0 +1,20 @@
+{
+  "name": "open-presentation",
+  "interface": {
+    "displayName": "Open Presentation"
+  },
+  "plugins": [
+    {
+      "name": "open-presentation",
+      "source": {
+        "source": "local",
+        "path": "./plugins/open-presentation"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

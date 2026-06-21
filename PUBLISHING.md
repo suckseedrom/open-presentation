@@ -13,8 +13,12 @@ open-presentation/
 ├── LICENSE
 ├── SKILL.md
 ├── manifest.json
+├── <repo marketplace file>
 ├── docs/
 ├── examples/
+├── plugins/
+│   └── open-presentation/
+│       └── .codex-plugin/plugin.json
 ├── reference/
 │   ├── PRODUCT_PILLARS.md
 │   ├── STYLE_INDEX.md
@@ -33,6 +37,8 @@ open-presentation/
 ### Phase 1: plugin-first public core
 
 Ship the thin plugin wrapper metadata, the markdown skill, shared references, template metadata, template docs, and starter prompts together. The presentation output should default to zero-dependency HTML with inline CSS and JS, and the shared docs should enforce a text-light, motion-heavy scene budget.
+
+Treat public GitHub installation as the primary release surface. Local repo marketplace use is the development path, not the main user story.
 
 The core template is the adaptive default, not a universal activation rule. Its release contract derives scene inventory, mockups, language, and motion from the input; asks selective recommendation-first questions only for unresolved high-impact choices; and closes every scene through 16:9 and 9:16 QA.
 
@@ -54,11 +60,16 @@ Keep the current base style as the anchor template.
 
 ## Release checklist
 
+- [ ] the public GitHub repo contains the repo marketplace file and plugin bundle on the branch users will install
+- [ ] `codex plugin marketplace add suckseedrom/open-presentation` works from a clean Codex environment
+- [ ] `codex plugin add open-presentation@open-presentation` works after the marketplace add
 - [ ] `SKILL.md` is a workflow map
 - [ ] `reference/STYLE_INDEX.md` exists
 - [ ] `reference/PRODUCT_PILLARS.md` exists
 - [ ] plugin-first install guidance is visible in `README.md`
 - [ ] marketplace-style plugin install examples are visible in `README.md`
+- [ ] the repo marketplace file points at `./plugins/open-presentation`
+- [ ] `plugins/open-presentation/.codex-plugin/plugin.json` validates
 - [ ] skill fallback guidance is still visible in `README.md`
 - [ ] `reference/STYLE_GUIDE.md` includes the text-light / motion-heavy budget
 - [ ] all JSON files parse successfully

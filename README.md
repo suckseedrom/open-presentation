@@ -5,7 +5,7 @@
 [![Motion Heavy](https://img.shields.io/badge/Storytelling-Motion%20Heavy-orange.svg?style=flat-square)](https://github.com/suckseedrom/open-presentation)
 [![Aspect Ratios](https://img.shields.io/badge/Aspects-16%3A9%20%2F%209%3A16-purple.svg?style=flat-square)](https://github.com/suckseedrom/open-presentation)
 
-Turn raw product briefs, landing pages, code snippets, or simple notes into cinematic, high-fidelity presentation video ads directly inside your codebase. Install it as an agent plugin when your host supports plugins, or load it as a markdown skill when that is the better fit.
+Turn raw product briefs, landing pages, code snippets, or simple notes into cinematic, high-fidelity presentation video ads directly inside your codebase. This repo is optimized first for public GitHub installation as an agent plugin, with markdown-skill fallback when the host needs it.
 
 No slides. No generic decks. Just motion-rich presentation systems that frontier AI agent apps can discover, load, and execute from the same portable markdown authority.
 
@@ -23,29 +23,47 @@ No slides. No generic decks. Just motion-rich presentation systems that frontier
 
 ## Install
 
-### Preferred: agent plugin
+### Public users: GitHub plugin install
 
-If your AI app supports plugin or repo-package installs, use this repo as a plugin bundle. The plugin should stay thin:
+Preferred: agent plugin.
 
-- expose `SKILL.md` as the workflow entrypoint
-- ship `reference/`, `templates/`, `examples/`, and `lib/` unchanged
-- add no MCP server, private path, or hidden runtime dependency
+If your AI app supports plugin or repo-package installs, use the public GitHub repo as the install source.
 
-Compatible hosts may label this differently: plugin, extension, repo package, or agent bundle. The package goal is the same in all of them: user-friendly install, then on-demand loading of the bundled markdown authority.
-
-Example marketplace-style install commands:
+Codex CLI:
 
 ```bash
 codex plugin marketplace add suckseedrom/open-presentation
+codex plugin add open-presentation@open-presentation
 ```
 
-Claude Code uses the slash-command form in its chat surface:
+Claude Code:
 
 ```text
 /plugin marketplace add suckseedrom/open-presentation
 ```
 
-Use host-specific marketplace syntax when your app exposes one. Codex expects a marketplace source such as `owner/repo`, a Git URL, or a local marketplace path. Keep the bundled markdown authority intact.
+Then install `open-presentation` from the `open-presentation` marketplace in Claude Code's plugin UI or CLI surface.
+
+This public path works only after the repo branch you point at contains the repo marketplace file and the plugin bundle.
+
+### Maintainers: keep the public path healthy
+
+- keep `SKILL.md` as the workflow entrypoint
+- keep `reference/`, `templates/`, `examples/`, and `lib/` bundled and portable
+- keep the plugin wrapper thin
+- avoid MCP requirements, hidden services, or machine-specific setup
+- push the marketplace file and plugin bundle to the public GitHub branch before telling users to install
+
+### Local development
+
+If you prefer a local repo marketplace during development, Codex can add this repo root directly once the repo marketplace file and `plugins/open-presentation/` bundle are present:
+
+```bash
+codex plugin marketplace add <repo-root>
+codex plugin add open-presentation@open-presentation
+```
+
+Codex expects a marketplace source such as `owner/repo`, a Git URL, or a local marketplace path. This repo now ships the required marketplace manifest and plugin manifest so both the public GitHub route and the local dev route work.
 
 ### Fallback: markdown skill
 
@@ -104,6 +122,8 @@ Want to see the package in action? Copy one of these starter prompts and paste i
 
 - `SKILL.md` is the markdown authority and execution map.
 - `manifest.json` advertises plugin-first plus skill-compatible install modes.
+- a repo marketplace file makes the repo installable as a Codex marketplace source.
+- `plugins/open-presentation/.codex-plugin/plugin.json` is the installable plugin manifest.
 - `reference/` holds the shared creative and QA contract.
 - `templates/` holds preview-first design packs for progressive disclosure.
 - `lib/` ships the local player and optional deterministic 4K export modules.
@@ -189,6 +209,13 @@ Verify repository alignment with:
 
 ```bash
 node tests/architecture.test.mjs
+```
+
+Before telling public users to install from GitHub, also verify the public marketplace path from a clean Codex environment:
+
+```bash
+codex plugin marketplace add suckseedrom/open-presentation
+codex plugin add open-presentation@open-presentation
 ```
 
 ---

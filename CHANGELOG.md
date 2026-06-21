@@ -5,6 +5,8 @@
 - Repositioned the repo as a plugin-first, skill-compatible public agent package.
 - Updated metadata, public docs, and maintainer guidance to preserve one markdown authority across plugin and skill installs.
 - Corrected marketplace-style install examples to use the real `suckseedrom/open-presentation` source, and switched Claude guidance to the documented slash-command form.
+- Added a real repo-local Codex marketplace at `.agents/plugins/marketplace.json` and an installable plugin bundle at `plugins/open-presentation/.codex-plugin/plugin.json`.
+- Reprioritized the repo around public GitHub installation so public users get the main install path first and local marketplace use is clearly secondary.
 - Added architecture checks for plugin-first install guidance, thin-wrapper rules, and skill fallback visibility.
 
 ## 1.10.0

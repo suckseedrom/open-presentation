@@ -6,6 +6,8 @@
   "primary_install_unit": "plugin",
   "entrypoint": "SKILL.md",
   "plugin_entrypoint": "manifest.json",
+  "plugin_marketplace_root": ".agents/plugins/marketplace.json",
+  "plugin_bundle_root": "plugins/open-presentation/",
   "reference_root": "reference/",
   "example_root": "examples/",
   "template_root": "templates/",
@@ -15,8 +17,10 @@
     "repo-copy"
   ],
   "preferred_install_mode": "agent-plugin",
+  "public_install_surface": "github-marketplace",
   "install_commands": {
     "codex-plugin-marketplace": "codex plugin marketplace add suckseedrom/open-presentation",
+    "codex-plugin-install": "codex plugin add open-presentation@open-presentation",
     "claude-plugin-marketplace": "/plugin marketplace add suckseedrom/open-presentation",
     "markdown-skill": "npx skills add suckseedrom/open-presentation",
     "repo-copy": "git clone https://github.com/suckseedrom/open-presentation.git"
@@ -24,6 +28,8 @@
   "plugin_contract": {
     "wrapper": "thin",
     "workflow_authority": "SKILL.md",
+    "repo_marketplace_file": ".agents/plugins/marketplace.json",
+    "repo_plugin_bundle": "plugins/open-presentation/",
     "requires_mcp": false,
     "requires_private_paths": false,
     "requires_hidden_runtime": false
@@ -58,5 +64,5 @@
     "composition": "versioned portable JSON with validated import and autosave",
     "video_export": "deterministic browser 4K WebM export directly in player"
   },
-  "notes": "Plugin-first, skill-compatible public agent package with zero-dependency HTML playback, adaptive input-derived scene planning, contextual product mockups and input-led language, varied scene lifecycles, closed per-scene dual-aspect QA, and direct player-integrated deterministic 4K WebM export."
+  "notes": "Plugin-first, skill-compatible public agent package optimized for public GitHub marketplace installation, with a repo-local Codex marketplace, zero-dependency HTML playback, adaptive input-derived scene planning, contextual product mockups and input-led language, varied scene lifecycles, closed per-scene dual-aspect QA, and direct player-integrated deterministic 4K WebM export."
 }

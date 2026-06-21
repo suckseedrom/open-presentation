@@ -29,6 +29,8 @@ test('progressive-disclosure entrypoints exist', () => {
   assert.equal(exists('templates/index.json'), true);
   assert.equal(exists('reference/PRODUCT_PILLARS.md'), true);
   assert.equal(exists('docs/OUTPUT-CONTRACT.md'), true);
+  assert.equal(exists('.agents/plugins/marketplace.json'), true);
+  assert.equal(exists('plugins/open-presentation/.codex-plugin/plugin.json'), true);
 });
 
 test('MCP surface is removed from the public package', () => {
@@ -136,10 +138,14 @@ test('manifest advertises plugin-first with skill-compatible fallback', () => {
   assert.equal(manifest.package_type, 'plugin-skill-pack');
   assert.equal(manifest.primary_install_unit, 'plugin');
   assert.equal(manifest.preferred_install_mode, 'agent-plugin');
+  assert.equal(manifest.public_install_surface, 'github-marketplace');
+  assert.equal(manifest.plugin_marketplace_root, '.agents/plugins/marketplace.json');
+  assert.equal(manifest.plugin_bundle_root, 'plugins/open-presentation/');
   assert.ok(Array.isArray(manifest.install_modes));
   assert.ok(manifest.install_modes.includes('agent-plugin'));
   assert.ok(manifest.install_modes.includes('markdown-skill'));
   assert.equal(manifest.install_commands['codex-plugin-marketplace'], 'codex plugin marketplace add suckseedrom/open-presentation');
+  assert.equal(manifest.install_commands['codex-plugin-install'], 'codex plugin add open-presentation@open-presentation');
   assert.equal(manifest.install_commands['claude-plugin-marketplace'], '/plugin marketplace add suckseedrom/open-presentation');
   assert.equal(manifest.plugin_contract.requires_mcp, false);
   assert.equal(manifest.plugin_contract.requires_private_paths, false);
@@ -211,10 +217,14 @@ test('public docs keep plugin-first install and markdown-authority fallback alig
 
   assert.match(readme, /Preferred: agent plugin/i);
   assert.match(readme, /codex plugin marketplace add suckseedrom\/open-presentation/i);
+  assert.match(readme, /codex plugin add open-presentation@open-presentation/i);
+  assert.match(readme, /Public users: GitHub plugin install/i);
   assert.match(readme, /\/plugin marketplace add suckseedrom\/open-presentation/i);
   assert.match(readme, /Fallback: markdown skill/i);
   assert.match(usage, /Plugin wrapper contract/i);
   assert.match(usage, /codex plugin marketplace add suckseedrom\/open-presentation/i);
+  assert.match(usage, /codex plugin add open-presentation@open-presentation/i);
+  assert.match(usage, /Public GitHub install/i);
   assert.match(usage, /\/plugin marketplace add suckseedrom\/open-presentation/i);
   assert.match(usage, /do not add MCP requirements/i);
   assert.match(portability, /plugin-capable agent apps/i);
@@ -222,6 +232,38 @@ test('public docs keep plugin-first install and markdown-authority fallback alig
   assert.match(publishing, /plugin-first, skill-compatible/i);
   assert.match(claude, /plugin-first, skill-compatible/i);
   assert.match(contributing, /plugin-first install path is clear/i);
+});
+
+test('public-user install path is prioritized over local-development guidance', () => {
+  const readme = readText('README.md');
+  const publicInstallIndex = readme.indexOf('### Public users: GitHub plugin install');
+  const localDevIndex = readme.indexOf('### Local development');
+
+  assert.notEqual(publicInstallIndex, -1);
+  assert.notEqual(localDevIndex, -1);
+  assert.ok(publicInstallIndex < localDevIndex, 'public GitHub install should appear before local development guidance');
+  assert.match(readText('PUBLISHING.md'), /public GitHub installation as the primary release surface/i);
+  assert.match(readText('docs/FAQ.md'), /public GitHub repo marketplace path first/i);
+});
+
+test('repo-local Codex marketplace points at a valid plugin bundle', () => {
+  const marketplace = JSON.parse(readText('.agents/plugins/marketplace.json'));
+  const plugin = JSON.parse(readText('plugins/open-presentation/.codex-plugin/plugin.json'));
+
+  assert.equal(marketplace.name, 'open-presentation');
+  assert.equal(marketplace.plugins.length, 1);
+  assert.equal(marketplace.plugins[0].name, 'open-presentation');
+  assert.equal(marketplace.plugins[0].source.source, 'local');
+  assert.equal(marketplace.plugins[0].source.path, './plugins/open-presentation');
+  assert.equal(plugin.name, 'open-presentation');
+  assert.equal(plugin.skills, './skills/');
+  assert.match(plugin.interface.displayName, /Open Presentation/);
+  assert.equal(exists('plugins/open-presentation/skills/open-presentation/SKILL.md'), true);
+  assert.equal(exists('plugins/open-presentation/reference'), true);
+  assert.equal(exists('plugins/open-presentation/templates'), true);
+  assert.equal(exists('plugins/open-presentation/examples'), true);
+  assert.equal(exists('plugins/open-presentation/docs'), true);
+  assert.equal(exists('plugins/open-presentation/lib'), true);
 });
 
 test('planning produces an input-derived micro-scene inventory instead of a fixed scene quota', () => {

@@ -1,0 +1,43 @@
+{
+  "name": "open-presentation",
+  "version": "1.11.0",
+  "description": "Plugin-first, skill-compatible workflow for cinematic HTML presentations and video ads.",
+  "author": {
+    "name": "gdrom",
+    "url": "https://github.com/suckseedrom"
+  },
+  "homepage": "https://github.com/suckseedrom/open-presentation",
+  "repository": "https://github.com/suckseedrom/open-presentation",
+  "license": "MIT",
+  "keywords": [
+    "presentation",
+    "video-ad",
+    "html",
+    "skill",
+    "plugin",
+    "codex",
+    "claude-code",
+    "marketing"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Open Presentation",
+    "shortDescription": "Generate motion-heavy HTML presentations and video ads.",
+    "longDescription": "Install from GitHub and turn briefs, pages, and notes into text-light, motion-heavy, zero-dependency HTML presentations and optional 4K WebM exports using the bundled open-presentation workflow.",
+    "developerName": "gdrom",
+    "category": "Productivity",
+    "capabilities": [
+      "Write",
+      "Interactive"
+    ],
+    "websiteURL": "https://github.com/suckseedrom/open-presentation",
+    "privacyPolicyURL": "https://github.com/suckseedrom/open-presentation/blob/main/README.md",
+    "termsOfServiceURL": "https://github.com/suckseedrom/open-presentation/blob/main/LICENSE",
+    "defaultPrompt": [
+      "Use open-presentation to build a launch video ad.",
+      "Use open-presentation to turn our pricing page into HTML scenes.",
+      "Use open-presentation to create a 9:16 product demo reel."
+    ],
+    "brandColor": "#0D9488"
+  }
+}

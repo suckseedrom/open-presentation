@@ -26,6 +26,8 @@ The bundled markdown and JSON reference pack is the authority, so the skill can 
 
 The same rule makes the plugin path portable too. A compatible plugin wrapper can point at the exact same bundled markdown authority instead of introducing a second instruction system.
 
+For Codex, this repo now includes a repo-local marketplace file plus an installable plugin bundle under `plugins/open-presentation/`.
+
 The creative contract is portable too: input-derived cinematic micro-scenes, contextual product mockups, input-led language, layered entrance/action/exit motion, and minimal player-like transport do not require a particular framework. The result remains text-light and motion-heavy.
 
 Portability does not weaken QA. Every scene must pass the closed render, inspect, repair, and rerender gate independently at 16:9 and 9:16 before delivery.

@@ -8,7 +8,7 @@ No. The bundled reference pack and template docs are the authority.
 
 Both. The preferred UX is a thin plugin or repo-package install for compatible frontier AI agent apps, but the same bundle still works as a markdown skill and as a direct repo copy.
 
-Typical plugin-marketplace examples look like `codex plugin marketplace add suckseedrom/open-presentation` or `/plugin marketplace add suckseedrom/open-presentation` in Claude Code.
+Typical plugin-marketplace examples look like `codex plugin marketplace add suckseedrom/open-presentation`, then `codex plugin add open-presentation@open-presentation`, or `/plugin marketplace add suckseedrom/open-presentation` in Claude Code.
 
 ## Can I use this in an empty project?
 
@@ -62,3 +62,7 @@ No. Read only enough metadata to shortlist, then one `design.md` after selection
 ## Does installation guarantee automatic activation?
 
 No. Plugin metadata and skill metadata improve discovery for compatible agents and hosts, but the host and user request determine activation. Naming `open-presentation` explicitly is still the most reliable option.
+
+## What should public users install from?
+
+Prefer the public GitHub repo marketplace path first. Use `codex plugin marketplace add suckseedrom/open-presentation`, then install `open-presentation@open-presentation`. Use the markdown-skill path only when the host does not support plugin marketplaces.

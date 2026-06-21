@@ -2,20 +2,36 @@
 
 ## Install
 
-### Preferred: plugin-capable host
+### Public GitHub install
 
-Install this repo as a plugin, extension, repo package, or agent bundle when your AI app supports that flow. The plugin should expose the bundled `SKILL.md` workflow and load the markdown authority on demand.
+Preferred when the host supports plugins.
 
-Example marketplace-style install commands:
+Install this repo as a plugin, extension, repo package, or agent bundle from the public GitHub repo when your AI app supports that flow.
+
+Codex CLI install:
 
 ```bash
 codex plugin marketplace add suckseedrom/open-presentation
+codex plugin add open-presentation@open-presentation
 ```
 
 Claude Code uses the slash-command form:
 
 ```text
 /plugin marketplace add suckseedrom/open-presentation
+```
+
+Then install `open-presentation` from the `open-presentation` marketplace in Claude Code.
+
+This is the main path for public users. It depends on the GitHub branch containing both the repo marketplace file and the installable plugin bundle.
+
+### Local repo testing
+
+For local repo testing in Codex:
+
+```bash
+codex plugin marketplace add <repo-root>
+codex plugin add open-presentation@open-presentation
 ```
 
 These are host-style plugin examples for the actual marketplace source. Use the marketplace syntax your agent app actually exposes, then fall back to the skill install when no plugin marketplace is available.
@@ -69,6 +85,8 @@ When this package is installed through a plugin surface, keep the wrapper minima
 - `reference/`, `templates/`, `examples/`, and `lib/` stay bundled and portable
 - do not add MCP requirements, private paths, or hidden runtime services
 - do not fork the instructions into a plugin-only rule set
+
+For public distribution, the GitHub install path should stay as reliable as the local dev path.
 
 ## Optional 4K video export delivery
 
