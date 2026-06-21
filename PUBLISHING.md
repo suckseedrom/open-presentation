@@ -1,5 +1,7 @@
 # Publishing guide
 
+This repo ships as a plugin-first, skill-compatible public agent package. Keep the plugin wrapper thin and keep the bundled markdown files authoritative.
+
 ## Target shape
 
 ```text
@@ -28,11 +30,13 @@ open-presentation/
 
 ## Release model
 
-### Phase 1: markdown-first core
+### Phase 1: plugin-first public core
 
-Ship the markdown skill, shared references, template metadata, template docs, and starter prompts together. The presentation output should default to zero-dependency HTML with inline CSS and JS, and the shared docs should enforce a text-light, motion-heavy scene budget.
+Ship the thin plugin wrapper metadata, the markdown skill, shared references, template metadata, template docs, and starter prompts together. The presentation output should default to zero-dependency HTML with inline CSS and JS, and the shared docs should enforce a text-light, motion-heavy scene budget.
 
 The core template is the adaptive default, not a universal activation rule. Its release contract derives scene inventory, mockups, language, and motion from the input; asks selective recommendation-first questions only for unresolved high-impact choices; and closes every scene through 16:9 and 9:16 QA.
+
+The plugin wrapper must not add MCP, hidden services, private-path references, or alternate instruction authority. It should simply make the bundled skill easier to install in plugin-capable frontier AI agent apps.
 
 ### Phase 2: expand template coverage
 
@@ -43,6 +47,7 @@ Keep the current base style as the anchor template.
 ## What not to do
 
 - do not reintroduce MCP
+- do not make the plugin wrapper smarter than the markdown authority
 - do not bulk-load every template `design.md`
 - do not move shared authority into template-local files unless the rule truly varies by template
 - do not turn the skill back into one giant all-in-one contract
@@ -52,13 +57,16 @@ Keep the current base style as the anchor template.
 - [ ] `SKILL.md` is a workflow map
 - [ ] `reference/STYLE_INDEX.md` exists
 - [ ] `reference/PRODUCT_PILLARS.md` exists
+- [ ] plugin-first install guidance is visible in `README.md`
+- [ ] marketplace-style plugin install examples are visible in `README.md`
+- [ ] skill fallback guidance is still visible in `README.md`
 - [ ] `reference/STYLE_GUIDE.md` includes the text-light / motion-heavy budget
 - [ ] all JSON files parse successfully
 - [ ] at least one default template has example briefs
 - [ ] MCP files are absent
 - [ ] architecture tests pass
 - [ ] no public file contains private-path or hidden dependency coupling
-- [ ] `README.md` makes the markdown-only loading path clear
+- [ ] `README.md` makes the plugin-first and markdown-authority loading path clear
 - [ ] public docs make the zero-dependency HTML delivery promise visible
 - [ ] public docs make the text-light / motion-heavy guidance visible
 - [ ] adaptive scene planning does not impose a universal scene count

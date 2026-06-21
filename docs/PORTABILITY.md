@@ -1,6 +1,6 @@
 # Portability
 
-This package is intended to work in any project, including an empty project. The presentation itself stays portable as zero-dependency HTML: either a single file with inline CSS and JS or HTML plus the bundled local player files when the workspace accepts them.
+This package is intended to work in any project, including an empty project. It is portable across plugin-capable agent apps, markdown-skill runners, and direct repo consumption. The presentation itself stays portable as zero-dependency HTML: either a single file with inline CSS and JS or HTML plus the bundled local player files when the workspace accepts them.
 
 ## Supported starting points
 
@@ -8,6 +8,7 @@ This package is intended to work in any project, including an empty project. The
 - an existing app
 - a website export
 - a folder of markdown notes
+- a plugin-capable frontier AI agent app
 - a short product brief
 - a presentation, pitch-deck, product-demo, launch, or video-ad request
 
@@ -22,6 +23,8 @@ This package is intended to work in any project, including an empty project. The
 ## Why it stays portable
 
 The bundled markdown and JSON reference pack is the authority, so the skill can be installed and used without depending on the source repository it originated from. Progressive disclosure keeps loading compact: read the workflow map, compact template metadata, shortlisted preview cards, and only the selected design document.
+
+The same rule makes the plugin path portable too. A compatible plugin wrapper can point at the exact same bundled markdown authority instead of introducing a second instruction system.
 
 The creative contract is portable too: input-derived cinematic micro-scenes, contextual product mockups, input-led language, layered entrance/action/exit motion, and minimal player-like transport do not require a particular framework. The result remains text-light and motion-heavy.
 

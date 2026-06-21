@@ -1,5 +1,7 @@
 # Contributing
 
+This package is plugin-first and skill-compatible. Keep both delivery paths aligned to the same markdown authority.
+
 ## What to improve
 
 - the workflow map in `SKILL.md`
@@ -7,6 +9,7 @@
 - template metadata and template docs in `templates/`
 - user-facing starter prompts in `examples/`
 - the zero-dependency HTML delivery contract in `docs/OUTPUT-CONTRACT.md`
+- the plugin-first install story and skill fallback path in the public docs
 - the 16:9 / 9:16 production-quality promise in the style docs
 - the text-light / motion-heavy scene budget in the shared docs
 - adaptive, input-derived scene planning without a universal scene count
@@ -22,7 +25,8 @@ Before opening a PR, verify:
 - the architecture test still passes
 - no file depends on MCP
 - no public file contains private-path or hidden dependency coupling
-- the markdown-only progressive-disclosure path is still clear
+- the plugin-first install path is clear
+- the markdown-authority skill fallback path is still clear
 - the zero-dependency HTML promise appears in the public docs
 - the text-light / motion-heavy guidance appears in the public docs
 - the adaptive contract remains aligned across `SKILL.md`, shared references, and the selected template docs

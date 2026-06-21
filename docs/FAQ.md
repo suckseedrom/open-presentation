@@ -4,6 +4,12 @@
 
 No. The bundled reference pack and template docs are the authority.
 
+## Is this a plugin or a skill?
+
+Both. The preferred UX is a thin plugin or repo-package install for compatible frontier AI agent apps, but the same bundle still works as a markdown skill and as a direct repo copy.
+
+Typical plugin-marketplace examples look like `codex plugin marketplace add suckseedrom/open-presentation` or `/plugin marketplace add suckseedrom/open-presentation` in Claude Code.
+
 ## Can I use this in an empty project?
 
 Yes. Start with `examples/empty-project.md` or a direct short prompt. The skill should scaffold first when needed.
@@ -26,7 +32,7 @@ It should not. Product mockups follow the supplied product, workflow, platform, 
 
 ## What is required before delivery?
 
-Every scene must complete a closed render, inspect, repair, and rerender loop at 16:9 and 9:16. Delivery remains blocked until every per-scene ledger row is green/PASS at both aspects.
+Every scene must complete a closed render, inspect, repair, and rerender loop at 16:9 and 9:16. Delivery remains blocked until every per-scene ledger row is green or PASS at both aspects.
 
 ## Is video export a runtime dependency?
 
@@ -55,4 +61,4 @@ No. Read only enough metadata to shortlist, then one `design.md` after selection
 
 ## Does installation guarantee automatic activation?
 
-No. Metadata improves discovery for compatible agents and hosts, but the host and user request determine activation. Naming the skill explicitly is the most reliable option.
+No. Plugin metadata and skill metadata improve discovery for compatible agents and hosts, but the host and user request determine activation. Naming `open-presentation` explicitly is still the most reliable option.

@@ -66,6 +66,8 @@ test('shared player library ships with the pack', () => {
 });
 
 test('the revised pack advertises the new product pillars', () => {
+  assert.match(readText('README.md'), /plugin-first/i);
+  assert.match(readText('README.md'), /markdown skill/i);
   assert.match(readText('README.md'), /zero-dependency HTML delivery/i);
   assert.match(readText('reference/STYLE_GUIDE.md'), /anti-AI-slop/i);
   assert.match(readText('reference/STYLE_GUIDE.md'), /centered statement/i);
@@ -128,6 +130,22 @@ test('the revised pack advertises the new product pillars', () => {
   assert.match(readText('README.md'), /recheck pass/i);
 });
 
+test('manifest advertises plugin-first with skill-compatible fallback', () => {
+  const manifest = JSON.parse(readText('manifest.json'));
+
+  assert.equal(manifest.package_type, 'plugin-skill-pack');
+  assert.equal(manifest.primary_install_unit, 'plugin');
+  assert.equal(manifest.preferred_install_mode, 'agent-plugin');
+  assert.ok(Array.isArray(manifest.install_modes));
+  assert.ok(manifest.install_modes.includes('agent-plugin'));
+  assert.ok(manifest.install_modes.includes('markdown-skill'));
+  assert.equal(manifest.install_commands['codex-plugin-marketplace'], 'codex plugin marketplace add suckseedrom/open-presentation');
+  assert.equal(manifest.install_commands['claude-plugin-marketplace'], '/plugin marketplace add suckseedrom/open-presentation');
+  assert.equal(manifest.plugin_contract.requires_mcp, false);
+  assert.equal(manifest.plugin_contract.requires_private_paths, false);
+  assert.equal(manifest.plugin_contract.requires_hidden_runtime, false);
+});
+
 test('shared player library exposes a scene background layer', () => {
   const css = readText('lib/player.css');
   assert.match(css, /\.pf-scene-bg/);
@@ -180,6 +198,30 @@ test('workflow preflights input sufficiency and asks only bounded high-impact qu
   assert.match(skill, /2(?:\s*(?:-|–|to)\s*)4 recommendation-first selectable (?:questions|Q&A)/i);
   assert.match(skill, /do not ask.*(?:already|supplied|provided)/i);
   assert.match(skill, /untrusted (?:source|input|content)[\s\S]{0,160}prompt injection[\s\S]{0,160}(?:inert|ignore|not instructions)/i);
+});
+
+test('public docs keep plugin-first install and markdown-authority fallback aligned', () => {
+  const readme = readText('README.md');
+  const usage = readText('docs/USAGE.md');
+  const portability = readText('docs/PORTABILITY.md');
+  const faq = readText('docs/FAQ.md');
+  const publishing = readText('PUBLISHING.md');
+  const claude = readText('CLAUDE.md');
+  const contributing = readText('CONTRIBUTING.md');
+
+  assert.match(readme, /Preferred: agent plugin/i);
+  assert.match(readme, /codex plugin marketplace add suckseedrom\/open-presentation/i);
+  assert.match(readme, /\/plugin marketplace add suckseedrom\/open-presentation/i);
+  assert.match(readme, /Fallback: markdown skill/i);
+  assert.match(usage, /Plugin wrapper contract/i);
+  assert.match(usage, /codex plugin marketplace add suckseedrom\/open-presentation/i);
+  assert.match(usage, /\/plugin marketplace add suckseedrom\/open-presentation/i);
+  assert.match(usage, /do not add MCP requirements/i);
+  assert.match(portability, /plugin-capable agent apps/i);
+  assert.match(faq, /Both\./i);
+  assert.match(publishing, /plugin-first, skill-compatible/i);
+  assert.match(claude, /plugin-first, skill-compatible/i);
+  assert.match(contributing, /plugin-first install path is clear/i);
 });
 
 test('planning produces an input-derived micro-scene inventory instead of a fixed scene quota', () => {

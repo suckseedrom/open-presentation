@@ -7,6 +7,8 @@ description: "Generate premium, multi-scene, UI-first presentations, pitch decks
 
 Turn product briefs, pages, screenshots, notes, or an empty project into a cinematic presentation implementation that feels like `PresentationFeature`.
 
+This workflow can be surfaced through a thin plugin wrapper or loaded directly as a markdown skill. In both cases, `SKILL.md` and the bundled markdown and JSON files remain the authority.
+
 ## Core rules
 
 1. **Implementation-first** — default to real source files in the current app workspace.

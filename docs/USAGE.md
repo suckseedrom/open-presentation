@@ -2,9 +2,33 @@
 
 ## Install
 
+### Preferred: plugin-capable host
+
+Install this repo as a plugin, extension, repo package, or agent bundle when your AI app supports that flow. The plugin should expose the bundled `SKILL.md` workflow and load the markdown authority on demand.
+
+Example marketplace-style install commands:
+
+```bash
+codex plugin marketplace add suckseedrom/open-presentation
+```
+
+Claude Code uses the slash-command form:
+
+```text
+/plugin marketplace add suckseedrom/open-presentation
+```
+
+These are host-style plugin examples for the actual marketplace source. Use the marketplace syntax your agent app actually exposes, then fall back to the skill install when no plugin marketplace is available.
+
+### Fallback: markdown skill
+
 ```bash
 npx skills add suckseedrom/open-presentation
 ```
+
+### Fallback: repo copy
+
+Clone or copy the repo into the current workspace and let the host load `SKILL.md` directly.
 
 ## Default prompt
 
@@ -12,7 +36,7 @@ npx skills add suckseedrom/open-presentation
 Use open-presentation to implement the Apple Inc about us presentation.
 ```
 
-That short prompt can be enough for presentations, pitch decks, product demos, launches, and video ads. Skill metadata improves discoverability in compatible hosts; it does not guarantee universal auto-activation.
+That short prompt can be enough for presentations, pitch decks, product demos, launches, and video ads. Plugin metadata and skill metadata improve discoverability in compatible hosts; they do not guarantee universal auto-activation.
 
 The workflow first runs an input-sufficiency preflight:
 
@@ -36,6 +60,15 @@ The implementation contract is:
 - keep the output accessible, customizable, and production-ready for 16:9 and 9:16
 - keep the presentation zero-dependency, text-light, and motion-heavy
 - render, inspect, repair, and rerender every scene at both aspect targets; deliver only after every scene is green at both
+
+## Plugin wrapper contract
+
+When this package is installed through a plugin surface, keep the wrapper minimal:
+
+- `SKILL.md` remains the workflow authority
+- `reference/`, `templates/`, `examples/`, and `lib/` stay bundled and portable
+- do not add MCP requirements, private paths, or hidden runtime services
+- do not fork the instructions into a plugin-only rule set
 
 ## Optional 4K video export delivery
 

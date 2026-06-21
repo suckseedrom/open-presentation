@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.11.0
+
+- Repositioned the repo as a plugin-first, skill-compatible public agent package.
+- Updated metadata, public docs, and maintainer guidance to preserve one markdown authority across plugin and skill installs.
+- Corrected marketplace-style install examples to use the real `suckseedrom/open-presentation` source, and switched Claude guidance to the documented slash-command form.
+- Added architecture checks for plugin-first install guidance, thin-wrapper rules, and skill fallback visibility.
+
 ## 1.10.0
 
 - Replaced fixed scene-count expectations with adaptive, input-derived scene planning.

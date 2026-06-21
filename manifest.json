@@ -1,24 +1,41 @@
 {
   "name": "open-presentation",
   "version": "1.11.0",
-  "distribution": "public-markdown",
-  "package_type": "skill-pack",
-  "primary_install_unit": "skills",
+  "distribution": "public-agent-package",
+  "package_type": "plugin-skill-pack",
+  "primary_install_unit": "plugin",
   "entrypoint": "SKILL.md",
+  "plugin_entrypoint": "manifest.json",
   "reference_root": "reference/",
   "example_root": "examples/",
   "template_root": "templates/",
   "install_modes": [
+    "agent-plugin",
     "markdown-skill",
     "repo-copy"
   ],
-  "install_command": "npx skills add suckseedrom/open-presentation",
+  "preferred_install_mode": "agent-plugin",
+  "install_commands": {
+    "codex-plugin-marketplace": "codex plugin marketplace add suckseedrom/open-presentation",
+    "claude-plugin-marketplace": "/plugin marketplace add suckseedrom/open-presentation",
+    "markdown-skill": "npx skills add suckseedrom/open-presentation",
+    "repo-copy": "git clone https://github.com/suckseedrom/open-presentation.git"
+  },
+  "plugin_contract": {
+    "wrapper": "thin",
+    "workflow_authority": "SKILL.md",
+    "requires_mcp": false,
+    "requires_private_paths": false,
+    "requires_hidden_runtime": false
+  },
   "supported_clients": [
     "codex",
     "claude-code",
+    "claude-desktop",
     "opencode",
     "cursor",
-    "markdown-skill-runners"
+    "markdown-skill-runners",
+    "plugin-capable-agent-apps"
   ],
   "authoritative_files": [
     "SKILL.md",
@@ -41,5 +58,5 @@
     "composition": "versioned portable JSON with validated import and autosave",
     "video_export": "deterministic browser 4K WebM export directly in player"
   },
-  "notes": "Progressive-disclosure public skill pack with zero-dependency HTML playback, adaptive input-derived scene planning, contextual product mockups and input-led language, varied scene lifecycles, closed per-scene dual-aspect QA, and direct player-integrated deterministic 4K WebM export."
+  "notes": "Plugin-first, skill-compatible public agent package with zero-dependency HTML playback, adaptive input-derived scene planning, contextual product mockups and input-led language, varied scene lifecycles, closed per-scene dual-aspect QA, and direct player-integrated deterministic 4K WebM export."
 }

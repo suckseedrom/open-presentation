@@ -1,52 +1,72 @@
-# 🎬 open-presentation
+# open-presentation
 
 [![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero-success.svg?style=flat-square)](https://github.com/suckseedrom/open-presentation)
 [![HTML First](https://img.shields.io/badge/Delivery-HTML%20First-blue.svg?style=flat-square)](https://github.com/suckseedrom/open-presentation)
 [![Motion Heavy](https://img.shields.io/badge/Storytelling-Motion%20Heavy-orange.svg?style=flat-square)](https://github.com/suckseedrom/open-presentation)
 [![Aspect Ratios](https://img.shields.io/badge/Aspects-16%3A9%20%2F%209%3A16-purple.svg?style=flat-square)](https://github.com/suckseedrom/open-presentation)
 
-Turn raw product briefs, landing pages, code snippets, or simple notes into **cinematic, high-fidelity presentation video ads** directly inside your codebase. Start in the minimal player, with optional deterministic 4K WebM video export.
+Turn raw product briefs, landing pages, code snippets, or simple notes into cinematic, high-fidelity presentation video ads directly inside your codebase. Install it as an agent plugin when your host supports plugins, or load it as a markdown skill when that is the better fit.
 
-No slides. No templates that look like standard decks. Just pure, motion-rich, cinematic experiences built automatically by your AI pairing assistant.
-
----
-
-## ⚡ What Makes This Skill Special?
-
-*   **📦 Zero-Dependency HTML Delivery**  
-    Generates standalone, compile-free, single-file HTML presentations or lightweight structures utilizing a pre-built player. No `npm install`, no complex build configurations, and no bloated frameworks. Just open in a browser and go!
-*   **🎥 Motion-Heavy, Text-Light Storytelling**  
-    Forget bullet points and text walls. Each scene is built to be a high-tempo, cinematic micro-scene featuring one focal object, one active UI state, and graceful, layered fade-in/fade-out animations.
-*   **📱 Native Multi-Aspect Layouts (16:9 & 9:16)**  
-    Automatically designed and optimized for both widescreen desktops (16:9) and mobile screen heights (9:16) for TikTok, Reels, or YouTube Shorts.
-*   **📂 Lightweight Markdown-First Integration**  
-    A clean, portable pack that integrates instantly with **Claude Code**, **Cursor**, **Codex**, **OpenCode**, and other agents. Compatible AI assistants load and follow the skill guidelines dynamically on demand using progressive disclosure, without slowing down your AI's context window.
-*   **🛡️ Closed Recheck Pass**  
-    Before a presentation is delivered, the agent runs a closed recheck pass to inspect, repair, and verify every single scene at both 16:9 and 9:16 aspects.
-
-*   **◫ Deterministic 4K Export**  
-    Choose the landscape or portrait preview, then export browser-recorded WebM at exactly 3840×2160 or 2160×3840. Playback stays zero-dependency; video export is an optional browser capability and reports a clear failure when the required recording path is unavailable.
+No slides. No generic decks. Just motion-rich presentation systems that frontier AI agent apps can discover, load, and execute from the same portable markdown authority.
 
 ---
 
-## 🚀 Get Started in 3 Seconds
+## Why This Package Exists
 
-To install the skill in your project workspace:
+- Plugin-first UX for compatible hosts. The preferred install story is a thin agent plugin that exposes this repo's bundled skill and references without adding hidden services or private coupling.
+- Markdown-skill fallback. The same package still works as a portable skill install for hosts that do not yet have a plugin surface.
+- Zero-dependency HTML delivery. The generated presentation stays compile-free and HTML-first, with optional local player files and optional deterministic 4K export.
+- Motion-heavy, text-light storytelling. Scenes stay short, visual, UI-first, and grounded in real product states.
+- Closed recheck pass. Delivery remains blocked until every scene passes 16:9 and 9:16 render inspection.
+
+---
+
+## Install
+
+### Preferred: agent plugin
+
+If your AI app supports plugin or repo-package installs, use this repo as a plugin bundle. The plugin should stay thin:
+
+- expose `SKILL.md` as the workflow entrypoint
+- ship `reference/`, `templates/`, `examples/`, and `lib/` unchanged
+- add no MCP server, private path, or hidden runtime dependency
+
+Compatible hosts may label this differently: plugin, extension, repo package, or agent bundle. The package goal is the same in all of them: user-friendly install, then on-demand loading of the bundled markdown authority.
+
+Example marketplace-style install commands:
+
+```bash
+codex plugin marketplace add suckseedrom/open-presentation
+```
+
+Claude Code uses the slash-command form in its chat surface:
+
+```text
+/plugin marketplace add suckseedrom/open-presentation
+```
+
+Use host-specific marketplace syntax when your app exposes one. Codex expects a marketplace source such as `owner/repo`, a Git URL, or a local marketplace path. Keep the bundled markdown authority intact.
+
+### Fallback: markdown skill
 
 ```bash
 npx skills add suckseedrom/open-presentation
 ```
 
+### Fallback: repo copy
+
+Clone or copy the repo into a workspace that can read markdown instructions directly. `SKILL.md` remains the entry workflow.
+
 ---
 
-## 🔥 Try It Now! (Copy-Paste Prompts)
+## Try It Now
 
 To try the presentation player and its video export, serve the repository over local HTTP and open [`examples/shared-player-example.html`](examples/shared-player-example.html).
 
-Want to see the magic? Copy one of these starter prompts and paste it directly into your AI assistant chat (Cursor, Claude Code, etc.):
+Want to see the package in action? Copy one of these starter prompts and paste it into your AI assistant chat in Codex, Claude Code, Cursor, OpenCode, or another compatible frontier agent app:
 
-### 💡 Example 1: The Product Launch Ad (GitPulse)
-> **Paste this into your AI chat:**
+### Example 1: the product launch ad
+
 > ```text
 > Use open-presentation to build a cinematic product launch ad for a new developer tool: "GitPulse" (a real-time interactive git activity dashboard for teams).
 > - Product: GitPulse, real-time activity and branch health dashboard
@@ -57,18 +77,18 @@ Want to see the magic? Copy one of these starter prompts and paste it directly i
 > - CTA: Get started free at gitpulse.dev
 > ```
 
-### 📊 Example 2: Turn a Boring Landing Page Pricing Section into an Interactive Video
-> **Paste this into your AI chat:**
+### Example 2: turn a pricing section into a video ad
+
 > ```text
 > Use open-presentation to transform our pricing tables into a dynamic, interactive presentation ad.
 > - Product: DevHost Cloud
 > - Pricing plans: Free ($0, 1 database, 100k requests), Developer ($15/mo, 10 databases, 10M requests, global CDN), Pro ($49/mo, unlimited databases, dedicated cluster, 99.9% SLA).
 > - Theme: Capsule (playful, modular card-based UI)
-> - Focus: Highlight the Developer tier as the sweet spot. Make the pricing cards animate gracefully and show live stats counting up!
+> - Focus: Highlight the Developer tier as the sweet spot. Make the pricing cards animate gracefully and show live stats counting up.
 > ```
 
-### ⚙️ Example 3: The "Quick Pitch" Deck from a Brief
-> **Paste this into your AI chat:**
+### Example 3: quick pitch deck from a brief
+
 > ```text
 > Use open-presentation to create a zero-dependency HTML pitch deck from our brief:
 > - Product: OrbitDB (a decentralized, offline-first database)
@@ -80,24 +100,33 @@ Want to see the magic? Copy one of these starter prompts and paste it directly i
 
 ---
 
-## 🎨 Themes & Design Authorities
+## What Ships
 
-Pick a design vibe that matches your brand. You don't need to read all the code—your AI assistant will load these on the fly:
+- `SKILL.md` is the markdown authority and execution map.
+- `manifest.json` advertises plugin-first plus skill-compatible install modes.
+- `reference/` holds the shared creative and QA contract.
+- `templates/` holds preview-first design packs for progressive disclosure.
+- `lib/` ships the local player and optional deterministic 4K export modules.
+- `examples/` provides starter prompts and a runnable shared-player example.
+
+## Themes & Design Authorities
+
+Pick a design vibe that matches your brand. You do not need to read all the code. The agent should load only the pieces it needs.
 
 | Theme | Mood & Best For | Key Visual Characteristics | Preview Card |
 | :--- | :--- | :--- | :--- |
-| **✨ Feature Core** | **Adaptive Default** for product-marketing | Clean modern UI mockups, layered reveals, varied active motion | [Preview](templates/presentation-feature-core/preview.md) |
-| **✍️ Soft Editorial** | Calm, literary, or warm magazine style | Warm paper stocks, serif typography, serene interfaces, quiet pacing | [Preview](templates/soft-editorial/preview.md) |
-| **🌿 Emerald** | Corporate confidence, bold pitches, reports | Deep emerald & navy tones, bold mastheads, high-contrast stat walls | [Preview](templates/emerald-editorial/preview.md) |
-| **🌌 Vellum** | Dark, atmospheric, scholarly reflection | Dark vellum backdrop, sparse text, slow-breathing animations | [Preview](templates/vellum/preview.md) |
-| **💊 Capsule** | Playful, card-based SaaS features | Rounded cards, card-group layouts, upbeat, interactive steps | [Preview](templates/capsule/preview.md) |
-| **🌐 Cobalt Grid** | High-structure analytical research | Precise grid lines, crisp technical structures, clean layouts | [Preview](templates/cobalt-grid/preview.md) |
+| **Feature Core** | Adaptive default for product marketing | Clean modern UI mockups, layered reveals, varied active motion | [Preview](templates/presentation-feature-core/preview.md) |
+| **Soft Editorial** | Calm, literary, or warm magazine style | Warm paper stocks, serif typography, serene interfaces, quiet pacing | [Preview](templates/soft-editorial/preview.md) |
+| **Emerald** | Corporate confidence, bold pitches, reports | Deep emerald and navy tones, bold mastheads, high-contrast stat walls | [Preview](templates/emerald-editorial/preview.md) |
+| **Vellum** | Dark, atmospheric, scholarly reflection | Dark vellum backdrop, sparse text, slow-breathing animations | [Preview](templates/vellum/preview.md) |
+| **Capsule** | Playful, card-based SaaS features | Rounded cards, card-group layouts, upbeat, interactive steps | [Preview](templates/capsule/preview.md) |
+| **Cobalt Grid** | High-structure analytical research | Precise grid lines, crisp technical structures, clean layouts | [Preview](templates/cobalt-grid/preview.md) |
 
 ---
 
-## 🛠️ Generated HTML Structure (Code Showcase)
+## Delivery Model
 
-The generated files are standard, highly readable, and framework-agnostic. Here is an example of the zero-dependency output:
+The generated files are standard, highly readable, and framework-agnostic. The default result is zero-dependency HTML delivery: either a single HTML file with inline CSS and JS or HTML plus the bundled local player files when that fits the workspace better.
 
 ```html
 <!doctype html>
@@ -108,14 +137,12 @@ The generated files are standard, highly readable, and framework-agnostic. Here 
   <title>GitPulse Launch</title>
   <link rel="stylesheet" href="lib/player.css" />
   <style>
-    /* Premium, theme-specific animations and transitions */
     .scene { font-family: system-ui; text-align: center; }
     .scene h1 { opacity: 0; transform: translateY(20px); transition: 0.6s ease; }
     .scene.active h1 { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
-  <!-- Full-viewport player stage -->
   <div id="player"></div>
 
   <script src="lib/player.js"></script>
@@ -137,34 +164,35 @@ The generated files are standard, highly readable, and framework-agnostic. Here 
 
 ---
 
-## 📂 Progressive Disclosure Architecture
+## Progressive Disclosure Architecture
 
-This repo is optimized to keep your AI context small, ensuring fast response times and high-quality outputs:
+This repo is optimized for frontier AI agent apps that can load instructions incrementally instead of swallowing one giant prompt:
 
 ```text
 open-presentation/
-├── README.md               # You are here (beautiful, consumer-friendly overview)
-├── SKILL.md                # 🗺️ Core Workflow map & rules for the AI Agent
-├── manifest.json           # ⚙️ Skill registration metadata
-├── reference/              # 📐 Styling & layout authority (product pillars, styling, recheck)
+├── README.md               # Consumer-friendly plugin-first overview
+├── SKILL.md                # Workflow map and shared agent entrypoint
+├── manifest.json           # Plugin-first + skill-compatible package metadata
+├── reference/              # Shared authority
 │   ├── STYLE_INDEX.md      # Vibe chooser
-│   └── PRODUCT_PILLARS.md  # Delivery guarantees (zero-dependency, dual-aspect targets)
-├── templates/              # 🎨 Compact visual templates (preview.md / design.md pairs)
-├── lib/                    # ⚙️ Player plus video-export modules
-└── examples/shared-player-example.html # Functional player and video-export demo
+│   └── PRODUCT_PILLARS.md  # Delivery guarantees
+├── templates/              # Compact visual templates
+├── lib/                    # Player plus optional video-export modules
+└── examples/shared-player-example.html
 ```
 
 ---
 
-## 🧪 Development and Testing
+## Development and Testing
 
-Verify your repository is aligned and all tests pass with a single command:
+Verify repository alignment with:
 
 ```bash
 node tests/architecture.test.mjs
 ```
 
 ---
+
 <div align="center">
-  <sub>Built for the modern AI pairing era. Motion-heavy, text-light, zero dependencies.</sub>
+  <sub>Plugin-first, skill-compatible, zero-dependency HTML delivery for modern AI agent apps.</sub>
 </div>
