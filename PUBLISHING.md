@@ -3,7 +3,7 @@
 ## Target shape
 
 ```text
-presentation-feature-video-ads/
+open-presentation/
 ├── README.md
 ├── CLAUDE.md
 ├── CONTRIBUTING.md

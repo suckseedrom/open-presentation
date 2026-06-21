@@ -1,6 +1,6 @@
 # PresentationPlayer
 
-Vanilla JS/CSS player and optional editing modules for portable presentation video ads. Load the player in any static HTML presentation to get the minimal transport, stage, transition, and audio behavior without React or external dependencies.
+Vanilla JS/CSS player with video-export modules for portable presentation video ads. Load the player in any static HTML presentation to get the minimal transport, stage, transition, and audio behavior without React or external dependencies.
 
 ## Installation
 

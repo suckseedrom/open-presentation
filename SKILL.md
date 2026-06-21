@@ -1,9 +1,9 @@
 ---
-name: presentation-feature-video-ads
-description: "Generate and edit premium, multi-scene, UI-first presentations, pitch decks, product demos, launch videos, and video ads from product briefs or source material, with text-light, motion-heavy storytelling, progressive disclosure, zero-dependency HTML playback, an optional friendly per-layer browser editor, and deterministic 4K WebM export. Use when a user asks for a presentation, pitch deck, product presentation, presentation video, launch film, product demo, or video ad."
+name: open-presentation
+description: "Generate premium, multi-scene, UI-first presentations, pitch decks, product demos, launch videos, and video ads from product briefs or source material, with text-light, motion-heavy storytelling, progressive disclosure, zero-dependency HTML playback, and deterministic 4K WebM video export. Use when a user asks for a presentation, pitch deck, product presentation, presentation video, launch film, product demo, or video ad."
 ---
 
-# presentation-feature-video-ads
+# open-presentation
 
 Turn product briefs, pages, screenshots, notes, or an empty project into a cinematic presentation implementation that feels like `PresentationFeature`.
 

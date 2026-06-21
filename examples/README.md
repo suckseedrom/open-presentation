@@ -13,8 +13,8 @@ Each prompt asks for an input-derived, text-light cinematic story, contextual pr
 
 For visual discovery, use `reference/STYLE_INDEX.md` and the compact cards in `templates/*/preview.md`. The full workflow remains in `SKILL.md`.
 
-## Editable player demo
+## Video export demo
 
-`editor-example.html` is a complete zero-dependency browser example. Serve the repository over local HTTP, open the file, and use the single **Editor** action in the minimal player transport. The studio demonstrates direct layer selection/move/resize, copy/style editing, scene timing and order, undo/redo, safe JSON import/export, autosave restore, responsive 16:9 and 9:16 preview, and optional 4K WebM export.
+`shared-player-example.html` is a complete zero-dependency browser example. Serve the repository over local HTTP, open the file, and click the **Download to Video (4K)** action in the minimal player transport. This demonstrates deterministic 4K WebM export directly on the client side using the shared player library and video export modules.
 
-Playback does not require recording support. The export action uses browser `MediaRecorder`, verifies a non-empty encoded result and exact output dimensions, and reports unsupported or failed export without discarding the editable composition.
+Playback does not require recording support. The export action uses browser `MediaRecorder`, verifies a non-empty encoded result and exact output dimensions, and reports unsupported or failed export states directly on the player stage.

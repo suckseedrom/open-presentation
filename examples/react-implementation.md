@@ -1,6 +1,6 @@
 # Current app implementation prompt
 
-Use `presentation-feature-video-ads` to implement this presentation in the current app:
+Use `open-presentation` to implement this presentation in the current app:
 
 - topic and goal: [complete description]
 - audience: [viewer]

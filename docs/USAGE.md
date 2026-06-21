@@ -3,13 +3,13 @@
 ## Install
 
 ```bash
-npx skills add Rommadon/presentation-video-ads-skill
+npx skills add suckseedrom/open-presentation
 ```
 
 ## Default prompt
 
 ```text
-Use presentation-feature-video-ads to implement the Apple Inc about us presentation.
+Use open-presentation to implement the Apple Inc about us presentation.
 ```
 
 That short prompt can be enough for presentations, pitch decks, product demos, launches, and video ads. Skill metadata improves discoverability in compatible hosts; it does not guarantee universal auto-activation.
@@ -71,6 +71,6 @@ Zero-dependency playback and optional video export are separate guarantees. The 
 - `examples/about-us.md`
 - `examples/pricing.md`
 - `examples/react-implementation.md`
-- `examples/editor-example.html` — runnable editable-player integration
+- `examples/shared-player-example.html` — runnable video export integration
 
 Use these only when you need a starting prompt. They are not the architecture.

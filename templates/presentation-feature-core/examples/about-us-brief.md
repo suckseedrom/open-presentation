@@ -1,6 +1,6 @@
 # Default template brief: About Us
 
-Use `presentation-feature-video-ads` to turn the content on `/about` into an About Us Presentation using the default `presentation-feature-core` template.
+Use `open-presentation` to turn the content on `/about` into an About Us Presentation using the default `presentation-feature-core` template.
 
 ## Input
 

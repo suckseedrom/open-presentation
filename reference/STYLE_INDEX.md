@@ -1,6 +1,6 @@
 # Style Index
 
-This is the lightweight style chooser for `presentation-feature-video-ads`.
+This is the lightweight style chooser for `open-presentation`.
 
 Read this file first when the user needs a visual direction. Then read `templates/index.json` for compact metadata. Read only the shortlisted template `preview.md` files. Treat those preview cards as the visual discovery surface. Read a full `design.md` only after the user picks a template.
 

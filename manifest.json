@@ -1,5 +1,5 @@
 {
-  "name": "presentation-feature-video-ads",
+  "name": "open-presentation",
   "version": "1.11.0",
   "distribution": "public-markdown",
   "package_type": "skill-pack",
@@ -12,7 +12,7 @@
     "markdown-skill",
     "repo-copy"
   ],
-  "install_command": "npx skills add Rommadon/presentation-video-ads-skill",
+  "install_command": "npx skills add suckseedrom/open-presentation",
   "supported_clients": [
     "codex",
     "claude-code",

@@ -1,6 +1,6 @@
 # Default template brief: Pricing
 
-Use `presentation-feature-video-ads` to turn pricing or package page content into a presentation using the default `presentation-feature-core` template.
+Use `open-presentation` to turn pricing or package page content into a presentation using the default `presentation-feature-core` template.
 
 ## Input
 

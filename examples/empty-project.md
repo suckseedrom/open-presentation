@@ -1,6 +1,6 @@
 # Empty project prompt
 
-Use `presentation-feature-video-ads` to create a cinematic presentation video ad from this brief:
+Use `open-presentation` to create a cinematic presentation video ad from this brief:
 
 - product: [what it is and where people use it]
 - audience: [who it is for]

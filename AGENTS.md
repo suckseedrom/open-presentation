@@ -1,6 +1,6 @@
 # Repository rules
 
-This repo packages a public, portable skill for generating PresentationFeature-style presentation video ads.
+This repo packages a public, portable skill for generating PresentationFeature-style open presentations.
 
 ## Core rule
 

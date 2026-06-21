@@ -51,13 +51,13 @@
 ## 1.2.0
 
 - Reworked the repo into a world-class public skill package layout.
-- Added one-command install guidance via `npx skills add Rommadon/presentation-video-ads-skill`.
+- Added one-command install guidance via `npx skills add suckseedrom/open-presentation`.
 - Added agent-specific usage docs for Codex, Claude Code, and OpenCode.
 - Added top-level `CLAUDE.md`, `CONTRIBUTING.md`, `examples/`, and `docs/`.
 - Clarified that the bare implementation prompt expands to current-app source files, tests, and scaffold-first fallback when no app exists.
 
 ## 1.0.0
 
-- Initial public release of `presentation-feature-video-ads`.
+- Initial public release of `open-presentation`.
 - Bundled a self-contained reference pack.
 - Added universal usage examples for empty and existing projects.

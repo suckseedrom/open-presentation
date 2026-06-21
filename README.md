@@ -1,11 +1,11 @@
-# 🎬 presentation-feature-video-ads
+# 🎬 open-presentation
 
-[![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero-success.svg?style=flat-square)](https://github.com/Rommadon/presentation-video-ads-skill)
-[![HTML First](https://img.shields.io/badge/Delivery-HTML%20First-blue.svg?style=flat-square)](https://github.com/Rommadon/presentation-video-ads-skill)
-[![Motion Heavy](https://img.shields.io/badge/Storytelling-Motion%20Heavy-orange.svg?style=flat-square)](https://github.com/Rommadon/presentation-video-ads-skill)
-[![Aspect Ratios](https://img.shields.io/badge/Aspects-16%3A9%20%2F%209%3A16-purple.svg?style=flat-square)](https://github.com/Rommadon/presentation-video-ads-skill)
+[![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero-success.svg?style=flat-square)](https://github.com/suckseedrom/open-presentation)
+[![HTML First](https://img.shields.io/badge/Delivery-HTML%20First-blue.svg?style=flat-square)](https://github.com/suckseedrom/open-presentation)
+[![Motion Heavy](https://img.shields.io/badge/Storytelling-Motion%20Heavy-orange.svg?style=flat-square)](https://github.com/suckseedrom/open-presentation)
+[![Aspect Ratios](https://img.shields.io/badge/Aspects-16%3A9%20%2F%209%3A16-purple.svg?style=flat-square)](https://github.com/suckseedrom/open-presentation)
 
-Turn raw product briefs, landing pages, code snippets, or simple notes into **cinematic, high-fidelity presentation video ads** directly inside your codebase. Start in the minimal player, then open the optional browser studio to edit every scene and layer in real time or export a 4K WebM.
+Turn raw product briefs, landing pages, code snippets, or simple notes into **cinematic, high-fidelity presentation video ads** directly inside your codebase. Start in the minimal player, with optional deterministic 4K WebM video export.
 
 No slides. No templates that look like standard decks. Just pure, motion-rich, cinematic experiences built automatically by your AI pairing assistant.
 
@@ -23,8 +23,7 @@ No slides. No templates that look like standard decks. Just pure, motion-rich, c
     A clean, portable pack that integrates instantly with **Claude Code**, **Cursor**, **Codex**, **OpenCode**, and other agents. Compatible AI assistants load and follow the skill guidelines dynamically on demand using progressive disclosure, without slowing down your AI's context window.
 *   **🛡️ Closed Recheck Pass**  
     Before a presentation is delivered, the agent runs a closed recheck pass to inspect, repair, and verify every single scene at both 16:9 and 9:16 aspects.
-*   **✦ Friendly Layer Editor**  
-    An opt-in, zero-framework studio adds direct move/resize, text and style controls, scene timing/order, undo/redo, safe JSON import/export, autosave, and responsive 16:9 / 9:16 preview. When the editor is closed, the player remains the same minimal music-player-like surface.
+
 *   **◫ Deterministic 4K Export**  
     Choose the landscape or portrait preview, then export browser-recorded WebM at exactly 3840×2160 or 2160×3840. Playback stays zero-dependency; video export is an optional browser capability and reports a clear failure when the required recording path is unavailable.
 
@@ -35,21 +34,21 @@ No slides. No templates that look like standard decks. Just pure, motion-rich, c
 To install the skill in your project workspace:
 
 ```bash
-npx skills add Rommadon/presentation-video-ads-skill
+npx skills add suckseedrom/open-presentation
 ```
 
 ---
 
 ## 🔥 Try It Now! (Copy-Paste Prompts)
 
-To try the editable player itself, serve the repository over local HTTP and open [`examples/editor-example.html`](examples/editor-example.html). Its single **Editor** transport action opens the full layer studio; choose 16:9 or 9:16 before selecting **Export video**.
+To try the presentation player and its video export, serve the repository over local HTTP and open [`examples/shared-player-example.html`](examples/shared-player-example.html).
 
 Want to see the magic? Copy one of these starter prompts and paste it directly into your AI assistant chat (Cursor, Claude Code, etc.):
 
 ### 💡 Example 1: The Product Launch Ad (GitPulse)
 > **Paste this into your AI chat:**
 > ```text
-> Use presentation-feature-video-ads to build a cinematic product launch ad for a new developer tool: "GitPulse" (a real-time interactive git activity dashboard for teams).
+> Use open-presentation to build a cinematic product launch ad for a new developer tool: "GitPulse" (a real-time interactive git activity dashboard for teams).
 > - Product: GitPulse, real-time activity and branch health dashboard
 > - Audience: Tech leads and engineering managers who hate merge conflicts
 > - Problem: Hidden blocker branches, silent build failures, late alignment
@@ -61,7 +60,7 @@ Want to see the magic? Copy one of these starter prompts and paste it directly i
 ### 📊 Example 2: Turn a Boring Landing Page Pricing Section into an Interactive Video
 > **Paste this into your AI chat:**
 > ```text
-> Use presentation-feature-video-ads to transform our pricing tables into a dynamic, interactive presentation ad.
+> Use open-presentation to transform our pricing tables into a dynamic, interactive presentation ad.
 > - Product: DevHost Cloud
 > - Pricing plans: Free ($0, 1 database, 100k requests), Developer ($15/mo, 10 databases, 10M requests, global CDN), Pro ($49/mo, unlimited databases, dedicated cluster, 99.9% SLA).
 > - Theme: Capsule (playful, modular card-based UI)
@@ -71,7 +70,7 @@ Want to see the magic? Copy one of these starter prompts and paste it directly i
 ### ⚙️ Example 3: The "Quick Pitch" Deck from a Brief
 > **Paste this into your AI chat:**
 > ```text
-> Use presentation-feature-video-ads to create a zero-dependency HTML pitch deck from our brief:
+> Use open-presentation to create a zero-dependency HTML pitch deck from our brief:
 > - Product: OrbitDB (a decentralized, offline-first database)
 > - Problem: Mobile apps lose state and disconnect on trains/planes
 > - Promise: Peer-to-peer sync that just works offline and syncs instantly when back online
@@ -143,7 +142,7 @@ The generated files are standard, highly readable, and framework-agnostic. Here 
 This repo is optimized to keep your AI context small, ensuring fast response times and high-quality outputs:
 
 ```text
-presentation-video-ads-skill/
+open-presentation/
 ├── README.md               # You are here (beautiful, consumer-friendly overview)
 ├── SKILL.md                # 🗺️ Core Workflow map & rules for the AI Agent
 ├── manifest.json           # ⚙️ Skill registration metadata
@@ -151,8 +150,8 @@ presentation-video-ads-skill/
 │   ├── STYLE_INDEX.md      # Vibe chooser
 │   └── PRODUCT_PILLARS.md  # Delivery guarantees (zero-dependency, dual-aspect targets)
 ├── templates/              # 🎨 Compact visual templates (preview.md / design.md pairs)
-├── lib/                    # ⚙️ Player plus optional editor/runtime modules
-└── examples/editor-example.html # Functional editable-player demo
+├── lib/                    # ⚙️ Player plus video-export modules
+└── examples/shared-player-example.html # Functional player and video-export demo
 ```
 
 ---

@@ -28,21 +28,17 @@ It should not. Product mockups follow the supplied product, workflow, platform, 
 
 Every scene must complete a closed render, inspect, repair, and rerender loop at 16:9 and 9:16. Delivery remains blocked until every per-scene ledger row is green/PASS at both aspects.
 
-## Can I edit the presentation after generation?
+## Is video export a runtime dependency?
 
-Yes. Editable deliveries can expose one **Editor** action in the minimal player. It opens the local browser studio for direct layer move/resize, text/style changes, scene timing/order, undo/redo, autosave, safe JSON import/export, and separate 16:9 and 9:16 previews. Closing the editor returns to minimal playback with the current composition.
-
-## Is the editor or video export a runtime dependency?
-
-No. Playback remains local, zero-dependency HTML and works without the editor or recording APIs. The editor is an optional local module set. WebM export is an optional browser capability.
+No. Playback remains local, zero-dependency HTML and works without recording APIs. WebM export is an optional browser capability.
 
 ## What does “4K export” mean here?
 
 Landscape is 3840×2160 and portrait is 2160×3840. The browser path records deterministic canvas frames to WebM and verifies non-empty output plus exact encoded dimensions before reporting success. Unsupported codecs, cancellation, recorder errors, or dimension mismatch produce a visible failure and preserve the composition.
 
-## Where is the complete editor example?
+## Where is the complete video export example?
 
-Serve the repository over local HTTP and open `examples/editor-example.html`.
+Serve the repository over local HTTP and open `examples/shared-player-example.html`.
 
 ## What files should I read first?
 

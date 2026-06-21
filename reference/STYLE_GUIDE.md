@@ -1,6 +1,6 @@
 # PresentationFeature House Style Snapshot
 
-This is the portable style reference for the public `presentation-feature-video-ads` package.
+This is the portable style reference for the public `open-presentation` package.
 
 It is a self-contained house-style contract for the public pack. The style name `PresentationFeature` refers to the visual language family, not a required source path.
 
