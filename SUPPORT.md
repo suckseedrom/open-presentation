@@ -21,6 +21,7 @@ Use the public GitHub repository for installation help, bug reports, release que
 3. If using Claude Code, try `/reload-plugins` or restart the app.
 4. If using Codex, confirm both marketplace add and plugin add succeeded.
 5. If you changed the plugin bundle locally, validate it again before reporting an install bug.
+6. If you expected a plugin widget from `plugin://open-presentation@open-presentation`, note that this package is skill-first and does not ship a connector-backed app surface.
 
 ## Issue categories
 

@@ -50,6 +50,8 @@ If the marketplace appears but the plugin list has not refreshed yet, run:
 /reload-plugins
 ```
 
+This plugin is skill-first, not a connector-backed widget app. The supported usage is prompting with `Use open-presentation to ...` so the workflow runs in your workspace. A `plugin://open-presentation@open-presentation` mention by itself should not be expected to open a dedicated presentation widget from this repo.
+
 This public path works only after the repo branch you point at contains the repo marketplace file and the plugin bundle.
 
 ### Maintainers: keep the public path healthy

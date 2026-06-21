@@ -31,6 +31,8 @@ If Claude Code still shows the old marketplace state in the current session, run
 
 This is the main path for public users. It depends on the GitHub branch containing both the repo marketplace file and the installable plugin bundle.
 
+Important: `open-presentation` is a skill-first workflow plugin. Its supported path is natural-language prompting such as `Use open-presentation to build a launch video ad`. Do not rely on a `plugin://open-presentation@open-presentation` mention to open a dedicated plugin widget, because this package does not ship a connector-backed `.app.json` surface.
+
 ### Local repo testing
 
 For local repo testing in Codex:

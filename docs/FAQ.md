@@ -70,3 +70,7 @@ Prefer the public GitHub repo marketplace path first. Use `codex plugin marketpl
 ## What if Claude Code adds the marketplace but I still do not see the plugin?
 
 Run `/reload-plugins` or restart Claude Code. Marketplace changes can require a reload before the current session picks up the new plugin list.
+
+## Why did `plugin://open-presentation@open-presentation` not open anything visible?
+
+Because this package is a skill-first plugin, not a connector-backed app plugin. It ships workflow instructions and bundled references, but no `.app.json` app surface. The supported usage is to install the plugin, then prompt with `Use open-presentation to ...` so the agent runs the workflow in the workspace.
