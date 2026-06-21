@@ -28,6 +28,9 @@ to:
 - `core/adapters/claude-host.mjs`
 - `core/app-surface/README.md`
 - `plugins/open-presentation/app/open-presentation-v2.app.template.json`
+- `plugins/open-presentation/app/open-presentation.codex.production.app.template.json`
+- `plugins/open-presentation/app/open-presentation.claude.production.app.template.json`
+- `docs/APP-CONNECTOR-REQUIREMENTS.md`
 
 ## Important limitation
 

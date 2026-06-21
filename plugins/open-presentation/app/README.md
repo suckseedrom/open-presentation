@@ -21,4 +21,9 @@ When a real Codex or Claude-compatible app target exists, add:
 - host bindings to `../../core/orchestrator/`
 - session rendering based on `../../core/contracts/plugin-session.schema.json`
 
+Use these templates as the production starting points:
+
+- `open-presentation.codex.production.app.template.json`
+- `open-presentation.claude.production.app.template.json`
+
 Keep the skill and references as the authority behind the UI.
