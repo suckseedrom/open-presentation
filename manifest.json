@@ -66,5 +66,5 @@
     "video_export": "deterministic browser 4K WebM export directly in player",
     "plugin_native_v2": "typed orchestrator, session contract, and host adapter scaffold"
   },
-  "notes": "Skill-first public repo with plugin install support for Claude and Codex, optimized for public GitHub marketplace installation, with a thin plugin wrapper, zero-dependency HTML playback, adaptive input-derived scene planning, contextual product mockups and input-led language, varied scene lifecycles, closed per-scene dual-aspect QA, direct player-integrated deterministic 4K WebM export, and advanced plugin-native v2 scaffolding for future app-surface binding."
+  "notes": "Skill-first public repo with plugin install support for Claude and Codex, optimized for public GitHub marketplace installation, with a thin plugin wrapper, zero-dependency HTML playback, adaptive input-derived scene planning, contextual product mockups and input-led language, varied scene lifecycles, closed per-scene dual-aspect QA, strong support for pricing-page presentations, landing-page stories, keynote-style product reveals, and launch ads, direct player-integrated deterministic 4K WebM export, and advanced plugin-native v2 scaffolding for future app-surface binding."
 }

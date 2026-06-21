@@ -200,6 +200,9 @@ test('SKILL metadata is discoverable for the complete presentation-video use cas
   assert.match(metadata, /product[ -]?demo/i, 'metadata must be discoverable for product-demo requests');
   assert.match(metadata, /launch/i, 'metadata must be discoverable for launch requests');
   assert.match(metadata, /video[ -]?ad/i, 'metadata must be discoverable for video-ad requests');
+  assert.match(metadata, /pricing page|pricing explainer/i, 'metadata must be discoverable for pricing-page requests');
+  assert.match(metadata, /landing page/i, 'metadata must be discoverable for landing-page requests');
+  assert.match(metadata, /keynote/i, 'metadata must be discoverable for product-reveal requests');
   assert.match(metadata, /presentation\.html/i, 'metadata must steer hosts toward workspace HTML files');
   assert.match(metadata, /generic slide generator|remote presentation widget/i, 'metadata should discourage generic slide-tool routing');
 });
@@ -280,11 +283,13 @@ test('repo-local Codex marketplace points at a valid plugin bundle', () => {
   assert.equal(plugin.skills, './skills/');
   assert.match(plugin.description, /skill-first plugin/i);
   assert.match(plugin.interface.displayName, /Open Presentation/);
-  assert.match(plugin.interface.shortDescription, /skill-first/i);
-  assert.match(plugin.interface.longDescription, /plugin is the install surface/i);
+  assert.match(plugin.interface.shortDescription, /pricing-page|launch-ad/i);
+  assert.match(plugin.interface.longDescription, /pricing explainers|landing-page stories|keynote-style product reveals/i);
   assert.ok(plugin.interface.capabilities.includes('HTML workspace output'));
   assert.ok(plugin.interface.capabilities.includes('Skill-first execution'));
   assert.match(plugin.interface.defaultPrompt[0], /presentation\.html/i);
+  assert.match(plugin.interface.defaultPrompt[1], /pricing page/i);
+  assert.match(plugin.interface.defaultPrompt[2], /iPhone 17 Pro Max|keynote-style product reveal/i);
   assert.match(plugin.interface.privacyPolicyURL, /PRIVACY\.md$/);
   assert.equal(plugin.interface.composerIcon, './assets/icon.png');
   assert.equal(plugin.interface.logo, './assets/logo.png');

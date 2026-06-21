@@ -1,6 +1,6 @@
 ---
 name: open-presentation
-description: "Generate premium, multi-scene, UI-first HTML presentations, pitch decks, product demos, launch videos, and video ads from product briefs or source material, with text-light, motion-heavy storytelling, progressive disclosure, zero-dependency HTML playback, and deterministic 4K WebM video export. Use when a user asks for a presentation, pitch deck, product presentation, presentation video, launch film, product demo, or video ad. Write real workspace files such as presentation.html and design.md; do not hand the job off to a generic slide generator, remote presentation widget, or presentation-id-only tool."
+description: "Generate premium, multi-scene, UI-first HTML presentations, pitch decks, product demos, launch videos, pricing explainers, landing-page presentations, and video ads from product briefs or source material, with text-light, motion-heavy storytelling, progressive disclosure, zero-dependency HTML playback, and deterministic 4K WebM video export. Use when a user asks for a presentation, pitch deck, product presentation, presentation video, launch film, launch ad, pricing page presentation, landing page presentation, product demo, keynote-style product reveal, or video ad. Write real workspace files such as presentation.html and design.md; do not hand the job off to a generic slide generator, remote presentation widget, or presentation-id-only tool."
 ---
 
 # open-presentation

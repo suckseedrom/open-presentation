@@ -12,6 +12,10 @@
   "keywords": [
     "presentation",
     "video-ad",
+    "pricing-page",
+    "landing-page",
+    "product-launch",
+    "keynote",
     "html",
     "skill",
     "plugin",
@@ -22,8 +26,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Open Presentation",
-    "shortDescription": "Install a skill-first HTML presentation system as a plugin.",
-    "longDescription": "Install from GitHub and get a skill-first presentation workflow for cinematic, text-light, motion-heavy, zero-dependency HTML presentations with optional deterministic 4K WebM export. The plugin is the install surface; the bundled skill writes real workspace artifacts such as presentation.html and design.md.",
+    "shortDescription": "Install a skill-first HTML presentation, pricing-page, and launch-ad system as a plugin.",
+    "longDescription": "Install from GitHub and get a skill-first presentation workflow for cinematic, text-light, motion-heavy, zero-dependency HTML presentations, pricing explainers, landing-page stories, keynote-style product reveals, and launch ads with optional deterministic 4K WebM export. The plugin is the install surface; the bundled skill writes real workspace artifacts such as presentation.html and design.md.",
     "developerName": "Allkons",
     "category": "Productivity",
     "capabilities": [
@@ -39,7 +43,7 @@
     "defaultPrompt": [
       "Use open-presentation to build a launch video ad and write presentation.html, presentation.json, and design.md in this workspace.",
       "Use open-presentation to turn our pricing page into a cinematic HTML presentation in workspace files.",
-      "Use open-presentation to create a 9:16 product demo reel as zero-dependency HTML in this workspace."
+      "Use open-presentation to create a keynote-style product reveal for iPhone 17 Pro Max as zero-dependency HTML in this workspace."
     ],
     "brandColor": "#0D9488",
     "composerIcon": "./assets/icon.png",
