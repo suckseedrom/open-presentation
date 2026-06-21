@@ -1,7 +1,7 @@
 {
   "name": "open-presentation",
   "version": "1.11.0",
-  "distribution": "public-agent-package",
+  "distribution": "public-skill-repo",
   "package_type": "plugin-skill-pack",
   "primary_install_unit": "plugin",
   "entrypoint": "SKILL.md",
@@ -66,5 +66,5 @@
     "video_export": "deterministic browser 4K WebM export directly in player",
     "plugin_native_v2": "typed orchestrator, session contract, and host adapter scaffold"
   },
-  "notes": "Plugin-first, skill-compatible public agent package optimized for public GitHub marketplace installation, with a repo-local Codex marketplace, zero-dependency HTML playback, adaptive input-derived scene planning, contextual product mockups and input-led language, varied scene lifecycles, closed per-scene dual-aspect QA, direct player-integrated deterministic 4K WebM export, and a plugin-native v2 architecture scaffold for future app-surface binding."
+  "notes": "Skill-first public repo with plugin install support for Claude and Codex, optimized for public GitHub marketplace installation, with a thin plugin wrapper, zero-dependency HTML playback, adaptive input-derived scene planning, contextual product mockups and input-led language, varied scene lifecycles, closed per-scene dual-aspect QA, direct player-integrated deterministic 4K WebM export, and advanced plugin-native v2 scaffolding for future app-surface binding."
 }

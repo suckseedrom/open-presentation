@@ -6,7 +6,7 @@
 
 Preferred when the host supports plugins.
 
-Install this repo as a plugin, extension, repo package, or agent bundle from the public GitHub repo when your AI app supports that flow.
+This repo is skill-first, but public users should install it through the plugin marketplace path when that path exists.
 
 Codex CLI install:
 
@@ -31,7 +31,9 @@ If Claude Code still shows the old marketplace state in the current session, run
 
 This is the main path for public users. It depends on the GitHub branch containing both the repo marketplace file and the installable plugin bundle.
 
-Important: `open-presentation` is a skill-first workflow plugin. Its supported path is natural-language prompting such as `Use open-presentation to build a launch video ad`. Do not rely on a `plugin://open-presentation@open-presentation` mention to open a dedicated plugin widget, because this package does not ship a connector-backed `.app.json` surface.
+Important: `open-presentation` is a skill-first workflow plugin. Plugin install is the delivery path. The execution path is still the bundled skill and references. The supported usage is natural-language prompting such as `Use open-presentation to build a launch video ad and write presentation.html in this workspace`.
+
+If the host instead responds with a generic presentation app flow such as `Generate or edit presentation`, `MCP app returned no HTML content`, or a bare `presentation id`, the request was routed to the wrong tool surface.
 
 ### Local repo testing
 
@@ -60,7 +62,7 @@ Clone or copy the repo into the current workspace and let the host load `SKILL.m
 Use open-presentation to implement the Apple Inc about us presentation.
 ```
 
-That short prompt can be enough for presentations, pitch decks, product demos, launches, and video ads. Plugin metadata and skill metadata improve discoverability in compatible hosts; they do not guarantee universal auto-activation.
+That short prompt can be enough for presentations, pitch decks, product demos, launches, and video ads. Plugin metadata helps installation and discovery. The skill itself remains the main operating layer.
 
 The workflow first runs an input-sufficiency preflight:
 
@@ -72,6 +74,7 @@ The implementation contract is:
 
 - create the actual source files in the current app workspace
 - default to a single HTML presentation file with inline CSS and JS
+- do not substitute a remote slide generator, presentation widget, or presentation-id-only tool for the workspace HTML output
 - only add framework glue if the host project already requires it
 - derive cinematic micro-scenes from the supplied story and product flow; do not use a fixed scene quota
 - keep one focus and one visible UI state per scene
@@ -93,6 +96,7 @@ When this package is installed through a plugin surface, keep the wrapper minima
 - `reference/`, `templates/`, `examples/`, and `lib/` stay bundled and portable
 - do not add MCP requirements, private paths, or hidden runtime services
 - do not fork the instructions into a plugin-only rule set
+- treat the plugin primarily as the public install and discovery layer for the skill repo
 
 For public distribution, the GitHub install path should stay as reliable as the local dev path.
 

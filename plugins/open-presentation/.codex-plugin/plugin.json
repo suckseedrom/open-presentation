@@ -1,7 +1,7 @@
 {
   "name": "open-presentation",
   "version": "1.11.0",
-  "description": "Plugin-first, skill-compatible workflow for cinematic HTML presentations and video ads.",
+  "description": "Skill-first plugin for cinematic HTML presentations and video ads, packaged for public install in Codex and Claude-style marketplaces.",
   "author": {
     "name": "Allkons",
     "url": "https://github.com/suckseedrom/open-presentation"
@@ -22,22 +22,24 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Open Presentation",
-    "shortDescription": "Generate cinematic HTML presentations and video ads from briefs.",
-    "longDescription": "Install from GitHub and turn briefs, landing pages, screenshots, and notes into text-light, motion-heavy, zero-dependency HTML presentations with optional deterministic 4K WebM export.",
+    "shortDescription": "Install a skill-first HTML presentation system as a plugin.",
+    "longDescription": "Install from GitHub and get a skill-first presentation workflow for cinematic, text-light, motion-heavy, zero-dependency HTML presentations with optional deterministic 4K WebM export. The plugin is the install surface; the bundled skill writes real workspace artifacts such as presentation.html and design.md.",
     "developerName": "Allkons",
     "category": "Productivity",
     "capabilities": [
       "Write",
       "Workflow guidance",
-      "Visual storytelling"
+      "Visual storytelling",
+      "HTML workspace output",
+      "Skill-first execution"
     ],
     "websiteURL": "https://github.com/suckseedrom/open-presentation",
     "privacyPolicyURL": "https://github.com/suckseedrom/open-presentation/blob/main/PRIVACY.md",
     "termsOfServiceURL": "https://github.com/suckseedrom/open-presentation/blob/main/LICENSE",
     "defaultPrompt": [
-      "Use open-presentation to build a launch video ad.",
-      "Use open-presentation to turn our pricing page into HTML scenes.",
-      "Use open-presentation to create a 9:16 product demo reel."
+      "Use open-presentation to build a launch video ad and write presentation.html, presentation.json, and design.md in this workspace.",
+      "Use open-presentation to turn our pricing page into a cinematic HTML presentation in workspace files.",
+      "Use open-presentation to create a 9:16 product demo reel as zero-dependency HTML in this workspace."
     ],
     "brandColor": "#0D9488",
     "composerIcon": "./assets/icon.png",

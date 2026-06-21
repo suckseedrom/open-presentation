@@ -74,9 +74,9 @@ test('shared player library ships with the pack', () => {
 });
 
 test('the revised pack advertises the new product pillars', () => {
-  assert.match(readText('README.md'), /plugin-first/i);
-  assert.match(readText('README.md'), /markdown skill/i);
-  assert.match(readText('README.md'), /zero-dependency HTML delivery/i);
+  assert.match(readText('README.md'), /skill-first/i);
+  assert.match(readText('README.md'), /plugin install/i);
+  assert.match(readText('README.md'), /zero-dependency HTML/i);
   assert.match(readText('reference/STYLE_GUIDE.md'), /anti-AI-slop/i);
   assert.match(readText('reference/STYLE_GUIDE.md'), /centered statement/i);
   assert.match(readText('reference/STYLE_GUIDE.md'), /full-bleed/i);
@@ -142,6 +142,7 @@ test('manifest advertises plugin-first with skill-compatible fallback', () => {
   const manifest = JSON.parse(readText('manifest.json'));
 
   assert.equal(manifest.package_type, 'plugin-skill-pack');
+  assert.equal(manifest.distribution, 'public-skill-repo');
   assert.equal(manifest.primary_install_unit, 'plugin');
   assert.equal(manifest.preferred_install_mode, 'agent-plugin');
   assert.equal(manifest.public_install_surface, 'github-marketplace');
@@ -199,6 +200,8 @@ test('SKILL metadata is discoverable for the complete presentation-video use cas
   assert.match(metadata, /product[ -]?demo/i, 'metadata must be discoverable for product-demo requests');
   assert.match(metadata, /launch/i, 'metadata must be discoverable for launch requests');
   assert.match(metadata, /video[ -]?ad/i, 'metadata must be discoverable for video-ad requests');
+  assert.match(metadata, /presentation\.html/i, 'metadata must steer hosts toward workspace HTML files');
+  assert.match(metadata, /generic slide generator|remote presentation widget/i, 'metadata should discourage generic slide-tool routing');
 });
 
 test('workflow preflights input sufficiency and asks only bounded high-impact questions', () => {
@@ -210,6 +213,8 @@ test('workflow preflights input sufficiency and asks only bounded high-impact qu
   assert.match(skill, /2(?:\s*(?:-|–|to)\s*)4 recommendation-first selectable (?:questions|Q&A)/i);
   assert.match(skill, /do not ask.*(?:already|supplied|provided)/i);
   assert.match(skill, /untrusted (?:source|input|content)[\s\S]{0,160}prompt injection[\s\S]{0,160}(?:inert|ignore|not instructions)/i);
+  assert.match(skill, /(?:generic presentation generator|slide widget|remote deck tool)[\s\S]{0,160}do not substitute|do not substitute[\s\S]{0,160}(?:generic presentation generator|slide widget|remote deck tool)/i);
+  assert.match(skill, /presentation id[\s\S]{0,160}no HTML content|no HTML content[\s\S]{0,160}presentation id/i);
 });
 
 test('public docs keep plugin-first install and markdown-authority fallback aligned', () => {
@@ -221,24 +226,30 @@ test('public docs keep plugin-first install and markdown-authority fallback alig
   const claude = readText('CLAUDE.md');
   const contributing = readText('CONTRIBUTING.md');
 
-  assert.match(readme, /Preferred: agent plugin/i);
+  assert.match(readme, /skill-first/i);
+  assert.match(readme, /plugin install/i);
   assert.match(readme, /codex plugin marketplace add suckseedrom\/open-presentation/i);
   assert.match(readme, /codex plugin add open-presentation@open-presentation/i);
-  assert.match(readme, /Public users: GitHub plugin install/i);
+  assert.match(readme, /Claude Cowork or plugin UI/i);
   assert.match(readme, /\/plugin marketplace add suckseedrom\/open-presentation/i);
-  assert.match(readme, /Fallback: markdown skill/i);
+  assert.match(readme, /Other AI assistants/i);
+  assert.match(readme, /MCP app returned no HTML content/i);
   assert.match(readme, /PRIVACY\.md/i);
   assert.match(readme, /SUPPORT\.md/i);
-  assert.match(readme, /Plugin-Native V2/i);
-  assert.match(readme, /APP-CONNECTOR-REQUIREMENTS\.md/i);
+  assert.match(readme, /Advanced Docs/i);
+  assert.match(readme, /docs\/PLUGIN-NATIVE-V2\.md/i);
   assert.match(usage, /Plugin wrapper contract/i);
+  assert.match(usage, /skill-first/i);
   assert.match(usage, /codex plugin marketplace add suckseedrom\/open-presentation/i);
   assert.match(usage, /codex plugin add open-presentation@open-presentation/i);
   assert.match(usage, /Public GitHub install/i);
   assert.match(usage, /\/plugin marketplace add suckseedrom\/open-presentation/i);
+  assert.match(usage, /Generate or edit presentation/i);
   assert.match(usage, /do not add MCP requirements/i);
   assert.match(portability, /plugin-capable agent apps/i);
-  assert.match(faq, /Both\./i);
+  assert.match(faq, /Both, but skill-first/i);
+  assert.match(faq, /pm-skills/i);
+  assert.match(faq, /presentation ID/i);
   assert.match(publishing, /plugin-first, skill-compatible/i);
   assert.match(claude, /plugin-first, skill-compatible/i);
   assert.match(contributing, /plugin-first install path is clear/i);
@@ -246,12 +257,12 @@ test('public docs keep plugin-first install and markdown-authority fallback alig
 
 test('public-user install path is prioritized over local-development guidance', () => {
   const readme = readText('README.md');
-  const publicInstallIndex = readme.indexOf('### Public users: GitHub plugin install');
-  const localDevIndex = readme.indexOf('### Local development');
+  const publicInstallIndex = readme.indexOf('## Installation');
+  const localTryIndex = readme.indexOf('## Try It Locally');
 
   assert.notEqual(publicInstallIndex, -1);
-  assert.notEqual(localDevIndex, -1);
-  assert.ok(publicInstallIndex < localDevIndex, 'public GitHub install should appear before local development guidance');
+  assert.notEqual(localTryIndex, -1);
+  assert.ok(publicInstallIndex < localTryIndex, 'public install guidance should appear before local try-it-locally guidance');
   assert.match(readText('PUBLISHING.md'), /public GitHub installation as the primary release surface/i);
   assert.match(readText('docs/FAQ.md'), /public GitHub repo marketplace path first/i);
 });
@@ -267,7 +278,13 @@ test('repo-local Codex marketplace points at a valid plugin bundle', () => {
   assert.equal(marketplace.plugins[0].source.path, './plugins/open-presentation');
   assert.equal(plugin.name, 'open-presentation');
   assert.equal(plugin.skills, './skills/');
+  assert.match(plugin.description, /skill-first plugin/i);
   assert.match(plugin.interface.displayName, /Open Presentation/);
+  assert.match(plugin.interface.shortDescription, /skill-first/i);
+  assert.match(plugin.interface.longDescription, /plugin is the install surface/i);
+  assert.ok(plugin.interface.capabilities.includes('HTML workspace output'));
+  assert.ok(plugin.interface.capabilities.includes('Skill-first execution'));
+  assert.match(plugin.interface.defaultPrompt[0], /presentation\.html/i);
   assert.match(plugin.interface.privacyPolicyURL, /PRIVACY\.md$/);
   assert.equal(plugin.interface.composerIcon, './assets/icon.png');
   assert.equal(plugin.interface.logo, './assets/logo.png');

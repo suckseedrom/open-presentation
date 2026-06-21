@@ -13,6 +13,7 @@ Use the public GitHub repository for installation help, bug reports, release que
 - the exact command or prompt you ran
 - screenshots or logs for install failures
 - whether the issue is about install, generation quality, player behavior, or export
+- whether you expected plugin install only or a full app-like plugin surface
 
 ## Before opening an issue
 
@@ -22,6 +23,7 @@ Use the public GitHub repository for installation help, bug reports, release que
 4. If using Codex, confirm both marketplace add and plugin add succeeded.
 5. If you changed the plugin bundle locally, validate it again before reporting an install bug.
 6. If you expected a plugin widget from `plugin://open-presentation@open-presentation`, note that this package is skill-first and does not ship a connector-backed app surface.
+7. If you saw `Generate or edit presentation`, `MCP app returned no HTML content`, or only a presentation id, report it as a host routing problem and include the exact prompt plus whether `presentation.html` was written to the workspace.
 
 ## Issue categories
 

@@ -6,7 +6,12 @@ No. The bundled reference pack and template docs are the authority.
 
 ## Is this a plugin or a skill?
 
-Both. The preferred UX is a thin plugin or repo-package install for compatible frontier AI agent apps, but the same bundle still works as a markdown skill and as a direct repo copy.
+Both, but skill-first.
+
+Public users should think of it like this:
+- plugin install is how Claude and Codex users get it easily
+- the skill is the real workflow and knowledge layer
+- the same bundle still works as a markdown skill and as a direct repo copy
 
 Typical plugin-marketplace examples look like `codex plugin marketplace add suckseedrom/open-presentation`, then `codex plugin add open-presentation@open-presentation`, or `/plugin marketplace add suckseedrom/open-presentation` in Claude Code.
 
@@ -67,6 +72,15 @@ No. Plugin metadata and skill metadata improve discovery for compatible agents a
 
 Prefer the public GitHub repo marketplace path first. Use `codex plugin marketplace add suckseedrom/open-presentation`, then install `open-presentation@open-presentation`. Use the markdown-skill path only when the host does not support plugin marketplaces.
 
+## Is it like pm-skills?
+
+Yes in the sense that:
+- public users can install from a plugin marketplace on Claude and Codex
+- the repo is still based on bundled markdown skills and references
+- the plugin is the delivery mechanism, not a replacement for the skill
+
+No in the sense that `open-presentation` is one focused presentation system, not a large multi-plugin marketplace.
+
 ## What if Claude Code adds the marketplace but I still do not see the plugin?
 
 Run `/reload-plugins` or restart Claude Code. Marketplace changes can require a reload before the current session picks up the new plugin list.
@@ -74,3 +88,9 @@ Run `/reload-plugins` or restart Claude Code. Marketplace changes can require a 
 ## Why did `plugin://open-presentation@open-presentation` not open anything visible?
 
 Because this package is a skill-first plugin, not a connector-backed app plugin. It ships workflow instructions and bundled references, but no `.app.json` app surface. The supported usage is to install the plugin, then prompt with `Use open-presentation to ...` so the agent runs the workflow in the workspace.
+
+## Why did I get `Generate or edit presentation`, `MCP app returned no HTML content`, or a presentation ID?
+
+Because the host routed your request to its generic presentation app instead of `open-presentation`'s workspace HTML workflow.
+
+That response is not the intended output of this package. `open-presentation` should write durable files in the active workspace, typically `presentation.html`, `presentation.json`, and `design.md`.

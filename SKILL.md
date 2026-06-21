@@ -1,6 +1,6 @@
 ---
 name: open-presentation
-description: "Generate premium, multi-scene, UI-first presentations, pitch decks, product demos, launch videos, and video ads from product briefs or source material, with text-light, motion-heavy storytelling, progressive disclosure, zero-dependency HTML playback, and deterministic 4K WebM video export. Use when a user asks for a presentation, pitch deck, product presentation, presentation video, launch film, product demo, or video ad."
+description: "Generate premium, multi-scene, UI-first HTML presentations, pitch decks, product demos, launch videos, and video ads from product briefs or source material, with text-light, motion-heavy storytelling, progressive disclosure, zero-dependency HTML playback, and deterministic 4K WebM video export. Use when a user asks for a presentation, pitch deck, product presentation, presentation video, launch film, product demo, or video ad. Write real workspace files such as presentation.html and design.md; do not hand the job off to a generic slide generator, remote presentation widget, or presentation-id-only tool."
 ---
 
 # open-presentation
@@ -14,17 +14,18 @@ This workflow can be surfaced through a thin plugin wrapper or loaded directly a
 1. **Implementation-first** — default to real source files in the current app workspace.
 2. **Progressive disclosure** — load only the files needed for the current phase.
 3. **Zero dependencies** — default to a single HTML presentation with inline CSS and JS; do not introduce npm, build tools, or framework runtime unless the host project explicitly needs it.
-4. **Visual style discovery** — use the generated preview cards to shortlist a vibe before opening full design docs.
-5. **Anti-AI-slop** — favor curated, distinctive styles over generic template aesthetics.
-6. **Text-light storytelling** — default to one headline or a short label, keep scenes near-textless when possible, and split any beat that needs more than two short lines.
-7. **Motion in every scene** — every beat needs a visible change, text reveal, counter tick, state swap, or camera drift.
-8. **UI-first storytelling** — prefer product surfaces, state changes, counters, timelines, chips, and staged simulations over dense text.
-9. **One focus per scene** — split rich content into more, shorter beats.
-10. **Fade-driven presence** — text and mockups should fade in and fade out; avoid hard cuts that feel like slide transitions.
-11. **Shared house style** — keep the player-first, premium, simulation-driven system while allowing template-level variation.
-12. **Content-sized scene budget** — derive the number of short micro-scenes from the supplied story and product flow; never impose a universal scene quota.
-13. **Static full-viewport background** — every scene must have a background layer that fills the player viewport, sits outside the scaled stage, and carries no self-animation. This is the background layer policy.
-14. **Mobile-first recheck** — after composing each scene at 16:9, immediately recheck it at 9:16. Adjust font sizes, stack horizontal layouts, add safe-zone padding, and remove any overflow or clipped text. This is the mobile 9:16 policy.
+4. **No slide-app fallback** — if the host exposes a generic presentation generator, slide widget, or remote deck tool, do not substitute it for this workflow. `open-presentation` should produce real workspace artifacts such as `presentation.html`, `presentation.json`, and `design.md`.
+5. **Visual style discovery** — use the generated preview cards to shortlist a vibe before opening full design docs.
+6. **Anti-AI-slop** — favor curated, distinctive styles over generic template aesthetics.
+7. **Text-light storytelling** — default to one headline or a short label, keep scenes near-textless when possible, and split any beat that needs more than two short lines.
+8. **Motion in every scene** — every beat needs a visible change, text reveal, counter tick, state swap, or camera drift.
+9. **UI-first storytelling** — prefer product surfaces, state changes, counters, timelines, chips, and staged simulations over dense text.
+10. **One focus per scene** — split rich content into more, shorter beats.
+11. **Fade-driven presence** — text and mockups should fade in and fade out; avoid hard cuts that feel like slide transitions.
+12. **Shared house style** — keep the player-first, premium, simulation-driven system while allowing template-level variation.
+13. **Content-sized scene budget** — derive the number of short micro-scenes from the supplied story and product flow; never impose a universal scene quota.
+14. **Static full-viewport background** — every scene must have a background layer that fills the player viewport, sits outside the scaled stage, and carries no self-animation. This is the background layer policy.
+15. **Mobile-first recheck** — after composing each scene at 16:9, immediately recheck it at 9:16. Adjust font sizes, stack horizontal layouts, add safe-zone padding, and remove any overflow or clipped text. This is the mobile 9:16 policy.
 
 ## File loading map
 
@@ -96,6 +97,8 @@ Read:
 - the selected template's example briefs only if they help the current use case
 
 Then implement the presentation in the current app workspace as a zero-dependency HTML composition. Use the bundled shared player library (`lib/player.js` + `lib/player.css`) as the default transport/stage/transition engine so every deck gets the same PresentationFeature player UX. Only fall back to fully inline CSS/JS when the user explicitly asks for a single-file deliverable or the host project cannot accept extra files.
+
+Do not replace this step with a host-native slide app, remote presentation generator, or any tool that returns only a presentation id, remote widget state, or "no HTML content." The required output is durable workspace code and content files.
 
 When the user or application requests video export, load the required modules (`player.js`, `editor-model.js`, `editor-renderer.js`, `editor-export.js`) and configure the `onDownload` callback on `PresentationPlayer`. Revert and avoid any Canva-like editor panels or studios. The UI must focus on a direct AI-agent-generated experience. The only video export action should be a direct "Download to Video (4K)" button in the player control pill.
 
