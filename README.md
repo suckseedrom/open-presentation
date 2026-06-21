@@ -141,6 +141,8 @@ The repo now includes a real plugin-native v2 architecture scaffold in [docs/PLU
 
 For the exact production `.app.json` shape and host connector requirements, see [docs/APP-CONNECTOR-REQUIREMENTS.md](docs/APP-CONNECTOR-REQUIREMENTS.md).
 
+For the exact backend/runtime shape behind a real callable plugin app, see [docs/RUNTIME-SERVICE-SPEC.md](docs/RUNTIME-SERVICE-SPEC.md).
+
 ---
 
 ## What Ships

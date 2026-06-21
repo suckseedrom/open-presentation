@@ -11,6 +11,8 @@ test('plugin-native v2 contracts exist and parse', () => {
   assert.doesNotThrow(() => JSON.parse(readText('core/contracts/composition.schema.json')));
   assert.doesNotThrow(() => JSON.parse(readText('core/contracts/plugin-session.schema.json')));
   assert.doesNotThrow(() => JSON.parse(readText('plugins/open-presentation/app/open-presentation-v2.app.template.json')));
+  assert.match(readText('core/contracts/runtime-api.openapi.yaml'), /\/v1\/sessions/);
+  assert.match(readText('docs/RUNTIME-SERVICE-SPEC.md'), /POST \/v1\/sessions/);
 });
 
 test('plugin-native v2 orchestrator emits deterministic composition and session state', async () => {

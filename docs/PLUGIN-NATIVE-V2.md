@@ -31,6 +31,8 @@ to:
 - `plugins/open-presentation/app/open-presentation.codex.production.app.template.json`
 - `plugins/open-presentation/app/open-presentation.claude.production.app.template.json`
 - `docs/APP-CONNECTOR-REQUIREMENTS.md`
+- `docs/RUNTIME-SERVICE-SPEC.md`
+- `core/contracts/runtime-api.openapi.yaml`
 
 ## Important limitation
 

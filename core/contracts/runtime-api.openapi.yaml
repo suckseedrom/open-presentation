@@ -1,0 +1,132 @@
+openapi: 3.1.0
+info:
+  title: Open Presentation Runtime API
+  version: 1.0.0
+  description: Runtime API for the plugin-native v2 open-presentation service.
+servers:
+  - url: https://runtime.example
+paths:
+  /v1/sessions:
+    post:
+      summary: Create a plugin session
+      operationId: createSession
+      responses:
+        '200':
+          description: Session created
+  /v1/sessions/{sessionId}:
+    get:
+      summary: Get plugin session state
+      operationId: getSession
+      parameters:
+        - in: path
+          name: sessionId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Session payload
+  /v1/sessions/{sessionId}/plan:
+    post:
+      summary: Refresh scene plan
+      operationId: planSession
+      parameters:
+        - in: path
+          name: sessionId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Plan refreshed
+  /v1/compositions/{compositionId}:
+    get:
+      summary: Get composition JSON
+      operationId: getComposition
+      parameters:
+        - in: path
+          name: compositionId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Composition payload
+  /v1/compositions/{compositionId}/preview:
+    post:
+      summary: Create preview build
+      operationId: createPreview
+      parameters:
+        - in: path
+          name: compositionId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Preview queued
+  /v1/previews/{previewBuildId}:
+    get:
+      summary: Get preview build status
+      operationId: getPreview
+      parameters:
+        - in: path
+          name: previewBuildId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Preview status
+  /v1/compositions/{compositionId}/export:
+    post:
+      summary: Start export job
+      operationId: createExport
+      parameters:
+        - in: path
+          name: compositionId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Export queued
+  /v1/exports/{exportJobId}:
+    get:
+      summary: Get export status
+      operationId: getExport
+      parameters:
+        - in: path
+          name: exportJobId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Export status
+  /v1/sessions/{sessionId}/revise:
+    post:
+      summary: Revise a plugin session
+      operationId: reviseSession
+      parameters:
+        - in: path
+          name: sessionId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Revision accepted
+  /v1/sessions/{sessionId}/workspace-write:
+    post:
+      summary: Prepare workspace write plan
+      operationId: createWorkspaceWritePlan
+      parameters:
+        - in: path
+          name: sessionId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Workspace write plan ready
