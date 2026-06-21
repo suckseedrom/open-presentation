@@ -7,6 +7,8 @@ This repo ships as a plugin-first, skill-compatible public agent package. Keep t
 ```text
 open-presentation/
 ├── README.md
+├── PRIVACY.md
+├── SUPPORT.md
 ├── CLAUDE.md
 ├── CONTRIBUTING.md
 ├── CHANGELOG.md
@@ -63,13 +65,19 @@ Keep the current base style as the anchor template.
 - [ ] the public GitHub repo contains the repo marketplace file and plugin bundle on the branch users will install
 - [ ] `codex plugin marketplace add suckseedrom/open-presentation` works from a clean Codex environment
 - [ ] `codex plugin add open-presentation@open-presentation` works after the marketplace add
+- [ ] Claude Code accepts `/plugin marketplace add suckseedrom/open-presentation`
+- [ ] Claude Code shows the plugin after `/reload-plugins` or restart
 - [ ] `SKILL.md` is a workflow map
 - [ ] `reference/STYLE_INDEX.md` exists
 - [ ] `reference/PRODUCT_PILLARS.md` exists
+- [ ] `PRIVACY.md` exists and matches the package's no-hidden-service posture
+- [ ] `SUPPORT.md` exists and explains public support paths
 - [ ] plugin-first install guidance is visible in `README.md`
 - [ ] marketplace-style plugin install examples are visible in `README.md`
 - [ ] the repo marketplace file points at `./plugins/open-presentation`
 - [ ] `plugins/open-presentation/.codex-plugin/plugin.json` validates
+- [ ] plugin assets exist for icon, logo, and three screenshots
+- [ ] screenshots present the plugin like a polished public storefront package
 - [ ] skill fallback guidance is still visible in `README.md`
 - [ ] `reference/STYLE_GUIDE.md` includes the text-light / motion-heavy budget
 - [ ] all JSON files parse successfully
@@ -82,3 +90,14 @@ Keep the current base style as the anchor template.
 - [ ] public docs make the text-light / motion-heavy guidance visible
 - [ ] adaptive scene planning does not impose a universal scene count
 - [ ] selective Q&A, contextual mockups and language, layered motion, and closed per-scene dual-aspect QA remain aligned across the shared authority
+
+## Public release gate
+
+Before announcing a GitHub release publicly:
+
+1. Push the release branch or tag to GitHub.
+2. Verify the Codex install flow from a clean environment.
+3. Verify the Claude marketplace flow and `/reload-plugins` recovery path.
+4. Confirm the plugin card assets still render correctly from the plugin bundle.
+5. Confirm `PRIVACY.md` and `SUPPORT.md` still match the current package behavior and support path.
+6. Re-read the README install section as if you are a first-time user with no repo context.

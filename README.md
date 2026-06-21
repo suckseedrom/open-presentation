@@ -44,6 +44,12 @@ Claude Code:
 
 Then install `open-presentation` from the `open-presentation` marketplace in Claude Code's plugin UI or CLI surface.
 
+If the marketplace appears but the plugin list has not refreshed yet, run:
+
+```text
+/reload-plugins
+```
+
 This public path works only after the repo branch you point at contains the repo marketplace file and the plugin bundle.
 
 ### Maintainers: keep the public path healthy
@@ -116,6 +122,17 @@ Want to see the package in action? Copy one of these starter prompts and paste i
 > - CTA: Read the whitepaper at orbitdb.org
 > ```
 
+## Storefront Preview
+
+![Open Presentation plugin hero](plugins/open-presentation/assets/logo.png)
+
+![Open Presentation plugin screenshot](plugins/open-presentation/assets/screenshot1.png)
+
+## Trust & Support
+
+- [PRIVACY.md](PRIVACY.md) explains the package's no-hidden-service posture and what is controlled by the host app instead.
+- [SUPPORT.md](SUPPORT.md) explains where public users should ask for install, generation, player, and export help.
+
 ---
 
 ## What Ships
@@ -124,6 +141,7 @@ Want to see the package in action? Copy one of these starter prompts and paste i
 - `manifest.json` advertises plugin-first plus skill-compatible install modes.
 - a repo marketplace file makes the repo installable as a Codex marketplace source.
 - `plugins/open-presentation/.codex-plugin/plugin.json` is the installable plugin manifest.
+- `PRIVACY.md` and `SUPPORT.md` provide public trust and support entrypoints.
 - `reference/` holds the shared creative and QA contract.
 - `templates/` holds preview-first design packs for progressive disclosure.
 - `lib/` ships the local player and optional deterministic 4K export modules.

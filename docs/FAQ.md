@@ -66,3 +66,7 @@ No. Plugin metadata and skill metadata improve discovery for compatible agents a
 ## What should public users install from?
 
 Prefer the public GitHub repo marketplace path first. Use `codex plugin marketplace add suckseedrom/open-presentation`, then install `open-presentation@open-presentation`. Use the markdown-skill path only when the host does not support plugin marketplaces.
+
+## What if Claude Code adds the marketplace but I still do not see the plugin?
+
+Run `/reload-plugins` or restart Claude Code. Marketplace changes can require a reload before the current session picks up the new plugin list.

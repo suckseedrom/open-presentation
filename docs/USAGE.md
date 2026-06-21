@@ -23,6 +23,12 @@ Claude Code uses the slash-command form:
 
 Then install `open-presentation` from the `open-presentation` marketplace in Claude Code.
 
+If Claude Code still shows the old marketplace state in the current session, run:
+
+```text
+/reload-plugins
+```
+
 This is the main path for public users. It depends on the GitHub branch containing both the repo marketplace file and the installable plugin bundle.
 
 ### Local repo testing

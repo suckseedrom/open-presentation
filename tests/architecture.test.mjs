@@ -25,6 +25,8 @@ const walkFiles = (relativePath, predicate) => {
 
 test('progressive-disclosure entrypoints exist', () => {
   assert.equal(exists('SKILL.md'), true);
+  assert.equal(exists('PRIVACY.md'), true);
+  assert.equal(exists('SUPPORT.md'), true);
   assert.equal(exists('reference/STYLE_INDEX.md'), true);
   assert.equal(exists('templates/index.json'), true);
   assert.equal(exists('reference/PRODUCT_PILLARS.md'), true);
@@ -221,6 +223,8 @@ test('public docs keep plugin-first install and markdown-authority fallback alig
   assert.match(readme, /Public users: GitHub plugin install/i);
   assert.match(readme, /\/plugin marketplace add suckseedrom\/open-presentation/i);
   assert.match(readme, /Fallback: markdown skill/i);
+  assert.match(readme, /PRIVACY\.md/i);
+  assert.match(readme, /SUPPORT\.md/i);
   assert.match(usage, /Plugin wrapper contract/i);
   assert.match(usage, /codex plugin marketplace add suckseedrom\/open-presentation/i);
   assert.match(usage, /codex plugin add open-presentation@open-presentation/i);
@@ -258,12 +262,21 @@ test('repo-local Codex marketplace points at a valid plugin bundle', () => {
   assert.equal(plugin.name, 'open-presentation');
   assert.equal(plugin.skills, './skills/');
   assert.match(plugin.interface.displayName, /Open Presentation/);
+  assert.match(plugin.interface.privacyPolicyURL, /PRIVACY\.md$/);
+  assert.equal(plugin.interface.composerIcon, './assets/icon.png');
+  assert.equal(plugin.interface.logo, './assets/logo.png');
+  assert.equal(plugin.interface.screenshots.length, 3);
   assert.equal(exists('plugins/open-presentation/skills/open-presentation/SKILL.md'), true);
   assert.equal(exists('plugins/open-presentation/reference'), true);
   assert.equal(exists('plugins/open-presentation/templates'), true);
   assert.equal(exists('plugins/open-presentation/examples'), true);
   assert.equal(exists('plugins/open-presentation/docs'), true);
   assert.equal(exists('plugins/open-presentation/lib'), true);
+  assert.equal(exists('plugins/open-presentation/assets/icon.png'), true);
+  assert.equal(exists('plugins/open-presentation/assets/logo.png'), true);
+  assert.equal(exists('plugins/open-presentation/assets/screenshot1.png'), true);
+  assert.equal(exists('plugins/open-presentation/assets/screenshot2.png'), true);
+  assert.equal(exists('plugins/open-presentation/assets/screenshot3.png'), true);
 });
 
 test('planning produces an input-derived micro-scene inventory instead of a fixed scene quota', () => {

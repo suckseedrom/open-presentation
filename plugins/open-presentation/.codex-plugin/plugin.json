@@ -3,8 +3,8 @@
   "version": "1.11.0",
   "description": "Plugin-first, skill-compatible workflow for cinematic HTML presentations and video ads.",
   "author": {
-    "name": "gdrom",
-    "url": "https://github.com/suckseedrom"
+    "name": "Allkons",
+    "url": "https://github.com/suckseedrom/open-presentation"
   },
   "homepage": "https://github.com/suckseedrom/open-presentation",
   "repository": "https://github.com/suckseedrom/open-presentation",
@@ -22,22 +22,30 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Open Presentation",
-    "shortDescription": "Generate motion-heavy HTML presentations and video ads.",
-    "longDescription": "Install from GitHub and turn briefs, pages, and notes into text-light, motion-heavy, zero-dependency HTML presentations and optional 4K WebM exports using the bundled open-presentation workflow.",
-    "developerName": "gdrom",
+    "shortDescription": "Generate cinematic HTML presentations and video ads from briefs.",
+    "longDescription": "Install from GitHub and turn briefs, landing pages, screenshots, and notes into text-light, motion-heavy, zero-dependency HTML presentations with optional deterministic 4K WebM export.",
+    "developerName": "Allkons",
     "category": "Productivity",
     "capabilities": [
       "Write",
-      "Interactive"
+      "Interactive",
+      "Visual storytelling"
     ],
     "websiteURL": "https://github.com/suckseedrom/open-presentation",
-    "privacyPolicyURL": "https://github.com/suckseedrom/open-presentation/blob/main/README.md",
+    "privacyPolicyURL": "https://github.com/suckseedrom/open-presentation/blob/main/PRIVACY.md",
     "termsOfServiceURL": "https://github.com/suckseedrom/open-presentation/blob/main/LICENSE",
     "defaultPrompt": [
       "Use open-presentation to build a launch video ad.",
       "Use open-presentation to turn our pricing page into HTML scenes.",
       "Use open-presentation to create a 9:16 product demo reel."
     ],
-    "brandColor": "#0D9488"
+    "brandColor": "#0D9488",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png",
+    "screenshots": [
+      "./assets/screenshot1.png",
+      "./assets/screenshot2.png",
+      "./assets/screenshot3.png"
+    ]
   }
 }
